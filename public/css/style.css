@@ -808,3 +808,37 @@ html, body {
     transform: scale(0.85);
   }
 }
+
+/* FORCE OVERRIDE INLINE MOBILE STYLES */
+*, *::before, *::after {
+  box-sizing: border-box !important;
+}
+
+@media screen and (max-width: 768px) {
+  /* Targeted layout fix for contact section */
+  .contact-hero,
+  .contact-hero *,
+  section[class*="contact"],
+  div[class*="contact"] {
+    max-width: 100vw !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Fix container clipping and overflow */
+  .contact-hero {
+    padding: 1rem !important;
+    margin: 0 !important;
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  /* Force cards and email containers to stay inside screen bounds */
+  .contact-hero .info-card,
+  .contact-hero div,
+  .contact-hero form {
+    width: 100% !important;
+    min-width: 0 !important;
+    word-break: break-all !important; /* Fixes long emails like admin@jaeglobalsolutions.com pushing the screen wide */
+  }
+}
