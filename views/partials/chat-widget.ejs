@@ -1,0 +1,319 @@
+<!-- CHAT WIDGET CONTAINER -->
+<div id="chat-widget" class="chat-widget-wrapper">
+  <!-- TOGGLE BUTTON -->
+  <button id="chat-toggle-btn" class="chat-toggle-btn" aria-label="Toggle Support Chat">
+    <i class="fa-solid fa-comments icon-open"></i>
+    <i class="fa-solid fa-xmark icon-close"></i>
+  </button>
+
+  <!-- CHAT WINDOW -->
+  <div id="chat-window" class="chat-window">
+    <!-- HEADER -->
+    <div class="chat-header">
+      <div class="bot-avatar">
+        <i class="fa-solid fa-robot"></i>
+      </div>
+      <div class="chat-title">
+        <strong>JAE Global Support</strong>
+        <span class="status-indicator"><span class="dot"></span> Automated Assistant</span>
+      </div>
+    </div>
+
+    <!-- MESSAGES AREA -->
+    <div id="chat-messages" class="chat-messages">
+      <div class="message bot-message">
+        👋 Welcome to <strong>JAE Global Solutions</strong>! How can we assist your business growth today? Choose a option below or type your question:
+      </div>
+    </div>
+
+    <!-- QUICK FAQ OPTIONS -->
+    <div class="chat-faq-options" id="chat-faq-options">
+      <button class="faq-btn" data-key="roles">💼 Available Roles</button>
+      <button class="faq-btn" data-key="pricing">💰 Pricing & Savings</button>
+      <button class="faq-btn" data-key="process">⚡ How Onboarding Works</button>
+      <a href="mailto:admin@jaeglobalsolutions.com?subject=Inquiry%20from%20Website%20Chat" class="faq-btn speak-admin-btn">
+        🙋 Speak to Admin (Email)
+      </a>
+    </div>
+
+    <!-- INPUT AREA -->
+    <div class="chat-input-wrapper">
+      <input type="text" id="chat-input" placeholder="Type a message or question..." />
+      <button id="chat-send-btn" class="chat-send-btn">
+        <i class="fa-solid fa-paper-plane"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- STYLES -->
+<style>
+  .chat-widget-wrapper {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 9999;
+    font-family: inherit;
+  }
+
+  .chat-toggle-btn {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #0A8B88, #38BDF8);
+    border: none;
+    color: #FFF;
+    font-size: 1.4rem;
+    cursor: pointer;
+    box-shadow: 0 8px 24px rgba(56, 189, 248, 0.35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease;
+  }
+
+  .chat-toggle-btn:hover {
+    transform: scale(1.08);
+  }
+
+  .chat-toggle-btn .icon-close { display: none; }
+  .chat-widget-wrapper.active .chat-toggle-btn .icon-open { display: none; }
+  .chat-widget-wrapper.active .chat-toggle-btn .icon-close { display: block; }
+
+  .chat-window {
+    position: absolute;
+    bottom: 70px;
+    right: 0;
+    width: 360px;
+    height: 480px;
+    background: #0F172A;
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(20px) scale(0.95);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .chat-widget-wrapper.active .chat-window {
+    opacity: 1;
+    pointer-events: all;
+    transform: translateY(0) scale(1);
+  }
+
+  .chat-header {
+    background: #020611;
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .bot-avatar {
+    width: 36px;
+    height: 36px;
+    background: rgba(56, 189, 248, 0.15);
+    border: 1px solid #38BDF8;
+    color: #38BDF8;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .chat-title strong {
+    display: block;
+    color: #FFF;
+    font-size: 0.95rem;
+  }
+
+  .status-indicator {
+    font-size: 0.75rem;
+    color: #94A3B8;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .status-indicator .dot {
+    width: 6px;
+    height: 6px;
+    background: #10B981;
+    border-radius: 50%;
+  }
+
+  .chat-messages {
+    flex: 1;
+    padding: 16px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .message {
+    max-width: 85%;
+    padding: 10px 14px;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    line-height: 1.45;
+  }
+
+  .bot-message {
+    background: rgba(255, 255, 255, 0.06);
+    color: #E2E8F0;
+    align-self: flex-start;
+    border-bottom-left-radius: 2px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .user-message {
+    background: #38BDF8;
+    color: #020611;
+    font-weight: 500;
+    align-self: flex-end;
+    border-bottom-right-radius: 2px;
+  }
+
+  .chat-faq-options {
+    padding: 8px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    background: rgba(2, 6, 17, 0.4);
+  }
+
+  .faq-btn {
+    background: rgba(15, 23, 42, 0.9);
+    border: 1px solid rgba(56, 189, 248, 0.25);
+    color: #38BDF8;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    text-align: left;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    display: block;
+  }
+
+  .faq-btn:hover {
+    background: #38BDF8;
+    color: #020611;
+    font-weight: 600;
+  }
+
+  .speak-admin-btn {
+    border-color: #0A8B88;
+    color: #2DD4BF;
+  }
+
+  .speak-admin-btn:hover {
+    background: #0A8B88;
+    color: #FFF;
+  }
+
+  .chat-input-wrapper {
+    padding: 10px 12px;
+    background: #020611;
+    display: flex;
+    gap: 8px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .chat-input-wrapper input {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 8px 12px;
+    border-radius: 8px;
+    color: #FFF;
+    font-size: 0.85rem;
+    outline: none;
+  }
+
+  .chat-send-btn {
+    background: #38BDF8;
+    border: none;
+    color: #020611;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+</style>
+
+<!-- AUTOMATED BOT LOGIC SCRIPT -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const wrapper = document.getElementById('chat-widget');
+    const toggleBtn = document.getElementById('chat-toggle-btn');
+    const messages = document.getElementById('chat-messages');
+    const input = document.getElementById('chat-input');
+    const sendBtn = document.getElementById('chat-send-btn');
+
+    // FAQ Knowledge Base
+    const faqData = {
+      roles: "We offer dedicated offshore professionals across Executive Virtual Assistance, Customer Support, Full-Stack Development, IT Tech Support, Accounting & Bookkeeping, and Digital Marketing.",
+      pricing: "Our clients enjoy savings of up to 70% in operational costs compared to local hiring, with transparent flat monthly rates starting with zero hidden overhead fees.",
+      process: "Onboarding takes less than 2 weeks! We source, vet, and match elite Philippine talent directly with your business timezone and exact tool stack."
+    };
+
+    // Toggle Chat Window
+    toggleBtn.addEventListener('click', () => wrapper.classList.toggle('active'));
+
+    // Append Message Helper
+    function addMessage(text, isUser = false) {
+      const msgDiv = document.createElement('div');
+      msgDiv.className = `message ${isUser ? 'user-message' : 'bot-message'}`;
+      msgDiv.innerHTML = text;
+      messages.appendChild(msgDiv);
+      messages.scrollTop = messages.scrollHeight;
+    }
+
+    // Handle FAQ Button Clicks
+    document.querySelectorAll('.faq-btn[data-key]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const key = btn.getAttribute('data-key');
+        addMessage(btn.textContent, true);
+        setTimeout(() => {
+          addMessage(faqData[key]);
+          addMessage(`Need more custom assistance? You can click <a href="mailto:admin@jaeglobalsolutions.com" style="color: #38BDF8; underline;">Speak to Admin</a> to email us directly at <strong>admin@jaeglobalsolutions.com</strong>.`);
+        }, 400);
+      });
+    });
+
+    // Handle Custom Text Question
+    function handleUserSubmit() {
+      const text = input.value.trim();
+      if (!text) return;
+
+      addMessage(text, true);
+      input.value = '';
+
+      const lower = text.toLowerCase();
+      setTimeout(() => {
+        if (lower.includes('role') || lower.includes('hire') || lower.includes('position')) {
+          addMessage(faqData.roles);
+        } else if (lower.includes('price') || lower.includes('cost') || lower.includes('rate') || lower.includes('save')) {
+          addMessage(faqData.pricing);
+        } else if (lower.includes('work') || lower.includes('process') || lower.includes('start')) {
+          addMessage(faqData.process);
+        } else {
+          addMessage(`Thanks for asking! For specific inquiries, please contact our team directly at <a href="mailto:admin@jaeglobalsolutions.com" style="color: #38BDF8;">admin@jaeglobalsolutions.com</a> or use the <strong>Speak to Admin</strong> option below.`);
+        }
+      }, 500);
+    }
+
+    sendBtn.addEventListener('click', handleUserSubmit);
+    input.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') handleUserSubmit();
+    });
+  });
+</script>

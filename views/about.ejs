@@ -1,0 +1,388 @@
+<%- include('partials/header') %>
+
+<!-- CINEMATIC VALUES & STATS PAGE -->
+<div class="cinematic-wrapper">
+  
+  <!-- Ambient Animated Background Glows -->
+  <div class="ambient-glow glow-teal"></div>
+  <div class="ambient-glow glow-cyan"></div>
+  <div class="ambient-glow glow-gold"></div>
+
+  <div class="container" style="max-width: 1280px; margin: 0 auto; padding: 60px 24px; position: relative; z-index: 2;">
+    
+    <!-- SECTION HEADER -->
+    <div class="section-header" data-aos="fade-up">
+      <div class="glass-badge">
+        <span class="pulse-dot"></span>
+        <span class="badge-text">OUR CORE FOUNDATION</span>
+      </div>
+      <h1 class="page-title">The Principles Behind <span class="gradient-text">JAE Global</span></h1>
+      <p class="page-subtitle">Building meaningful, scalable offshore teams driven by human excellence and operational rigor.</p>
+    </div>
+
+    <!-- J.A.E. VALUES GRID -->
+    <div class="values-grid">
+      
+      <!-- CARD J -->
+      <div class="cinematic-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="card-glow"></div>
+        <div class="card-content">
+          <div class="watermark-letter">J</div>
+          <div class="title-group">
+            <span class="card-tag">PURPOSE & VISION</span>
+            <h2 class="card-heading">JOURNEY</h2>
+          </div>
+          <p class="card-text">
+            We walk together toward growth and success. We foster authentic, long-term partnerships between Australian leadership and Manila teams.
+          </p>
+          <div class="card-border-line"></div>
+        </div>
+      </div>
+
+      <!-- CARD A -->
+      <div class="cinematic-card active-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="card-glow"></div>
+        <div class="card-content">
+          <div class="watermark-letter">A</div>
+          <div class="title-group">
+            <span class="card-tag">INNOVATION & GROWTH</span>
+            <h2 class="card-heading">ASPIRE</h2>
+          </div>
+          <p class="card-text">
+            We encourage potential and inspire excellence every day. We invest heavily in skill advancement, modern infrastructure, and leadership coaching.
+          </p>
+          <div class="card-border-line"></div>
+        </div>
+      </div>
+
+      <!-- CARD E -->
+      <div class="cinematic-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="card-glow"></div>
+        <div class="card-content">
+          <div class="watermark-letter">E</div>
+          <div class="title-group">
+            <span class="card-tag">IMPACT & TRUST</span>
+            <h2 class="card-heading">EMPOWER</h2>
+          </div>
+          <p class="card-text">
+            We empower people to build better lives and brighter futures with sustainable compensation, health benefits, and high-trust workplaces.
+          </p>
+          <div class="card-border-line"></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- STATS HIGHLIGHT BAR -->
+    <div class="stats-glass-container" data-aos="zoom-in" data-aos-delay="400">
+      <div class="stats-grid">
+        
+        <div class="stat-box">
+          <div class="stat-val teal-glow">100%</div>
+          <div class="stat-desc">Australian Overlap Timezone</div>
+        </div>
+
+        <div class="stat-divider"></div>
+
+        <div class="stat-box">
+          <div class="stat-val cyan-glow">96.8%</div>
+          <div class="stat-desc">Staff Retention Rate</div>
+        </div>
+
+        <div class="stat-divider"></div>
+
+        <div class="stat-box">
+          <div class="stat-val gold-glow">72-Hr</div>
+          <div class="stat-desc">Rapid Talent Match</div>
+        </div>
+
+        <div class="stat-divider"></div>
+
+        <div class="stat-box">
+          <div class="stat-val teal-glow">70%</div>
+          <div class="stat-desc">Average Operational Savings</div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- CINEMATIC ABOUT STYLES -->
+<style>
+  /* Wrapper & Canvas Background */
+  .cinematic-wrapper {
+    position: relative;
+    background: #020712;
+    color: #F8FAFC;
+    min-height: 100vh;
+    overflow: hidden;
+    padding-bottom: 80px;
+  }
+
+  /* Ambient Blur Glow Orbs */
+  .ambient-glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(140px);
+    opacity: 0.3;
+    pointer-events: none;
+    animation: floatGlow 10s infinite alternate ease-in-out;
+  }
+
+  .glow-teal {
+    width: 550px; height: 550px;
+    background: #0A8B88;
+    top: -100px; left: -150px;
+  }
+
+  .glow-cyan {
+    width: 500px; height: 500px;
+    background: #1E40AF;
+    bottom: -100px; right: -100px;
+    animation-delay: -3s;
+  }
+
+  .glow-gold {
+    width: 400px; height: 400px;
+    background: #D49B27;
+    top: 40%; left: 35%;
+    opacity: 0.18;
+    animation-delay: -6s;
+  }
+
+  @keyframes floatGlow {
+    0% { transform: translate(0, 0) scale(1); opacity: 0.25; }
+    100% { transform: translate(40px, 50px) scale(1.15); opacity: 0.4; }
+  }
+
+  /* Section Header */
+  .section-header {
+    text-align: center;
+    max-width: 750px;
+    margin: 0 auto 60px;
+  }
+
+  .glass-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(45, 212, 191, 0.3);
+    backdrop-filter: blur(12px);
+    padding: 8px 18px;
+    border-radius: 30px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 25px rgba(45, 212, 191, 0.12);
+  }
+
+  .pulse-dot {
+    width: 8px; height: 8px;
+    background: #2DD4BF;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #2DD4BF;
+    animation: blink 1.8s infinite;
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.3; transform: scale(0.8); }
+  }
+
+  .badge-text {
+    color: #38BDF8;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+
+  .page-title {
+    font-size: clamp(2.2rem, 4vw, 3.4rem);
+    font-weight: 800;
+    color: #FFFFFF;
+    margin-bottom: 16px;
+    letter-spacing: -0.5px;
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, #2DD4BF 0%, #38BDF8 50%, #D49B27 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .page-subtitle {
+    font-size: 1.1rem;
+    color: #94A3B8;
+    line-height: 1.6;
+  }
+
+  /* Values Grid */
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    margin-bottom: 70px;
+  }
+
+  /* Cinematic Cards */
+  .cinematic-card {
+    position: relative;
+    background: rgba(6, 18, 38, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    padding: 42px 34px;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  }
+
+  .cinematic-card:hover, .cinematic-card.active-card {
+    transform: translateY(-8px);
+    border-color: rgba(56, 189, 248, 0.5);
+    background: rgba(8, 24, 50, 0.85);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6), 0 0 30px rgba(56, 189, 248, 0.15);
+  }
+
+  .card-glow {
+    position: absolute;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: radial-gradient(circle, rgba(56, 189, 248, 0.08) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+  }
+
+  .cinematic-card:hover .card-glow { opacity: 1; }
+
+  .card-content {
+    position: relative;
+    z-index: 2;
+  }
+
+  .watermark-letter {
+    font-size: 5.5rem;
+    font-weight: 900;
+    line-height: 0.8;
+    background: linear-gradient(180deg, rgba(45, 212, 191, 0.25) 0%, rgba(255,255,255,0.02) 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 20px;
+    user-select: none;
+  }
+
+  .card-tag {
+    font-size: 0.72rem;
+    font-weight: 800;
+    color: #D49B27;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .card-heading {
+    font-size: 1.9rem;
+    font-weight: 800;
+    color: #FFFFFF;
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+  }
+
+  .card-text {
+    font-size: 1.02rem;
+    line-height: 1.7;
+    color: #CBD5E1;
+  }
+
+  .card-border-line {
+    height: 3px;
+    width: 40px;
+    background: linear-gradient(90deg, #2DD4BF, #38BDF8);
+    border-radius: 2px;
+    margin-top: 24px;
+    transition: width 0.4s ease;
+  }
+
+  .cinematic-card:hover .card-border-line {
+    width: 100%;
+  }
+
+  /* Stats Glass Container */
+  .stats-glass-container {
+    background: rgba(6, 18, 38, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(24px);
+    border-radius: 24px;
+    padding: 36px 40px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  }
+
+  .stats-grid {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .stat-box {
+    flex: 1;
+    min-width: 180px;
+    text-align: center;
+  }
+
+  .stat-val {
+    font-size: clamp(2.2rem, 3vw, 3rem);
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 8px;
+  }
+
+  .teal-glow {
+    color: #2DD4BF;
+    text-shadow: 0 0 20px rgba(45, 212, 191, 0.4);
+  }
+
+  .cyan-glow {
+    color: #38BDF8;
+    text-shadow: 0 0 20px rgba(56, 189, 248, 0.4);
+  }
+
+  .gold-glow {
+    color: #D49B27;
+    text-shadow: 0 0 20px rgba(212, 155, 39, 0.4);
+  }
+
+  .stat-desc {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #94A3B8;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+  }
+
+  .stat-divider {
+    width: 1px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.12);
+  }
+
+  /* Responsive Adjustments */
+  @media (max-width: 991px) {
+    .stat-divider { display: none; }
+    .stats-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; }
+  }
+
+  @media (max-width: 600px) {
+    .stats-grid { grid-template-columns: 1fr; }
+    .cinematic-card { padding: 30px 24px; }
+  }
+</style>
+<%- include('partials/chat-widget') %>
+<%- include('partials/footer') %>

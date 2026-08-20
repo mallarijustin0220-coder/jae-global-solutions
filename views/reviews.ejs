@@ -1,0 +1,697 @@
+<%- include('partials/header') %>
+
+<main id="swup" class="transition-fade">
+
+  <!-- HERO SECTION -->
+  <section class="reviews-hero-3d">
+    <canvas id="reviews-canvas-3d"></canvas>
+    <div class="hero-glow-overlay"></div>
+
+    <div class="container text-center hero-interactive-content">
+      <div class="hero-badge">
+        <span class="pulse-dot"></span>
+        <span class="badge-text">VERIFIED CLIENT PROOF</span>
+      </div>
+
+      <h1 class="hero-title">
+        Trusted by Business Leaders Across <span class="gradient-text-au">AU</span> & <span class="gradient-text-uk">UK</span>
+      </h1>
+      
+      <p class="hero-subtitle">
+        Discover how our high-performing Philippine offshore teams accelerate growth, maintain compliance, and reduce operating overhead.
+      </p>
+
+      <div class="rating-scorecard-3d">
+        <div class="score-number-glow">4.9</div>
+        <div class="score-details">
+          <div class="stars-gold">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+          <span class="score-text">Based on 85+ verified client ratings</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS CONTENT -->
+  <section class="reviews-main-section">
+    <div class="container">
+
+      <!-- FILTER BUTTONS -->
+      <div class="reviews-filter-bar">
+        <button class="filter-btn active" data-filter="all"><i class="fa-solid fa-globe"></i> All Reviews</button>
+        <button class="filter-btn" data-filter="au"><i class="fa-solid fa-flag"></i> Australia (AU)</button>
+        <button class="filter-btn" data-filter="uk"><i class="fa-solid fa-flag"></i> United Kingdom (UK)</button>
+        <button class="filter-btn" data-filter="va"><i class="fa-solid fa-headset"></i> Virtual Assistants</button>
+        <button class="filter-btn" data-filter="tech"><i class="fa-solid fa-laptop-code"></i> IT & Tech</button>
+      </div>
+
+      <!-- REVIEWS GRID -->
+      <div class="reviews-grid-3d" id="reviews-container">
+
+        <article class="review-card-3d" data-category="au va">
+          <div class="card-inner">
+            <div class="card-top">
+              <div class="stars-gold">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <span class="region-badge au">AU Client</span>
+            </div>
+            <p class="review-text">"Integrating our Sydney office with an executive VA from the Philippines took less than a week. The English fluency and alignment with AEST business hours are flawless."</p>
+            <div class="client-meta">
+              <div class="client-info">
+                <strong>Marcus Vance</strong>
+                <span>Managing Director, Logistics Firm</span>
+              </div>
+              <span class="verified-tag"><i class="fa-solid fa-circle-check"></i> Verified</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="review-card-3d" data-category="uk tech">
+          <div class="card-inner">
+            <div class="card-top">
+              <div class="stars-gold">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <span class="region-badge uk">UK Client</span>
+            </div>
+            <p class="review-text">"Our London tech team needed two React developers urgently. The offshore team matched our sprint velocity within days. Incredible service and seamless UK GDPR compliance."</p>
+            <div class="client-meta">
+              <div class="client-info">
+                <strong>Sarah Jenkins</strong>
+                <span>Head of Product, SaaS Scaleup</span>
+              </div>
+              <span class="verified-tag"><i class="fa-solid fa-circle-check"></i> Verified</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="review-card-3d" data-category="au va">
+          <div class="card-inner">
+            <div class="card-top">
+              <div class="stars-gold">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <span class="region-badge au">AU Client</span>
+            </div>
+            <p class="review-text">"The data processing accuracy is phenomenal. They cut our daily operational backlog down to zero while saving us roughly 65% in overhead costs."</p>
+            <div class="client-meta">
+              <div class="client-info">
+                <strong>David O'Connor</strong>
+                <span>Operations Lead, Retail Group</span>
+              </div>
+              <span class="verified-tag"><i class="fa-solid fa-circle-check"></i> Verified</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- ACTION CTA -->
+      <div class="submit-review-cta">
+        <h3>Are you a current or past client?</h3>
+        <p>Help prospective partners learn about our service quality by sharing your feedback.</p>
+        <button id="open-review-modal" class="btn-3d-primary">
+          <span><i class="fa-solid fa-pen-to-square"></i> Leave a Review</span>
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- MODAL POPUP -->
+  <div class="review-modal-overlay" id="review-modal">
+    <div class="review-modal-card">
+      <button class="modal-close-btn" id="close-review-modal">&times;</button>
+      <h2>Share Your Feedback</h2>
+      <p class="modal-subtitle">Submit your experience working with our offshore Philippine teams.</p>
+
+      <form id="review-form">
+        <div class="form-group">
+          <label for="client-name">Full Name</label>
+          <input type="text" id="client-name" required placeholder="e.g. Alex Morgan">
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="client-role">Role & Company</label>
+            <input type="text" id="client-role" required placeholder="e.g. CEO, TechCorp">
+          </div>
+
+          <div class="form-group">
+            <label for="client-region">Region / Location</label>
+            <select id="client-region" required>
+              <option value="au">Australia (AU)</option>
+              <option value="uk">United Kingdom (UK)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="client-service">Service Rendered</label>
+          <select id="client-service" required>
+            <option value="va">Virtual Assistance</option>
+            <option value="tech">IT & Tech Staffing</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Rating</label>
+          <div class="interactive-star-rating" id="star-picker">
+            <i class="fa-solid fa-star active" data-rating="1"></i>
+            <i class="fa-solid fa-star active" data-rating="2"></i>
+            <i class="fa-solid fa-star active" data-rating="3"></i>
+            <i class="fa-solid fa-star active" data-rating="4"></i>
+            <i class="fa-solid fa-star active" data-rating="5"></i>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="review-comment">Your Review</label>
+          <textarea id="review-comment" rows="3" required placeholder="Tell us how our team helped your business..."></textarea>
+        </div>
+
+        <button type="submit" class="btn-3d-primary full-width">
+          <span>Publish Review →</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+</main>
+
+<style>
+  /* HERO & CONTAINER STYLES */
+  .reviews-hero-3d {
+    position: relative;
+    padding: 80px 0 60px;
+    background: #020611;
+    overflow: hidden;
+  }
+
+  #reviews-canvas-3d {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .hero-glow-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(56, 189, 248, 0.15), transparent 70%);
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  .hero-interactive-content {
+    position: relative;
+    z-index: 3;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(10, 139, 136, 0.15);
+    border: 1px solid #0A8B88;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    color: #2DD4BF;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+  }
+
+  .pulse-dot {
+    width: 8px;
+    height: 8px;
+    background: #2DD4BF;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #2DD4BF;
+  }
+
+  .hero-title {
+    color: #FFF;
+    font-size: 2.2rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 12px;
+  }
+
+  .gradient-text-au { color: #38BDF8; }
+  .gradient-text-uk { color: #F43F5E; }
+
+  .hero-subtitle {
+    color: #94A3B8;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 24px;
+  }
+
+  .rating-scorecard-3d {
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+    background: rgba(15, 23, 42, 0.8);
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    padding: 12px 24px;
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+  }
+
+  .score-number-glow {
+    font-size: 2rem;
+    font-weight: 900;
+    color: #FFF;
+    text-shadow: 0 0 12px rgba(56, 189, 248, 0.6);
+  }
+
+  .stars-gold {
+    color: #F59E0B;
+    font-size: 0.85rem;
+  }
+
+  .score-text {
+    display: block;
+    font-size: 0.75rem;
+    color: #94A3B8;
+  }
+
+  /* REVIEWS GRID & CARDS */
+  .reviews-main-section {
+    background: #020611;
+    padding: 40px 0 80px;
+  }
+
+  .reviews-filter-bar {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 40px;
+  }
+
+  .filter-btn {
+    background: rgba(15, 23, 42, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #94A3B8;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.25s ease;
+  }
+
+  .filter-btn:hover, .filter-btn.active {
+    background: #0A8B88;
+    color: #FFF;
+    border-color: #38BDF8;
+    box-shadow: 0 0 12px rgba(10, 139, 136, 0.4);
+  }
+
+  .reviews-grid-3d {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .review-card-3d {
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 24px;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+    transform-style: preserve-3d;
+  }
+
+  .review-card-3d:hover {
+    border-color: rgba(56, 189, 248, 0.4);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+  }
+
+  .card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
+  }
+
+  .region-badge {
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+  }
+
+  .region-badge.au { background: rgba(56, 189, 248, 0.15); color: #38BDF8; }
+  .region-badge.uk { background: rgba(244, 63, 94, 0.15); color: #F43F5E; }
+
+  .review-text {
+    font-size: 0.88rem;
+    line-height: 1.5;
+    color: #CBD5E1;
+    margin-bottom: 20px;
+  }
+
+  .client-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 12px;
+  }
+
+  .client-info strong {
+    display: block;
+    color: #FFF;
+    font-size: 0.9rem;
+  }
+
+  .client-info span {
+    font-size: 0.75rem;
+    color: #64748B;
+  }
+
+  .verified-tag {
+    font-size: 0.75rem;
+    color: #10B981;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  /* CTA SECTION */
+  .submit-review-cta {
+    text-align: center;
+    margin-top: 50px;
+    padding: 40px 20px;
+    background: rgba(15, 23, 42, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    max-width: 800px;
+    margin: 50px auto 0;
+  }
+
+  .submit-review-cta h3 { color: #FFF; font-size: 1.25rem; margin-bottom: 6px; }
+  .submit-review-cta p { color: #94A3B8; font-size: 0.88rem; margin-bottom: 20px; }
+
+  .btn-3d-primary {
+    background: linear-gradient(135deg, #0A8B88, #38BDF8);
+    border: none;
+    color: #FFF;
+    padding: 12px 28px;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .btn-3d-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(56, 189, 248, 0.4);
+  }
+
+  /* MODAL POPUP FIXED STYLES */
+  .review-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(2, 6, 17, 0.85);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 99999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .review-modal-overlay.active {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .review-modal-card {
+    background: #0F172A;
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    border-radius: 16px;
+    padding: 28px;
+    width: 90%;
+    max-width: 480px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+    position: relative;
+    box-sizing: border-box;
+  }
+
+  .modal-close-btn {
+    position: absolute;
+    top: 14px;
+    right: 18px;
+    background: none;
+    border: none;
+    color: #94A3B8;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+
+  .review-modal-card h2 { color: #FFF; font-size: 1.3rem; margin-bottom: 4px; }
+  .modal-subtitle { color: #94A3B8; font-size: 0.8rem; margin-bottom: 18px; }
+
+  .form-group {
+    margin-bottom: 14px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .form-group label {
+    color: #CBD5E1;
+    font-size: 0.78rem;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+
+  .form-group input, 
+  .form-group select, 
+  .form-group textarea {
+    width: 100%;
+    box-sizing: border-box;
+    background: rgba(2, 6, 17, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 8px;
+    padding: 10px 12px;
+    color: #FFF;
+    font-size: 0.85rem;
+    outline: none;
+    font-family: inherit;
+  }
+
+  .form-group input:focus, 
+  .form-group select:focus, 
+  .form-group textarea:focus {
+    border-color: #38BDF8;
+    box-shadow: 0 0 8px rgba(56, 189, 248, 0.3);
+  }
+
+  .interactive-star-rating {
+    display: flex;
+    gap: 8px;
+    font-size: 1.2rem;
+    color: #334155;
+    cursor: pointer;
+  }
+
+  .interactive-star-rating i.active {
+    color: #F59E0B;
+  }
+
+  .full-width { width: 100%; }
+
+  @media (max-width: 600px) {
+    .form-row { grid-template-columns: 1fr; }
+    .hero-title { font-size: 1.6rem; }
+  }
+</style>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+<script>
+  function initReviewsInteractiveLogic() {
+    // 1. THREE.JS 3D HERO CANVAS
+    const canvas = document.getElementById('reviews-canvas-3d');
+    if (canvas && typeof THREE !== 'undefined') {
+      const parent = canvas.parentElement;
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(75, parent.clientWidth / parent.clientHeight, 0.1, 1000);
+      const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
+
+      renderer.setSize(parent.clientWidth, parent.clientHeight);
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+      const geometry = new THREE.BufferGeometry();
+      const count = 120;
+      const positions = new Float32Array(count * 3);
+
+      for (let i = 0; i < count * 3; i++) {
+        positions[i] = (Math.random() - 0.5) * 10;
+      }
+
+      geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+      const material = new THREE.PointsMaterial({ size: 0.04, color: 0x38bdf8, transparent: true, opacity: 0.8 });
+      const points = new THREE.Points(geometry, material);
+      scene.add(points);
+
+      camera.position.z = 3;
+
+      function animate() {
+        requestAnimationFrame(animate);
+        points.rotation.y += 0.0012;
+        points.rotation.x += 0.0008;
+        renderer.render(scene, camera);
+      }
+      animate();
+    }
+
+    // 2. CARD 3D TILT EFFECT
+    document.querySelectorAll('.review-card-3d').forEach((card) => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const rotateX = ((y - rect.height / 2) / (rect.height / 2)) * -8;
+        const rotateY = ((x - rect.width / 2) / (rect.width / 2)) * 8;
+
+        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+      });
+
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)';
+      });
+    });
+
+    // 3. REVIEWS FILTER BUTTONS
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const reviewCards = document.querySelectorAll('.review-card-3d');
+
+    filterBtns.forEach(btn => {
+      btn.onclick = () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const filter = btn.getAttribute('data-filter');
+
+        reviewCards.forEach(card => {
+          const categories = card.getAttribute('data-category').split(' ');
+          if (filter === 'all' || categories.includes(filter)) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      };
+    });
+
+    // 4. MODAL & FORM LOGIC
+    const modal = document.getElementById('review-modal');
+    const openBtn = document.getElementById('open-review-modal');
+    const closeBtn = document.getElementById('close-review-modal');
+    const reviewForm = document.getElementById('review-form');
+    const starPicker = document.querySelectorAll('#star-picker i');
+    let selectedRating = 5;
+
+    if (openBtn && modal) openBtn.onclick = () => modal.classList.add('active');
+    if (closeBtn && modal) closeBtn.onclick = () => modal.classList.remove('active');
+
+    starPicker.forEach(star => {
+      star.onclick = () => {
+        selectedRating = parseInt(star.getAttribute('data-rating'));
+        starPicker.forEach((s, idx) => {
+          if (idx < selectedRating) {
+            s.classList.add('active');
+          } else {
+            s.classList.remove('active');
+          }
+        });
+      };
+    });
+
+    if (reviewForm) {
+      reviewForm.onsubmit = (e) => {
+        e.preventDefault();
+        
+        const name = document.getElementById('client-name').value;
+        const role = document.getElementById('client-role').value;
+        const region = document.getElementById('client-region').value;
+        const service = document.getElementById('client-service').value;
+        const comment = document.getElementById('review-comment').value;
+
+        const newCard = document.createElement('article');
+        newCard.className = 'review-card-3d';
+        newCard.setAttribute('data-category', `${region} ${service}`);
+
+        let starsHTML = '';
+        for (let i = 0; i < selectedRating; i++) {
+          starsHTML += '<i class="fa-solid fa-star"></i>';
+        }
+
+        newCard.innerHTML = `
+          <div class="card-inner">
+            <div class="card-top">
+              <div class="stars-gold">${starsHTML}</div>
+              <span class="region-badge ${region}">${region.toUpperCase()} Client</span>
+            </div>
+            <p class="review-text">"${comment}"</p>
+            <div class="client-meta">
+              <div class="client-info">
+                <strong>${name}</strong>
+                <span>${role}</span>
+              </div>
+              <span class="verified-tag"><i class="fa-solid fa-circle-check"></i> Verified</span>
+            </div>
+          </div>
+        `;
+
+        document.getElementById('reviews-container').prepend(newCard);
+        modal.classList.remove('active');
+        reviewForm.reset();
+      };
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', initReviewsInteractiveLogic);
+  if (typeof swup !== 'undefined') {
+    swup.hooks.on('page:view', initReviewsInteractiveLogic);
+  }
+</script>
+
+<%- include('partials/chat-widget') %>
+<%- include('partials/footer') %>

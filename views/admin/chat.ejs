@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JAE Global — Admin Messaging Portal</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: system-ui, -apple-system, sans-serif; background: #0B0F19; color: #E2E8F0; height: 100vh; overflow: hidden; }
+    
+    .admin-container { display: flex; flex-direction: column; height: 100vh; }
+    .admin-header { background: #0F172A; padding: 16px 24px; border-bottom: 1px solid rgba(255,255,255,0.08); display: flex; justify-content: space-between; align-items: center; }
+    .admin-header h2 { font-size: 1.1rem; color: #38BDF8; letter-spacing: 0.5px; }
+    .status-badge { font-size: 0.8rem; color: #94A3B8; }
+    .status-badge span { color: #22C55E; font-weight: bold; }
+
+    .admin-body { display: flex; flex: 1; overflow: hidden; }
+    
+    /* Left Sidebar */
+    .sidebar { width: 320px; background: #0F172A; border-right: 1px solid rgba(255,255,255,0.08); overflow-y: auto; }
+    .sidebar-header { padding: 16px; font-size: 0.85rem; font-weight: bold; color: #64748B; text-transform: uppercase; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .thread-item { padding: 16px; border-bottom: 1px solid rgba(255,255,255,0.05); cursor: pointer; transition: background 0.2s; }
+    .thread-item:hover, .thread-item.active { background: #1E293B; }
+    .thread-name { font-weight: bold; color: #FFF; font-size: 0.9rem; }
+    .thread-preview { font-size: 0.8rem; color: #94A3B8; margin-top: 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .thread-meta { font-size: 0.7rem; color: #64748B; margin-top: 6px; }
+
+    /* Main Chat Panel */
+    .chat-panel { flex: 1; display: flex; flex-direction: column; background: #0B0F19; }
+    .chat-messages { flex: 1; padding: 24px; overflow-y: auto; display: flex; flex-direction: column; gap: 12px; }
+    .empty-state { text-align: center; color: #64748B; margin: auto; font-size: 0.95rem; margin-top: 20%; }
+    
+    .msg-bubble { max-width: 70%; padding: 12px 16px; border-radius: 12px; font-size: 0.88rem; line-height: 1.5; }
+    .msg-client { background: #1E293B; color: #E2E8F0; align-self: flex-start; border-bottom-left-radius: 2px; }
+    .msg-admin { background: #0284C7; color: #FFF; align-self: flex-end; border-bottom-right-radius: 2px; }
+    .msg-time { font-size: 0.68rem; opacity: 0.7; margin-top: 4px; text-align: right; }
+
+    /* Footer Input */
+    .chat-input-area { padding: 16px 24px; background: #0F172A; border-top: 1px solid rgba(255,255,255,0.08); display: flex; gap: 12px; }
+    .chat-input-area input { flex: 1; background: #0B0F19; border: 1px solid rgba(255,255,255,0.15); color: #FFF; padding: 12px 16px; border-radius: 8px; outline: none; }
+    .chat-input-area input:focus { border-color: #38BDF8; }
+    .reply-btn { background: #38BDF8; border: none; color: #0F172A; font-weight: bold; padding: 0 24px; border-radius: 8px; cursor: pointer; }
+    .reply-btn:hover { background: #0284C7; color: #FFF; }
+  </style>
+</head>
+<body>
+
+  <div class="admin-container">
+    <div class="admin-header">
+      <h2>JAE Global — Admin Messaging Portal</h2>
+      <div class="status-badge">Status: <span>● Online</span></div>
+    </div>
+
+    <div class="admin-body">
+      <!-- Left Sidebar -->
+      <div class="sidebar">
+        <div class="sidebar-header">Active Client Inquiries</div>
+        <div id="threadList">
+          <div class="empty-state" style="margin-top:20px;">No client inquiries yet.</div>
+        </div>
+      </div>
+
+      <!-- Right Chat Panel -->
+      <div class="chat-panel">
+        <div id="chatMessages" class="chat-messages">
+          <div id="emptyPanelState" class="empty-state">Select a client from the left sidebar</div>
+        </div>
+
+        <form class="chat-input-area" onsubmit="sendAdminReply(event)">
+          <input type="text" id="adminReplyInput" placeholder="Type your reply..." autocomplete="off" />
+          <button type="submit" class="reply-btn">Send Reply</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let activeSessionId = null;
+    let allThreads = [];
+
+    async function fetchThreads() {
+      try {
+        const response = await fetch('/api/chat/threads');
+        const data = await response.json();
+
+        if (data.success) {
+          allThreads = data.threads;
+          renderSidebar();
+          if (activeSessionId) {
+            renderActiveThread();
+          }
+        }
+      } catch (err) {
+        console.error('Failed to fetch threads:', err);
+      }
+    }
+
+    function renderSidebar() {
+      const container = document.getElementById('threadList');
+      if (allThreads.length === 0) {
+        container.innerHTML = '<div class="empty-state" style="margin-top:20px;">No client inquiries yet.</div>';
+        return;
+      }
+
+      container.innerHTML = '';
+      allThreads.forEach(thread => {
+        const lastMsg = thread.messages[thread.messages.length - 1];
+        const item = document.createElement('div');
+        item.className = `thread-item ${activeSessionId === thread.sessionId ? 'active' : ''}`;
+        
+        item.innerHTML = `
+          <div class="thread-name">${thread.clientName}</div>
+          <div class="thread-preview">${lastMsg ? lastMsg.text : 'No messages'}</div>
+          <div class="thread-meta">${thread.clientEmail}</div>
+        `;
+
+        item.onclick = () => {
+          activeSessionId = thread.sessionId;
+          renderSidebar();
+          renderActiveThread();
+        };
+
+        container.appendChild(item);
+      });
+    }
+
+    function renderActiveThread() {
+      const container = document.getElementById('chatMessages');
+      const activeThread = allThreads.find(t => t.sessionId === activeSessionId);
+
+      if (!activeThread) return;
+
+      container.innerHTML = '';
+      activeThread.messages.forEach(msg => {
+        const bubble = document.createElement('div');
+        bubble.className = `msg-bubble ${msg.sender === 'admin' ? 'msg-admin' : 'msg-client'}`;
+        bubble.innerHTML = `
+          <div>${msg.text}</div>
+          <div class="msg-time">${msg.timestamp}</div>
+        `;
+        container.appendChild(bubble);
+      });
+
+      container.scrollTop = container.scrollHeight;
+    }
+
+    async function sendAdminReply(e) {
+      e.preventDefault();
+      const input = document.getElementById('adminReplyInput');
+      const text = input.value.trim();
+
+      if (!text || !activeSessionId) return;
+
+      try {
+        const response = await fetch('/api/chat/reply', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ sessionId: activeSessionId, message: text })
+        });
+
+        if (response.ok) {
+          input.value = '';
+          fetchThreads();
+        }
+      } catch (err) {
+        console.error('Failed to send reply:', err);
+      }
+    }
+
+    // Auto-refresh threads every 2 seconds
+    setInterval(fetchThreads, 2000);
+    fetchThreads();
+  </script>
+</body>
+</html>

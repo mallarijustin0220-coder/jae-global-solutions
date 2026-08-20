@@ -1,0 +1,423 @@
+<%- include('partials/header') %>
+
+<!-- CINEMATIC HOW IT WORKS PAGE -->
+<div class="cinematic-wrapper">
+
+  <!-- Ambient Animated Background Glows -->
+  <div class="ambient-glow glow-cyan"></div>
+  <div class="ambient-glow glow-gold"></div>
+  <div class="ambient-glow glow-teal"></div>
+
+  <div class="container">
+
+    <!-- HERO SECTION -->
+    <div class="hero-section" data-aos="fade-up">
+      <div class="glass-badge">
+        <span class="pulse-dot"></span>
+        <span class="badge-text">⚡ SIMPLE. SCALABLE. SEAMLESS.</span>
+      </div>
+      <h1 class="page-title">How It Works: <span class="gradient-text">Your Offshore Engine</span></h1>
+      <p class="page-subtitle">
+        Building high-performing Australian offshore teams without the management headache. Here is our 4-step integration playbook.
+      </p>
+    </div>
+
+    <!-- CINEMATIC STEP TIMELINE INDICATOR -->
+    <div class="timeline-nav" data-aos="zoom-in" data-aos-delay="150">
+      <div class="timeline-track">
+        
+        <div class="timeline-step active">
+          <div class="step-num">01</div>
+          <span class="step-label">Discovery</span>
+        </div>
+
+        <div class="timeline-connector"></div>
+
+        <div class="timeline-step">
+          <div class="step-num">02</div>
+          <span class="step-label">Matching</span>
+        </div>
+
+        <div class="timeline-connector"></div>
+
+        <div class="timeline-step">
+          <div class="step-num">03</div>
+          <span class="step-label">Integration</span>
+        </div>
+
+        <div class="timeline-connector"></div>
+
+        <div class="timeline-step">
+          <div class="step-num">04</div>
+          <span class="step-label">Scaling</span>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- PLAYBOOK GRID CARDS -->
+    <div class="playbook-grid">
+
+      <!-- STEP 1 -->
+      <div class="cinematic-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="card-glow"></div>
+        <div class="card-content">
+          <div class="card-badge-num">STEP 01</div>
+          <h2 class="card-heading">Discovery & Scope</h2>
+          <p class="card-text">
+            We map your operational bottlenecks, workflow requirements, and ideal team culture to define clear job specifications tailored for seamless integration.
+          </p>
+          <div class="card-footer-tag">
+            <span class="dot gold"></span> 100% Timezone Overlap Alignment
+          </div>
+          <div class="card-border-line"></div>
+        </div>
+      </div>
+
+      <!-- STEP 2 -->
+      <div class="cinematic-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="card-glow"></div>
+        <div class="card-content">
+          <div class="card-badge-num">STEP 02</div>
+          <h2 class="card-heading">Talent Matching</h2>
+          <p class="card-text">
+            We leverage top-tier talent networks to shortlist, vet, and present pre-screened Manila candidates matched for skill and company culture.
+          </p>
+          <div class="card-footer-tag">
+            <span class="dot cyan"></span> 72-Hour Rapid Matching
+          </div>
+          <div class="card-border-line"></div>
+        </div>
+      </div>
+
+      <!-- STEP 3 -->
+      <div class="cinematic-card" data-aos="fade-up" data-aos-delay="400">
+        <div class="card-glow"></div>
+        <div class="card-content">
+          <div class="card-badge-num">STEP 03</div>
+          <h2 class="card-heading">Onboarding & Setup</h2>
+          <p class="card-text">
+            From hardware procurement and security compliance to payroll and HR setup, we handle the full backend operational overhead.
+          </p>
+          <div class="card-footer-tag">
+            <span class="dot teal"></span> Zero Infrastructure Hassle
+          </div>
+          <div class="card-border-line"></div>
+        </div>
+      </div>
+
+      <!-- STEP 4 -->
+      <div class="cinematic-card" data-aos="fade-up" data-aos-delay="500">
+        <div class="card-glow"></div>
+        <div class="card-content">
+          <div class="card-badge-num">STEP 04</div>
+          <h2 class="card-heading">Continuous Scaling</h2>
+          <p class="card-text">
+            We provide ongoing performance coaching, retention programs, and strategic oversight so your team scales effortlessly over time.
+          </p>
+          <div class="card-footer-tag">
+            <span class="dot gold"></span> 96.8% Retention Rate
+          </div>
+          <div class="card-border-line"></div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<!-- CINEMATIC STYLES -->
+<style>
+  /* Base Outer Wrapper */
+  .cinematic-wrapper {
+    position: relative;
+    background: #020712;
+    color: #F8FAFC;
+    min-height: 100vh;
+    overflow: hidden;
+    padding: 70px 0 100px;
+  }
+
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 24px;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* Ambient Glow Orbs */
+  .ambient-glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(140px);
+    opacity: 0.28;
+    pointer-events: none;
+    animation: floatGlow 10s infinite alternate ease-in-out;
+  }
+
+  .glow-cyan {
+    width: 600px; height: 600px;
+    background: #0A8B88;
+    top: -120px; left: -100px;
+  }
+
+  .glow-gold {
+    width: 500px; height: 500px;
+    background: #D49B27;
+    top: 30%; right: -150px;
+    opacity: 0.2;
+    animation-delay: -4s;
+  }
+
+  .glow-teal {
+    width: 550px; height: 550px;
+    background: #1E40AF;
+    bottom: -100px; left: 20%;
+    animation-delay: -7s;
+  }
+
+  @keyframes floatGlow {
+    0% { transform: translate(0, 0) scale(1); opacity: 0.22; }
+    100% { transform: translate(35px, 45px) scale(1.15); opacity: 0.35; }
+  }
+
+  /* Hero Section */
+  .hero-section {
+    text-align: center;
+    max-width: 820px;
+    margin: 0 auto 50px;
+  }
+
+  .glass-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(212, 155, 39, 0.35);
+    backdrop-filter: blur(14px);
+    padding: 8px 20px;
+    border-radius: 30px;
+    margin-bottom: 22px;
+    box-shadow: 0 0 25px rgba(212, 155, 39, 0.15);
+  }
+
+  .pulse-dot {
+    width: 8px; height: 8px;
+    background: #D49B27;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #D49B27;
+    animation: blink 1.8s infinite;
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.3; transform: scale(0.8); }
+  }
+
+  .badge-text {
+    color: #D49B27;
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+  }
+
+  .page-title {
+    font-size: clamp(2.3rem, 4.2vw, 3.6rem);
+    font-weight: 800;
+    color: #FFFFFF;
+    margin-bottom: 18px;
+    letter-spacing: -0.5px;
+    line-height: 1.15;
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, #D49B27 0%, #38BDF8 50%, #2DD4BF 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .page-subtitle {
+    font-size: 1.12rem;
+    color: #94A3B8;
+    line-height: 1.65;
+  }
+
+  /* Cinematic Timeline Track Nav */
+  .timeline-nav {
+    margin: 0 auto 70px;
+    max-width: 900px;
+  }
+
+  .timeline-track {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(6, 18, 38, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(20px);
+    border-radius: 60px;
+    padding: 14px 28px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+  }
+
+  .timeline-step {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    opacity: 0.6;
+    transition: all 0.3s ease;
+  }
+
+  .timeline-step.active, .timeline-step:hover {
+    opacity: 1;
+  }
+
+  .step-num {
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: 800;
+    color: #CBD5E1;
+  }
+
+  .timeline-step.active .step-num {
+    background: linear-gradient(135deg, #D49B27, #B8821B);
+    color: #FFFFFF;
+    border: none;
+    box-shadow: 0 0 15px rgba(212, 155, 39, 0.5);
+  }
+
+  .step-label {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    letter-spacing: 0.5px;
+  }
+
+  .timeline-connector {
+    flex: 1;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.1);
+    margin: 0 14px;
+  }
+
+  /* Playbook Grid */
+  .playbook-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 28px;
+  }
+
+  /* Cinematic Cards */
+  .cinematic-card {
+    position: relative;
+    background: rgba(6, 18, 38, 0.65);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    padding: 38px 30px;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  }
+
+  .cinematic-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(56, 189, 248, 0.5);
+    background: rgba(8, 24, 50, 0.85);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6), 0 0 30px rgba(56, 189, 248, 0.15);
+  }
+
+  .card-glow {
+    position: absolute;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: radial-gradient(circle, rgba(56, 189, 248, 0.08) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+  }
+
+  .cinematic-card:hover .card-glow { opacity: 1; }
+
+  .card-content {
+    position: relative;
+    z-index: 2;
+  }
+
+  .card-badge-num {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 800;
+    color: #38BDF8;
+    background: rgba(56, 189, 248, 0.12);
+    border: 1px solid rgba(56, 189, 248, 0.25);
+    padding: 4px 12px;
+    border-radius: 20px;
+    letter-spacing: 1px;
+    margin-bottom: 18px;
+  }
+
+  .card-heading {
+    font-size: 1.55rem;
+    font-weight: 800;
+    color: #FFFFFF;
+    margin-bottom: 14px;
+    letter-spacing: 0.3px;
+  }
+
+  .card-text {
+    font-size: 0.96rem;
+    line-height: 1.65;
+    color: #CBD5E1;
+    margin-bottom: 24px;
+  }
+
+  .card-footer-tag {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #94A3B8;
+  }
+
+  .dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+  }
+
+  .dot.gold { background: #D49B27; box-shadow: 0 0 8px #D49B27; }
+  .dot.cyan { background: #38BDF8; box-shadow: 0 0 8px #38BDF8; }
+  .dot.teal { background: #2DD4BF; box-shadow: 0 0 8px #2DD4BF; }
+
+  .card-border-line {
+    height: 3px;
+    width: 40px;
+    background: linear-gradient(90deg, #D49B27, #38BDF8);
+    border-radius: 2px;
+    margin-top: 20px;
+    transition: width 0.4s ease;
+  }
+
+  .cinematic-card:hover .card-border-line {
+    width: 100%;
+  }
+
+  /* Responsive Styling */
+  @media (max-width: 850px) {
+    .timeline-nav { display: none; }
+    .hero-section { margin-bottom: 30px; }
+  }
+</style>
+<%- include('partials/chat-widget') %>
+<%- include('partials/footer') %>

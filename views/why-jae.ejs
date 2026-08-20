@@ -1,0 +1,326 @@
+<%- include('partials/header') %>
+
+<!-- CINEMATIC WHY JAE PAGE -->
+<div class="cinematic-wrapper">
+
+  <!-- Ambient Animated Background Glows -->
+  <div class="ambient-glow glow-gold"></div>
+  <div class="ambient-glow glow-cyan"></div>
+  <div class="ambient-glow glow-teal"></div>
+
+  <div class="container">
+
+    <!-- HERO SECTION -->
+    <div class="hero-section" data-aos="fade-up">
+      <div class="glass-badge">
+        <span class="pulse-dot"></span>
+        <span class="badge-text">🇦🇺 THE AUSTRALIAN OFFSHORE ADVANTAGE</span>
+      </div>
+      <h1 class="page-title">
+        Why Australian Businesses <span class="gradient-text">Trust JAE</span>
+      </h1>
+      <p class="page-subtitle">
+        We aren't a traditional offshore BPO. We build dedicated, high-performing Manila extensions of your local team without operational friction or hidden markups.
+      </p>
+    </div>
+
+    <!-- SECTION TITLE -->
+    <div class="section-divider" data-aos="fade-up" data-aos-delay="100">
+      <h2 class="section-title">The JAE Difference</h2>
+      <p class="section-desc">
+        Engineered specifically for Sydney, Melbourne, Brisbane, and Perth business standards.
+      </p>
+    </div>
+
+    <!-- ADVANTAGE CARDS GRID -->
+    <div class="feature-grid">
+
+      <!-- CARD 1 -->
+      <div class="cinematic-card" data-aos="fade-up" data-aos-delay="150">
+        <div class="card-glow"></div>
+        <div class="card-content">
+          <div class="card-icon-box gold-icon">⚡</div>
+          <h3 class="card-heading">100% Timezone Overlap</h3>
+          <p class="card-text">
+            Your team works side-by-side during AEST/ACST/AWST office hours for real-time collaboration, instant Slack messaging, and seamless daily huddles.
+          </p>
+          <div class="card-border-line gold-line"></div>
+        </div>
+      </div>
+
+      <!-- CARD 2 -->
+      <div class="cinematic-card active-card" data-aos="fade-up" data-aos-delay="250">
+        <div class="card-glow"></div>
+        <div class="card-content">
+          <div class="card-icon-box cyan-icon">💎</div>
+          <h3 class="card-heading">Zero Operational Overhead</h3>
+          <p class="card-text">
+            No long-term lease commitments or equipment purchasing. We provide modern workstations, enterprise internet, IT infrastructure, and HR oversight.
+          </p>
+          <div class="card-border-line cyan-line"></div>
+        </div>
+      </div>
+
+      <!-- CARD 3 -->
+      <div class="cinematic-card" data-aos="fade-up" data-aos-delay="350">
+        <div class="card-glow"></div>
+        <div class="card-content">
+          <div class="card-icon-box teal-icon">🛡️</div>
+          <h3 class="card-heading">Transparent Pricing</h3>
+          <p class="card-text">
+            No hidden service fees or surprise line items. You get clear, predictable cost models that deliver up to 70% operational savings.
+          </p>
+          <div class="card-border-line teal-line"></div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<!-- CINEMATIC STYLES -->
+<style>
+  /* Base Outer Wrapper */
+  .cinematic-wrapper {
+    position: relative;
+    background: #020712;
+    color: #F8FAFC;
+    min-height: 100vh;
+    overflow: hidden;
+    padding: 70px 0 100px;
+  }
+
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 24px;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* Ambient Blur Glow Orbs */
+  .ambient-glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(140px);
+    opacity: 0.28;
+    pointer-events: none;
+    animation: floatGlow 10s infinite alternate ease-in-out;
+  }
+
+  .glow-gold {
+    width: 550px; height: 550px;
+    background: #D49B27;
+    top: -100px; left: -100px;
+    opacity: 0.22;
+  }
+
+  .glow-cyan {
+    width: 600px; height: 600px;
+    background: #38BDF8;
+    top: 30%; right: -150px;
+    opacity: 0.2;
+    animation-delay: -4s;
+  }
+
+  .glow-teal {
+    width: 500px; height: 500px;
+    background: #0A8B88;
+    bottom: -100px; left: 20%;
+    animation-delay: -7s;
+  }
+
+  @keyframes floatGlow {
+    0% { transform: translate(0, 0) scale(1); opacity: 0.22; }
+    100% { transform: translate(35px, 45px) scale(1.15); opacity: 0.35; }
+  }
+
+  /* Hero Section */
+  .hero-section {
+    text-align: center;
+    max-width: 860px;
+    margin: 0 auto 60px;
+  }
+
+  .glass-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(212, 155, 39, 0.4);
+    backdrop-filter: blur(14px);
+    padding: 8px 20px;
+    border-radius: 30px;
+    margin-bottom: 22px;
+    box-shadow: 0 0 25px rgba(212, 155, 39, 0.15);
+  }
+
+  .pulse-dot {
+    width: 8px; height: 8px;
+    background: #D49B27;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #D49B27;
+    animation: blink 1.8s infinite;
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.3; transform: scale(0.8); }
+  }
+
+  .badge-text {
+    color: #D49B27;
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+  }
+
+  .page-title {
+    font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+    font-weight: 800;
+    color: #FFFFFF;
+    margin-bottom: 18px;
+    letter-spacing: -0.5px;
+    line-height: 1.15;
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, #D49B27 0%, #38BDF8 50%, #2DD4BF 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .page-subtitle {
+    font-size: 1.12rem;
+    color: #94A3B8;
+    line-height: 1.68;
+  }
+
+  /* Section Divider */
+  .section-divider {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 50px;
+  }
+
+  .section-title {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #FFFFFF;
+    margin-bottom: 8px;
+  }
+
+  .section-desc {
+    font-size: 0.98rem;
+    color: #38BDF8;
+    font-weight: 600;
+  }
+
+  /* Feature Grid */
+  .feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+  }
+
+  /* Cinematic Cards */
+  .cinematic-card {
+    position: relative;
+    background: rgba(6, 18, 38, 0.65);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    padding: 42px 32px;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  }
+
+  .cinematic-card:hover, .cinematic-card.active-card {
+    transform: translateY(-8px);
+    border-color: rgba(56, 189, 248, 0.5);
+    background: rgba(8, 24, 50, 0.85);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6), 0 0 30px rgba(56, 189, 248, 0.15);
+  }
+
+  .card-glow {
+    position: absolute;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: radial-gradient(circle, rgba(56, 189, 248, 0.08) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+  }
+
+  .cinematic-card:hover .card-glow { opacity: 1; }
+
+  .card-content {
+    position: relative;
+    z-index: 2;
+  }
+
+  .card-icon-box {
+    width: 52px; height: 52px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin-bottom: 22px;
+  }
+
+  .gold-icon {
+    background: rgba(212, 155, 39, 0.12);
+    border: 1px solid rgba(212, 155, 39, 0.3);
+  }
+
+  .cyan-icon {
+    background: rgba(56, 189, 248, 0.12);
+    border: 1px solid rgba(56, 189, 248, 0.3);
+  }
+
+  .teal-icon {
+    background: rgba(45, 212, 191, 0.12);
+    border: 1px solid rgba(45, 212, 191, 0.3);
+  }
+
+  .card-heading {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: #FFFFFF;
+    margin-bottom: 14px;
+    letter-spacing: 0.3px;
+  }
+
+  .card-text {
+    font-size: 0.98rem;
+    line-height: 1.68;
+    color: #CBD5E1;
+  }
+
+  .card-border-line {
+    height: 3px;
+    width: 40px;
+    border-radius: 2px;
+    margin-top: 24px;
+    transition: width 0.4s ease;
+  }
+
+  .gold-line { background: linear-gradient(90deg, #D49B27, #B8821B); }
+  .cyan-line { background: linear-gradient(90deg, #38BDF8, #1E40AF); }
+  .teal-line { background: linear-gradient(90deg, #2DD4BF, #0A8B88); }
+
+  .cinematic-card:hover .card-border-line {
+    width: 100%;
+  }
+
+  @media (max-width: 600px) {
+    .cinematic-card { padding: 30px 22px; }
+  }
+</style>
+
+<%- include('partials/footer') %>

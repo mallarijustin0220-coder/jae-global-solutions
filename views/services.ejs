@@ -1,0 +1,417 @@
+<%- include('partials/header') %>
+
+<!-- CINEMATIC SERVICES HERO & INTERACTIVE SHOWCASE -->
+<div class="services-cinematic-wrapper">
+  <!-- Ambient Glassland Background Glows -->
+  <div class="ambient-glow glow-cyan"></div>
+  <div class="ambient-glow glow-gold"></div>
+
+  <div class="container services-container">
+    
+    <!-- PAGE HEADER -->
+    <div class="services-header text-center" data-aos="fade-down">
+      <div class="hero-badge">
+        <span class="pulse-dot"></span>
+        <span class="badge-text">SPECIALISED OFFSHORE TALENT</span>
+      </div>
+      <h1 class="services-title">
+        High-Impact Roles Built for <span class="gradient-text-au">AU</span> & <span class="gradient-text-uk">UK Scale</span>
+      </h1>
+      <p class="services-subtitle">
+        Explore our core offshore service offerings. Select any role to view detailed responsibilities, key competencies, and request dedicated personnel.
+      </p>
+    </div>
+
+    <!-- SERVICES CATEGORIES GRID -->
+    <div class="services-grid">
+
+      <!-- 1. CUSTOMER SUPPORT & SALES -->
+      <div class="service-card-3d" data-aos="fade-up" data-aos-delay="100">
+        <div class="card-glow-bg"></div>
+        <div class="card-icon-box">
+          <span class="card-emoji">🎧</span>
+        </div>
+        <h3 class="card-category-title">Customer Support & Sales</h3>
+        <p class="card-category-desc">Drive customer satisfaction, lead acquisition, and business development with high-touch specialists.</p>
+        <ul class="role-list">
+          <li onclick="openRoleModal('Customer Service Representatives', 'Customer Support & Sales', 'Deliver exceptional multi-channel support across phone, chat, and email to ensure customer satisfaction and rapid issue resolution.', ['Multi-channel CX Support', 'CRM Management', 'Ticket Resolution & Escalation'])">
+            <span>Customer service representatives</span>
+            <span class="arrow-icon">→</span>
+          </li>
+          <li onclick="openRoleModal('Lead Generators', 'Customer Support & Sales', 'Identify, prospect, and qualify high-intent sales leads to keep your sales pipeline filled with actionable business opportunities.', ['Outbound Prospecting', 'Lead Qualification', 'Database Scraping & Verification'])">
+            <span>Lead generators</span>
+            <span class="arrow-icon">→</span>
+          </li>
+          <li onclick="openRoleModal('Business Development Executives', 'Customer Support & Sales', 'Expand your market presence by identifying strategic growth areas, nurturing corporate partnerships, and closing key accounts.', ['B2B Outreach & Deal Closing', 'Strategic Account Growth', 'Pipeline Management'])">
+            <span>Business development executives</span>
+            <span class="arrow-icon">→</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- 2. ADMINISTRATIVE SUPPORT -->
+      <div class="service-card-3d" data-aos="fade-up" data-aos-delay="200">
+        <div class="card-glow-bg"></div>
+        <div class="card-icon-box">
+          <span class="card-emoji">📂</span>
+        </div>
+        <h3 class="card-category-title">Administrative Support</h3>
+        <p class="card-category-desc">Streamline executive workflows and core back-office data operations for maximum operational velocity.</p>
+        <ul class="role-list">
+          <li onclick="openRoleModal('Virtual Assistants', 'Administrative Support', 'Provide high-level executive assistance including complex calendar coordination, inbox management, and travel logistics.', ['Executive Calendar & Inbox', 'Travel Logistics & Booking', 'Operational Coordination'])">
+            <span>Virtual assistants</span>
+            <span class="arrow-icon">→</span>
+          </li>
+          <li onclick="openRoleModal('Data Entry Specialists', 'Administrative Support', 'Maintain meticulously accurate records and streamline digital filing systems with absolute speed and reliability.', ['High-Volume Data Processing', 'Database Cleaning & Audit', 'Spreadsheet Management'])">
+            <span>Data entry specialists</span>
+            <span class="arrow-icon">→</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- 3. IT & SOFTWARE -->
+      <div class="service-card-3d" data-aos="fade-up" data-aos-delay="300">
+        <div class="card-glow-bg"></div>
+        <div class="card-icon-box">
+          <span class="card-emoji">💻</span>
+        </div>
+        <h3 class="card-category-title">IT & Software</h3>
+        <p class="card-category-desc">Deploy full-stack engineering expertise and proactive IT infrastructure support tailored to your tech stack.</p>
+        <ul class="role-list">
+          <li onclick="openRoleModal('Software Developers', 'IT & Software', 'Build, optimize, and maintain web/mobile applications, APIs, and cloud infrastructure using modern programming frameworks.', ['Full-Stack Web & Mobile Dev', 'API Design & Integration', 'Agile & DevOps Workflow'])">
+            <span>Software developers</span>
+            <span class="arrow-icon">→</span>
+          </li>
+          <li onclick="openRoleModal('IT Support Specialists', 'IT & Software', 'Ensure uninterrupted uptime with Tier 1-3 helpdesk support, network monitoring, system administration, and device management.', ['Helpdesk & Systems Admin', 'Network Security & Monitoring', 'Cloud Account Provisioning'])">
+            <span>IT support specialists</span>
+            <span class="arrow-icon">→</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- 4. CREATIVE SERVICES -->
+      <div class="service-card-3d" data-aos="fade-up" data-aos-delay="400">
+        <div class="card-glow-bg"></div>
+        <div class="card-icon-box">
+          <span class="card-emoji">🎨</span>
+        </div>
+        <h3 class="card-category-title">Creative Services</h3>
+        <p class="card-category-desc">Amplify your brand presence through compelling visual design, copywriting, and social growth strategies.</p>
+        <ul class="role-list">
+          <li onclick="openRoleModal('Graphic Designers', 'Creative Services', 'Create high-converting visual assets, brand identities, marketing collateral, UI components, and social media graphics.', ['Brand Identity & UI/UX', 'Marketing Collateral Design', 'Adobe Creative Cloud Suite'])">
+            <span>Graphic designers</span>
+            <span class="arrow-icon">→</span>
+          </li>
+          <li onclick="openRoleModal('Content Writers', 'Creative Services', 'Craft engaging SEO blog articles, sales copy, newsletters, and thought leadership content tailored to target audiences.', ['SEO Copywriting & Blogs', 'Brand Tone Consistency', 'Email Campaign Writing'])">
+            <span>Content writers</span>
+            <span class="arrow-icon">→</span>
+          </li>
+          <li onclick="openRoleModal('Social Media Management', 'Creative Services', 'Manage end-to-end channel strategy, content scheduling, audience engagement, and campaign performance analytics.', ['Social Content Strategy', 'Community Engagement', 'Analytics & Growth Tracking'])">
+            <span>Social Media Management</span>
+            <span class="arrow-icon">→</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- 5. FINANCE -->
+      <div class="service-card-3d" data-aos="fade-up" data-aos-delay="500">
+        <div class="card-glow-bg"></div>
+        <div class="card-icon-box">
+          <span class="card-emoji">📊</span>
+        </div>
+        <h3 class="card-category-title">Finance</h3>
+        <p class="card-category-desc">Maintain rigorous financial compliance, accurate ledger management, and optimized cash flow control.</p>
+        <ul class="role-list">
+          <li onclick="openRoleModal('Bookkeepers', 'Finance', 'Maintain general ledgers, perform bank reconciliations, and handle daily transaction recording using Xero, MYOB, or QuickBooks.', ['Bank Reconciliation', 'Xero / MYOB / QuickBooks', 'Payroll & Ledger Entries'])">
+            <span>Bookkeepers</span>
+            <span class="arrow-icon">→</span>
+          </li>
+          <li onclick="openRoleModal('Accountants', 'Finance', 'Deliver financial reporting, tax compliance preparation, budgeting, and strategic cash flow analysis aligned with AU/UK standards.', ['Financial Reporting & Analysis', 'Tax Compliance Prep', 'Budgeting & Cashflow'])">
+            <span>Accountants</span>
+            <span class="arrow-icon">→</span>
+          </li>
+          <li onclick="openRoleModal('Accounts Receivable Specialist', 'Finance', 'Manage customer invoicing, track payment schedules, and handle collections professionally to safeguard working capital.', ['Invoicing & Collections', 'Aging Report Audits', 'Payment Reconciliation'])">
+            <span>Accounts Receivable Specialist</span>
+            <span class="arrow-icon">→</span>
+          </li>
+          <li onclick="openRoleModal('Accounts Payable Specialist', 'Finance', 'Process vendor invoices, verify purchase orders, and schedule accurate disbursement cycles for vendor relations.', ['Vendor Invoice Verification', 'Purchase Order Processing', 'Disbursement Scheduling'])">
+            <span>Accounts Payable Specialist</span>
+            <span class="arrow-icon">→</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- 6. OTHER SERVICES / CUSTOM ROLES -->
+      <div class="service-card-3d highlight-card" data-aos="fade-up" data-aos-delay="600">
+        <div class="card-glow-bg"></div>
+        <div class="card-icon-box">
+          <span class="card-emoji">🚀</span>
+        </div>
+        <h3 class="card-category-title">Other Services / Bespoke Roles</h3>
+        <p class="card-category-desc">Need a specialized niche role not listed above? We source custom offshore talent built to your exact requirements.</p>
+        <ul class="role-list">
+          <li onclick="openRoleModal('Bespoke & Custom Niche Roles', 'Other Services', 'Have a unique tech stack, industry regulation, or operational role? We recruit custom specialists matched specifically to your specs.', ['Custom Job Description Sourcing', 'Niche Skillset Vetting', 'Tailored Timezone Alignment'])">
+            <span>Custom Niche Sourcing</span>
+            <span class="arrow-icon">→</span>
+          </li>
+          <li onclick="openRoleModal('Dedicated Team Assembly', 'Other Services', 'Build a whole department or multi-tier team with project managers, team leaders, and operational support.', ['Cross-Functional Teams', 'Dedicated Team Leads', 'Scalable Operations'])">
+            <span>Dedicated Multi-Role Teams</span>
+            <span class="arrow-icon">→</span>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<!-- ROLE DETAILS INTERACTIVE MODAL -->
+<div id="roleModal" class="modal-overlay" onclick="closeRoleModal(event)">
+  <div class="modal-content-3d" onclick="event.stopPropagation()">
+    <button class="modal-close-btn" onclick="closeRoleModal(event)">✕</button>
+    
+    <div class="modal-header">
+      <span id="modalCategory" class="modal-category-badge">Category</span>
+      <h2 id="modalRoleTitle" class="modal-title">Role Title</h2>
+    </div>
+
+    <div class="modal-body">
+      <h4 class="modal-section-heading">Overview & Responsibilities</h4>
+      <p id="modalDescription" class="modal-desc-text"></p>
+
+      <h4 class="modal-section-heading">Key Competencies</h4>
+      <ul id="modalCompetencies" class="competency-tags"></ul>
+    </div>
+
+    <div class="modal-footer">
+      <a id="requestSpecialistBtn" href="/contact" class="btn-3d-primary block-btn">
+        Request This Specialist →
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL INTERACTION SCRIPT -->
+<script>
+  function openRoleModal(title, category, description, competencies) {
+    document.getElementById('modalRoleTitle').innerText = title;
+    document.getElementById('modalCategory').innerText = category;
+    document.getElementById('modalDescription').innerText = description;
+    
+    // Set up direct URL redirect parameter so contact page knows which specialist is selected
+    const contactUrl = '/contact?specialist=' + encodeURIComponent(title);
+    document.getElementById('requestSpecialistBtn').setAttribute('href', contactUrl);
+
+    // Populate competency list
+    const compContainer = document.getElementById('modalCompetencies');
+    compContainer.innerHTML = '';
+    competencies.forEach(comp => {
+      const tag = document.createElement('li');
+      tag.className = 'comp-tag';
+      tag.innerText = comp;
+      compContainer.appendChild(tag);
+    });
+
+    const modal = document.getElementById('roleModal');
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeRoleModal(e) {
+    const modal = document.getElementById('roleModal');
+    modal.classList.remove('active');
+    document.body.style.overflow = 'auto';
+  }
+
+  // Close modal on escape key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      closeRoleModal();
+    }
+  });
+</script>
+
+<!-- STYLES FOR CINEMATIC 3D SERVICES & MODAL -->
+<style>
+  .services-cinematic-wrapper {
+    position: relative;
+    background: radial-gradient(circle at 50% 15%, #0B192E 0%, #020611 100%);
+    color: #F8FAFC;
+    min-height: 100vh;
+    padding: 120px 24px 80px;
+    overflow: hidden;
+  }
+
+  .services-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 10;
+  }
+
+  /* Ambient Glows */
+  .ambient-glow { position: absolute; border-radius: 50%; filter: blur(140px); pointer-events: none; }
+  .glow-cyan { width: 600px; height: 600px; background: rgba(56, 189, 248, 0.12); top: -50px; left: 20%; }
+  .glow-gold { width: 500px; height: 500px; background: rgba(212, 155, 39, 0.1); bottom: 100px; right: 15%; }
+
+  /* Header Typography */
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 10px; background: rgba(56, 189, 248, 0.08); border: 1px solid rgba(56, 189, 248, 0.35); backdrop-filter: blur(12px); padding: 8px 24px; border-radius: 30px; margin-bottom: 20px;
+  }
+  .pulse-dot { width: 9px; height: 9px; background: #38BDF8; border-radius: 50%; box-shadow: 0 0 12px #38BDF8; animation: blink 1.8s infinite; }
+  @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+  .badge-text { color: #38BDF8; font-size: 0.82rem; font-weight: 800; letter-spacing: 1.8px; }
+
+  .services-title { font-size: clamp(2.2rem, 4vw, 3.5rem); font-weight: 900; line-height: 1.2; margin-bottom: 16px; color: #FFF; }
+  .gradient-text-au { background: linear-gradient(135deg, #38BDF8, #0284C7); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .gradient-text-uk { background: linear-gradient(135deg, #FACC15, #D49B27); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .services-subtitle { font-size: 1.1rem; color: #94A3B8; max-width: 720px; margin: 0 auto 50px; line-height: 1.6; }
+
+  /* Grid Layout */ 
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 28px;
+  }
+
+  /* 3D Glass Cards */
+  .service-card-3d {
+    position: relative;
+    background: rgba(15, 23, 42, 0.65);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(16px);
+    border-radius: 20px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+  }
+
+  .service-card-3d:hover {
+    transform: translateY(-8px) scale(1.02);
+    border-color: rgba(56, 189, 248, 0.4);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6), 0 0 30px rgba(56, 189, 248, 0.2);
+  }
+
+  .highlight-card {
+    border-color: rgba(212, 155, 39, 0.35);
+    background: linear-gradient(180deg, rgba(212, 155, 39, 0.08) 0%, rgba(15, 23, 42, 0.75) 100%);
+  }
+  .highlight-card:hover {
+    border-color: rgba(212, 155, 39, 0.6);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6), 0 0 30px rgba(212, 155, 39, 0.25);
+  }
+
+  .card-icon-box {
+    width: 54px;
+    height: 54px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  .card-emoji { font-size: 1.6rem; }
+
+  .card-category-title { font-size: 1.4rem; font-weight: 800; color: #FFF; margin-bottom: 10px; }
+  .card-category-desc { font-size: 0.9rem; color: #94A3B8; margin-bottom: 24px; line-height: 1.5; min-height: 40px; }
+
+  /* Clickable Role List */
+  .role-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+  .role-list li {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 12px 16px;
+    border-radius: 10px;
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: #E2E8F0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.25s ease;
+  }
+
+  .role-list li:hover {
+    background: rgba(56, 189, 248, 0.15);
+    border-color: rgba(56, 189, 248, 0.4);
+    color: #FFF;
+    padding-left: 20px;
+  }
+
+  .highlight-card .role-list li:hover {
+    background: rgba(212, 155, 39, 0.18);
+    border-color: rgba(212, 155, 39, 0.5);
+  }
+
+  .arrow-icon { color: #38BDF8; transition: transform 0.2s ease; }
+  .role-list li:hover .arrow-icon { transform: translateX(4px); }
+
+  /* Interactive Modal Popup */
+  .modal-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    background: rgba(2, 6, 17, 0.85);
+    backdrop-filter: blur(12px);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    padding: 20px;
+  }
+
+  .modal-overlay.active { opacity: 1; pointer-events: auto; }
+
+  .modal-content-3d {
+    background: #0F172A;
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    border-radius: 24px;
+    max-width: 560px;
+    width: 100%;
+    padding: 36px;
+    position: relative;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8), 0 0 40px rgba(56, 189, 248, 0.25);
+    transform: scale(0.9) translateY(20px);
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  .modal-overlay.active .modal-content-3d { transform: scale(1) translateY(0); }
+
+  .modal-close-btn {
+    position: absolute; top: 20px; right: 20px;
+    background: rgba(255, 255, 255, 0.08); border: none; color: #94A3B8;
+    width: 36px; height: 36px; border-radius: 50%; font-size: 1.1rem;
+    cursor: pointer; transition: all 0.2s ease;
+  }
+  .modal-close-btn:hover { background: rgba(255, 255, 255, 0.2); color: #FFF; }
+
+  .modal-category-badge { font-size: 0.78rem; font-weight: 800; color: #38BDF8; text-transform: uppercase; letter-spacing: 1.5px; }
+  .modal-title { font-size: 1.8rem; font-weight: 900; color: #FFF; margin: 6px 0 20px; }
+
+  .modal-section-heading { font-size: 0.88rem; font-weight: 700; color: #94A3B8; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+  .modal-desc-text { font-size: 1rem; color: #CBD5E1; line-height: 1.6; margin-bottom: 24px; }
+
+  .competency-tags { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 30px; }
+  .comp-tag { background: rgba(56, 189, 248, 0.1); border: 1px solid rgba(56, 189, 248, 0.3); color: #38BDF8; padding: 6px 14px; border-radius: 20px; font-size: 0.82rem; font-weight: 700; }
+
+  .btn-3d-primary {
+    display: inline-flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #D49B27 0%, #B8821B 100%); color: #FFF; font-weight: 800; font-size: 1rem; padding: 16px 28px; border-radius: 12px; text-decoration: none; box-shadow: 0 10px 30px rgba(212, 155, 39, 0.35); transition: all 0.3s ease; text-align: center;
+  }
+  .btn-3d-primary:hover { transform: translateY(-2px); box-shadow: 0 16px 40px rgba(212, 155, 39, 0.5); }
+  .block-btn { width: 100%; }
+
+  @media (max-width: 768px) {
+    .services-grid { grid-template-columns: 1fr; }
+    .services-cinematic-wrapper { padding: 100px 16px 60px; }
+  }
+</style>
+<%- include('partials/chat-widget') %>
+<%- include('partials/footer') %>

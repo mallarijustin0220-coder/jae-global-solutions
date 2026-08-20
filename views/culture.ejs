@@ -1,0 +1,100 @@
+<%- include('partials/header') %>
+
+<!-- CINEMATIC CULTURE PAGE -->
+<div class="cinematic-wrapper">
+
+  <div class="ambient-glow glow-teal"></div>
+  <div class="ambient-glow glow-gold"></div>
+
+  <div class="container">
+
+    <!-- HERO SECTION -->
+    <div class="hero-section" data-aos="fade-up">
+      <div class="glass-badge">
+        <span class="pulse-dot"></span>
+        <span class="badge-text">❤️ PEOPLE FIRST. EXCELLENCE ALWAYS.</span>
+      </div>
+      <h1 class="page-title">Life & Culture at <span class="gradient-text">JAE Global</span></h1>
+      <p class="page-subtitle">
+        We believe that when people feel valued, empowered, and supported, extraordinary work naturally follows.
+      </p>
+    </div>
+
+    <!-- CULTURE PILLARS GRID -->
+    <div class="culture-grid">
+
+      <div class="cinematic-card" data-aos="fade-up" data-aos-delay="150">
+        <div class="card-glow"></div>
+        <div class="card-content">
+          <div class="pillar-number">01</div>
+          <h3 class="card-heading">Empowerment Over Micromanagement</h3>
+          <p class="card-text">
+            We trust our people to perform at high standards, providing autonomy, resources, and clear career growth frameworks.
+          </p>
+          <div class="card-border-line teal-line"></div>
+        </div>
+      </div>
+
+      <div class="cinematic-card" data-aos="fade-up" data-aos-delay="250">
+        <div class="card-glow"></div>
+        <div class="card-content">
+          <div class="pillar-number">02</div>
+          <h3 class="card-heading">Authentic Partnerships</h3>
+          <p class="card-text">
+            We bridge cross-cultural teams seamlessly, creating unified environments where Australian leadership and Manila teams operate as one team.
+          </p>
+          <div class="card-border-line gold-line"></div>
+        </div>
+      </div>
+
+      <div class="cinematic-card" data-aos="fade-up" data-aos-delay="350">
+        <div class="card-glow"></div>
+        <div class="card-content">
+          <div class="pillar-number">03</div>
+          <h3 class="card-heading">Continuous Skill Advancement</h3>
+          <p class="card-text">
+            We actively invest in leadership workshops, technical training, and modern software tools to keep our talent at industry forefronts.
+          </p>
+          <div class="card-border-line cyan-line"></div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<style>
+  .cinematic-wrapper { position: relative; background: #020712; color: #F8FAFC; min-height: 100vh; overflow: hidden; padding: 70px 0 100px; }
+  .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 2; }
+  .ambient-glow { position: absolute; border-radius: 50%; filter: blur(140px); opacity: 0.28; pointer-events: none; animation: floatGlow 10s infinite alternate ease-in-out; }
+  .glow-teal { width: 550px; height: 550px; background: #0A8B88; top: -100px; left: -100px; opacity: 0.22; }
+  .glow-gold { width: 500px; height: 500px; background: #D49B27; bottom: -100px; right: -100px; opacity: 0.2; }
+  @keyframes floatGlow { 0% { transform: translate(0, 0) scale(1); } 100% { transform: translate(35px, 45px) scale(1.15); } }
+  
+  .hero-section { text-align: center; max-width: 860px; margin: 0 auto 60px; }
+  .glass-badge { display: inline-flex; align-items: center; gap: 10px; background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(45, 212, 191, 0.4); backdrop-filter: blur(14px); padding: 8px 20px; border-radius: 30px; margin-bottom: 22px; }
+  .pulse-dot { width: 8px; height: 8px; background: #2DD4BF; border-radius: 50%; box-shadow: 0 0 10px #2DD4BF; animation: blink 1.8s infinite; }
+  @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+  .badge-text { color: #2DD4BF; font-size: 0.78rem; font-weight: 800; letter-spacing: 1.5px; }
+  .page-title { font-size: clamp(2.4rem, 4.5vw, 3.8rem); font-weight: 800; color: #FFFFFF; margin-bottom: 18px; }
+  .gradient-text { background: linear-gradient(135deg, #2DD4BF 0%, #38BDF8 50%, #D49B27 100%); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .page-subtitle { font-size: 1.12rem; color: #94A3B8; line-height: 1.68; }
+
+  .culture-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+  .cinematic-card { position: relative; background: rgba(6, 18, 38, 0.65); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 24px; padding: 42px 32px; backdrop-filter: blur(20px); overflow: hidden; transition: all 0.4s ease; box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
+  .cinematic-card:hover { transform: translateY(-8px); border-color: rgba(56, 189, 248, 0.5); background: rgba(8, 24, 50, 0.85); box-shadow: 0 25px 60px rgba(0,0,0,0.6), 0 0 30px rgba(56,189,248,0.15); }
+  .card-glow { position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(56, 189, 248, 0.08) 0%, transparent 60%); opacity: 0; transition: opacity 0.4s ease; pointer-events: none; }
+  .cinematic-card:hover .card-glow { opacity: 1; }
+  .card-content { position: relative; z-index: 2; }
+  .pillar-number { font-size: 2.2rem; font-weight: 900; color: #38BDF8; opacity: 0.8; margin-bottom: 12px; }
+  .card-heading { font-size: 1.55rem; font-weight: 800; color: #FFFFFF; margin-bottom: 14px; }
+  .card-text { font-size: 0.98rem; line-height: 1.68; color: #CBD5E1; }
+  .card-border-line { height: 3px; width: 40px; border-radius: 2px; margin-top: 24px; transition: width 0.4s ease; }
+  .gold-line { background: linear-gradient(90deg, #D49B27, #B8821B); }
+  .cyan-line { background: linear-gradient(90deg, #38BDF8, #1E40AF); }
+  .teal-line { background: linear-gradient(90deg, #2DD4BF, #0A8B88); }
+  .cinematic-card:hover .card-border-line { width: 100%; }
+</style>
+<%- include('partials/chat-widget') %>
+<%- include('partials/footer') %>

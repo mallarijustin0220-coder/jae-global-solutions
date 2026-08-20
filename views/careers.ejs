@@ -1,0 +1,166 @@
+<%- include('partials/header') %>
+
+<!-- CINEMATIC CAREERS PAGE -->
+<div class="cinematic-wrapper">
+  
+  <!-- Ambient Animated Background Glows -->
+  <div class="ambient-glow glow-gold"></div>
+  <div class="ambient-glow glow-cyan"></div>
+  <div class="ambient-glow glow-teal"></div>
+
+  <div class="container">
+
+    <!-- HERO SECTION -->
+    <div class="hero-section" data-aos="fade-up">
+      <div class="glass-badge">
+        <span class="pulse-dot"></span>
+        <span class="badge-text">🚀 JOIN THE ELITE TEAM</span>
+      </div>
+      <h1 class="page-title">Build Your Career at <span class="gradient-text">JAE Global</span></h1>
+      <p class="page-subtitle">
+        Work directly with top-tier Australian and UK companies. Enjoy competitive compensation, career progression, and an empowering workplace culture.
+      </p>
+    </div>
+
+    <!-- BENEFIT CARDS -->
+    <div class="benefits-grid" data-aos="fade-up" data-aos-delay="100">
+      
+      <div class="benefit-card">
+        <div class="benefit-icon">💵</div>
+        <h3 class="benefit-title">Above-Market Pay</h3>
+        <p class="benefit-text">Competitive salary packages with regular performance reviews and performance-based incentives.</p>
+      </div>
+
+      <div class="benefit-card">
+        <div class="benefit-icon">🏥</div>
+        <h3 class="benefit-title">Comprehensive HMO</h3>
+        <p class="benefit-text">Day 1 health coverage for you and your dependents to keep you and your family protected.</p>
+      </div>
+
+      <div class="benefit-card">
+        <div class="benefit-icon">⚖️</div>
+        <h3 class="benefit-title">Work-Life Balance</h3>
+        <p class="benefit-text">Real-time Australian overlap schedules with fixed weekends off and generous paid leave policies.</p>
+      </div>
+
+    </div>
+
+    <!-- OPEN POSITIONS SECTION -->
+    <div class="section-divider" data-aos="fade-up" data-aos-delay="150">
+      <h2 class="section-title">Open Opportunities</h2>
+      <p class="section-desc">Find your next role and apply to join our growing Manila team.</p>
+    </div>
+
+    <div class="jobs-grid">
+
+      <!-- JOB CARD 1 -->
+      <div class="cinematic-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="card-glow"></div>
+        <div class="card-content">
+          <div class="job-meta">
+            <span class="job-tag cyan">Full-time</span>
+            <span class="job-tag gold">Day Shift (AEST)</span>
+          </div>
+          <h3 class="card-heading">Senior Full Stack Developer</h3>
+          <p class="card-text">
+            Build and scale modern web applications for high-growth Australian tech startups. Node.js, React, and cloud architecture required.
+          </p>
+          <div class="job-action">
+            <a href="https://calendly.com" target="_blank" rel="noopener noreferrer" class="btn-apply">Apply Now →</a>
+          </div>
+          <div class="card-border-line cyan-line"></div>
+        </div>
+      </div>
+
+      <!-- JOB CARD 2 -->
+      <div class="cinematic-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="card-glow"></div>
+        <div class="card-content">
+          <div class="job-meta">
+            <span class="job-tag cyan">Full-time</span>
+            <span class="job-tag gold">Day Shift (AEST)</span>
+          </div>
+          <h3 class="card-heading">Executive Virtual Assistant</h3>
+          <p class="card-text">
+            Provide executive-level support, calendar management, and client communication for Australian business leaders.
+          </p>
+          <div class="job-action">
+            <a href="https://calendly.com" target="_blank" rel="noopener noreferrer" class="btn-apply">Apply Now →</a>
+          </div>
+          <div class="card-border-line gold-line"></div>
+        </div>
+      </div>
+
+      <!-- JOB CARD 3 -->
+      <div class="cinematic-card" data-aos="fade-up" data-aos-delay="400">
+        <div class="card-glow"></div>
+        <div class="card-content">
+          <div class="job-meta">
+            <span class="job-tag cyan">Full-time</span>
+            <span class="job-tag gold">Day Shift (AEST)</span>
+          </div>
+          <h3 class="card-heading">Digital Marketing Specialist</h3>
+          <p class="card-text">
+            Manage SEO, PPC campaigns, and content strategies for fast-scaling UK & Australian agency clients.
+          </p>
+          <div class="job-action">
+            <a href="https://calendly.com" target="_blank" rel="noopener noreferrer" class="btn-apply">Apply Now →</a>
+          </div>
+          <div class="card-border-line teal-line"></div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<style>
+  .cinematic-wrapper { position: relative; background: #020712; color: #F8FAFC; min-height: 100vh; overflow: hidden; padding: 70px 0 100px; }
+  .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 2; }
+  .ambient-glow { position: absolute; border-radius: 50%; filter: blur(140px); opacity: 0.28; pointer-events: none; animation: floatGlow 10s infinite alternate ease-in-out; }
+  .glow-gold { width: 550px; height: 550px; background: #D49B27; top: -100px; left: -100px; opacity: 0.22; }
+  .glow-cyan { width: 600px; height: 600px; background: #38BDF8; top: 30%; right: -150px; opacity: 0.2; animation-delay: -4s; }
+  .glow-teal { width: 500px; height: 500px; background: #0A8B88; bottom: -100px; left: 20%; animation-delay: -7s; }
+  @keyframes floatGlow { 0% { transform: translate(0, 0) scale(1); opacity: 0.22; } 100% { transform: translate(35px, 45px) scale(1.15); opacity: 0.35; } }
+  .hero-section { text-align: center; max-width: 860px; margin: 0 auto 50px; }
+  .glass-badge { display: inline-flex; align-items: center; gap: 10px; background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(212, 155, 39, 0.4); backdrop-filter: blur(14px); padding: 8px 20px; border-radius: 30px; margin-bottom: 22px; box-shadow: 0 0 25px rgba(212, 155, 39, 0.15); }
+  .pulse-dot { width: 8px; height: 8px; background: #D49B27; border-radius: 50%; box-shadow: 0 0 10px #D49B27; animation: blink 1.8s infinite; }
+  @keyframes blink { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.3; transform: scale(0.8); } }
+  .badge-text { color: #D49B27; font-size: 0.78rem; font-weight: 800; letter-spacing: 1.5px; }
+  .page-title { font-size: clamp(2.4rem, 4.5vw, 3.8rem); font-weight: 800; color: #FFFFFF; margin-bottom: 18px; letter-spacing: -0.5px; line-height: 1.15; }
+  .gradient-text { background: linear-gradient(135deg, #D49B27 0%, #38BDF8 50%, #2DD4BF 100%); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .page-subtitle { font-size: 1.12rem; color: #94A3B8; line-height: 1.68; }
+  
+  .benefits-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-bottom: 70px; }
+  .benefit-card { background: rgba(6, 18, 38, 0.65); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 20px; padding: 30px 24px; backdrop-filter: blur(16px); text-align: center; }
+  .benefit-icon { font-size: 2.2rem; margin-bottom: 14px; }
+  .benefit-title { font-size: 1.25rem; font-weight: 800; color: #FFFFFF; margin-bottom: 8px; }
+  .benefit-text { font-size: 0.92rem; color: #94A3B8; line-height: 1.6; }
+
+  .section-divider { text-align: center; max-width: 700px; margin: 0 auto 40px; }
+  .section-title { font-size: 2.2rem; font-weight: 800; color: #FFFFFF; margin-bottom: 8px; }
+  .section-desc { font-size: 0.98rem; color: #38BDF8; font-weight: 600; }
+
+  .jobs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+  .cinematic-card { position: relative; background: rgba(6, 18, 38, 0.65); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 24px; padding: 36px 30px; backdrop-filter: blur(20px); overflow: hidden; transition: all 0.4s ease; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4); }
+  .cinematic-card:hover { transform: translateY(-8px); border-color: rgba(56, 189, 248, 0.5); background: rgba(8, 24, 50, 0.85); box-shadow: 0 25px 60px rgba(0,0,0,0.6), 0 0 30px rgba(56,189,248,0.15); }
+  .card-glow { position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(56, 189, 248, 0.08) 0%, transparent 60%); opacity: 0; transition: opacity 0.4s ease; pointer-events: none; }
+  .cinematic-card:hover .card-glow { opacity: 1; }
+  .card-content { position: relative; z-index: 2; }
+  .job-meta { display: flex; gap: 10px; margin-bottom: 16px; }
+  .job-tag { font-size: 0.72rem; font-weight: 800; padding: 4px 12px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.8px; }
+  .job-tag.cyan { background: rgba(56, 189, 248, 0.12); color: #38BDF8; border: 1px solid rgba(56, 189, 248, 0.3); }
+  .job-tag.gold { background: rgba(212, 155, 39, 0.12); color: #D49B27; border: 1px solid rgba(212, 155, 39, 0.3); }
+  .card-heading { font-size: 1.5rem; font-weight: 800; color: #FFFFFF; margin-bottom: 12px; }
+  .card-text { font-size: 0.96rem; line-height: 1.65; color: #CBD5E1; margin-bottom: 24px; }
+  .btn-apply { display: inline-block; background: linear-gradient(135deg, #D49B27 0%, #B8821B 100%); color: #FFFFFF; font-weight: 800; padding: 10px 22px; border-radius: 10px; text-decoration: none; font-size: 0.88rem; transition: transform 0.3s ease; }
+  .btn-apply:hover { transform: translateX(4px); }
+  .card-border-line { height: 3px; width: 40px; border-radius: 2px; margin-top: 24px; transition: width 0.4s ease; }
+  .gold-line { background: linear-gradient(90deg, #D49B27, #B8821B); }
+  .cyan-line { background: linear-gradient(90deg, #38BDF8, #1E40AF); }
+  .teal-line { background: linear-gradient(90deg, #2DD4BF, #0A8B88); }
+  .cinematic-card:hover .card-border-line { width: 100%; }
+</style>
+<%- include('partials/chat-widget') %>
+<%- include('partials/footer') %>
