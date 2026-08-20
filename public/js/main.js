@@ -72,3 +72,17 @@ const observer = new IntersectionObserver((entries) => {
 
 const targetSection = document.querySelector('.reviews-hero-3d');
 if (targetSection) observer.observe(targetSection);
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Forcefully remove any scroll-locking styles injected by JS libraries
+    document.documentElement.style.overflow = 'auto';
+    document.body.style.overflow = 'auto';
+    document.body.style.position = 'static';
+    
+    // Disable wheel event hijackers
+    window.addEventListener('wheel', (e) => {
+      e.stopPropagation();
+    }, { capture: true, passive: true });
+  });
+</script>

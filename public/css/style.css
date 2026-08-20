@@ -727,3 +727,23 @@ body {
   -webkit-overflow-scrolling: touch;
   text-rendering: optimizeSpeed;
 }
+
+/* ==========================================================================
+   FORCE NATIVE SMOOTH SCROLL & DISABLE SCROLL SNAP / LOCKS
+   ========================================================================== */
+
+/* 1. Enable native CSS smooth scrolling and disable snapping */
+html, body {
+  scroll-behavior: smooth !important;
+  scroll-snap-type: none !important;
+  overscroll-behavior-y: auto !important;
+  height: auto !important;
+  min-height: 100% !important;
+}
+
+/* 2. Remove scroll snapping from sections or cards */
+*, *::before, *::after {
+  scroll-snap-align: none !important;
+  scroll-snap-stop: normal !important;
+  touch-action: auto !important; /* Prevents JS touch-hijacking on phones */
+}
