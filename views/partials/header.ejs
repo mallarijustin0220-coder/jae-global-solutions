@@ -1,6 +1,3 @@
-<!-- Include main.js if not already present in layout.ejs or footer.ejs -->
-<script src="/scripts/main.js"></script>
-
 <header class="site-header">
   <div class="nav-container">
     
@@ -35,3 +32,136 @@
 
   </div>
 </header>
+
+<style>
+  /* Header Layout */
+  .site-header {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    background: #030a16;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 9999;
+    padding: 12px 0;
+  }
+
+  .site-header .nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .site-header .nav-logo img {
+    height: 38px;
+    width: auto;
+    display: block;
+  }
+
+  .site-header .nav-mobile-controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  /* Navigation Links */
+  .site-header .nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .site-header .nav-list {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+  }
+
+  .site-header .nav-link {
+    color: #cbd5e1;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+
+  .site-header .nav-link:hover {
+    color: #38bdf8;
+  }
+
+  /* CTA Button */
+  .site-header .btn-book-call {
+    background: #0a8b88;
+    color: #ffffff;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .site-header .menu-cta-btn {
+    display: none;
+  }
+
+  /* Mobile Toggle */
+  .site-header .nav-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .site-header .hamburger-bar {
+    width: 22px;
+    height: 2px;
+    background-color: #ffffff;
+    border-radius: 2px;
+  }
+
+  /* Mobile Screen Rule (< 768px) */
+  @media screen and (max-width: 768px) {
+    .site-header .nav-toggle {
+      display: flex;
+    }
+
+    .site-header .nav-menu {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 80%;
+      max-width: 280px;
+      height: 100vh;
+      background: #020611;
+      border-left: 1px solid rgba(255, 255, 255, 0.1);
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 80px 24px 30px;
+      gap: 20px;
+      transition: right 0.3s ease;
+    }
+
+    .site-header .nav-menu.is-active {
+      right: 0;
+    }
+
+    .site-header .nav-list {
+      flex-direction: column;
+      width: 100%;
+      gap: 16px;
+    }
+
+    .site-header .menu-cta-btn {
+      display: block;
+      text-align: center;
+      width: 100%;
+    }
+  }
+</style>
