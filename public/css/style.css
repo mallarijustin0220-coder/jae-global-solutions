@@ -1,30 +1,38 @@
 /* ==========================================================================
-   BRANDED COLOR PALETTE (Extracted from JAE Logo)
+   BRANDED COLOR PALETTE & GLOBAL RESET
    ========================================================================== */
 :root {
-  --navy-primary: #0A1E3F;       /* Deep Navy from JAE letters */
-  --navy-light: #12284C;         /* Hero/Card Background Navy */
-  --teal-accent: #006B62;        /* Teal/Green from 'A' and Aspire icon */
-  --gold-primary: #D49B27;       /* Gold/Ochre from Empower icon */
-  --gold-hover: #BF871B;         /* Gold hover state */
-  --gold-light: #FBF4E4;         /* Subtle tint background */
-  --bg-light: #F8FAF9;           /* Clean Off-white */
+  --navy-primary: #0A1E3F;      /* Deep Navy from JAE letters */
+  --navy-light: #12284C;        /* Hero/Card Background Navy */
+  --teal-accent: #006B62;       /* Teal/Green from 'A' and Aspire icon */
+  --gold-primary: #D49B27;      /* Gold/Ochre from Empower icon */
+  --gold-hover: #BF871B;        /* Gold hover state */
+  --gold-light: #FBF4E4;        /* Subtle tint background */
+  --bg-light: #F8FAF9;          /* Clean Off-white */
   --card-bg: #FFFFFF;
   --text-main: #0A1E3F;          
   --text-muted: #5A6B82;         
   --border-color: #E2E8F0;
 }
 
-* {
+*, *::before, *::after {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* FIX: Kills horizontal page dragging/overflow globally */
+html, body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden !important;
+  position: relative;
 }
 
 body {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-family: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, sans-serif;
   background-color: var(--bg-light);
   color: var(--text-main);
-  margin: 0;
-  padding: 0;
   line-height: 1.5;
 }
 
@@ -32,6 +40,11 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
+  width: 100%;
+}
+
+.text-center {
+  text-align: center;
 }
 
 /* ==========================================================================
@@ -90,7 +103,7 @@ body {
   box-shadow: 0 0 6px #2DD4BF;
 }
 
-/* NAVBAR */
+/* NAVBAR HEADER */
 .navbar {
   background: rgba(10, 30, 63, 0.95);
   backdrop-filter: blur(12px);
@@ -99,13 +112,15 @@ body {
   padding: 14px 0;
   position: sticky;
   top: 0;
-  z-index: 1000;
+  z-index: 10000;
+  width: 100%;
 }
 
 .nav-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: relative;
 }
 
 .nav-logo {
@@ -216,11 +231,33 @@ body {
   font-size: 0.88rem;
   box-shadow: 0 4px 12px rgba(212, 155, 39, 0.3);
   transition: all 0.2s ease;
+  white-space: nowrap;
 }
 
 .nav-cta:hover {
   background-color: var(--gold-hover);
   transform: translateY(-1px);
+}
+
+/* Mobile Toggle Hamburger Button */
+.mobile-nav-toggle {
+  display: none;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  cursor: pointer;
+  padding: 6px 10px;
+  z-index: 10001;
+}
+
+.hamburger-bar {
+  display: block;
+  width: 22px;
+  height: 2px;
+  margin: 4px 0;
+  background: #F8FAFC;
+  border-radius: 2px;
+  transition: all 0.3s ease;
 }
 
 /* ==========================================================================
@@ -299,95 +336,8 @@ body {
 }
 
 /* ==========================================================================
-   FOOTER
+   3D REVIEWS & INTERACTIVE SECTION
    ========================================================================== */
-.footer-au {
-  background-color: var(--navy-primary);
-  color: #94a3b8;
-  padding: 60px 0 24px;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.footer-grid {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1.2fr;
-  gap: 40px;
-  margin-bottom: 48px;
-}
-
-.footer-logo {
-  font-size: 1.4rem;
-  font-weight: 800;
-  color: #ffffff;
-  text-decoration: none;
-  display: inline-block;
-  margin-bottom: 12px;
-}
-
-.footer-logo span { color: var(--gold-primary); }
-
-.footer-desc {
-  font-size: 0.9rem;
-  line-height: 1.6;
-  margin-bottom: 20px;
-  color: #cbd5e1;
-}
-
-.footer-col h4 {
-  color: #ffffff;
-  font-size: 1rem;
-  font-weight: 700;
-  margin-top: 0;
-  margin-bottom: 16px;
-}
-
-.footer-col ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.footer-col ul li { margin-bottom: 10px; }
-
-.footer-col ul a {
-  color: #94a3b8;
-  text-decoration: none;
-  font-size: 0.9rem;
-  transition: color 0.2s ease;
-}
-
-.footer-col ul a:hover { color: var(--gold-primary); }
-
-.footer-bottom {
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  padding-top: 24px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 0.85rem;
-}
-
-/* ==========================================================================
-   RESPONSIVE
-   ========================================================================== */
-@media (max-width: 900px) {
-  .props-grid { grid-template-columns: 1fr; }
-  .footer-grid { grid-template-columns: 1fr 1fr; }
-  .nav-links { display: none; }
-}
-
-/* CONTAINER & LAYOUT */
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-.text-center {
-  text-align: center;
-}
-
-/* HERO SECTION STYLES */
 .reviews-hero-3d {
   position: relative;
   padding: 120px 0 60px;
@@ -414,13 +364,6 @@ body {
   font-weight: 800;
   color: #FFFFFF;
   margin: 16px 0;
-}
-
-.hero-subtitle {
-  color: #94A3B8;
-  font-size: 1.1rem;
-  max-width: 700px;
-  margin: 0 auto 24px;
 }
 
 /* RATING SCORECARD */
@@ -476,7 +419,7 @@ body {
 /* 3D REVIEWS GRID */
 .reviews-grid-3d {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 24px;
   margin-bottom: 60px;
 }
@@ -569,7 +512,7 @@ body {
   display: none;
   align-items: center;
   justify-content: center;
-  z-index: 1000;
+  z-index: 20000;
 }
 
 .review-modal-overlay.active {
@@ -583,4 +526,138 @@ body {
   border-radius: 20px;
   width: 90%;
   max-width: 500px;
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+.footer-au {
+  background-color: var(--navy-primary);
+  color: #94a3b8;
+  padding: 60px 0 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.2fr;
+  gap: 40px;
+  margin-bottom: 48px;
+}
+
+.footer-logo {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #ffffff;
+  text-decoration: none;
+  display: inline-block;
+  margin-bottom: 12px;
+}
+
+.footer-logo span { color: var(--gold-primary); }
+
+.footer-desc {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  color: #cbd5e1;
+}
+
+.footer-col h4 {
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-col ul li { margin-bottom: 10px; }
+
+.footer-col ul a {
+  color: #94a3b8;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.2s ease;
+}
+
+.footer-col ul a:hover { color: var(--gold-primary); }
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+}
+
+/* ==========================================================================
+   FULL RESPONSIVE BREAKPOINTS
+   ========================================================================== */
+@media (max-width: 900px) {
+  .props-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+
+  /* Mobile Drawer Menu Setup */
+  .mobile-nav-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background: var(--navy-primary);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    flex-direction: column;
+    padding: 20px;
+    gap: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+  }
+
+  .nav-links.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  .dropdown-menu {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    box-shadow: none;
+    background: rgba(255, 255, 255, 0.05);
+    margin-top: 8px;
+  }
+
+  .top-bar-container {
+    flex-direction: column;
+    gap: 6px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer-grid { grid-template-columns: 1fr; }
+  .footer-bottom { 
+    flex-direction: column; 
+    gap: 12px; 
+    text-align: center; 
+  }
+  .hero-au h1 { font-size: 2.2rem; }
+  .hero-title { font-size: 2rem; }
 }
