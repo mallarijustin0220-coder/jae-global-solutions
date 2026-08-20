@@ -680,22 +680,34 @@ body {
   .hero-title { font-size: 1.8rem; }
 }
 
-/* NUCLEAR FIX: Completely remove all scrollbars except the primary window */
-*:not(html):not(body):not(.review-modal-overlay) {
-  overflow: visible !important;
-  overflow-x: visible !important;
-  overflow-y: visible !important;
-}
-
-html {
-  overflow-x: hidden !important;
-  overflow-y: auto !important;
-  height: 100% !important;
-}
-
-body {
-  overflow-x: hidden !important;
-  overflow-y: visible !important;
+/* FORCE HIDE ALL SECONDARY SCROLLBARS */
+html, body {
+  width: 100% !important;
   height: auto !important;
   min-height: 100% !important;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+}
+
+/* Strip inner scrollbars across all browsers */
+* {
+  scrollbar-width: none !important; /* Firefox */
+  -ms-overflow-style: none !important; /* IE/Edge */
+}
+
+*::-webkit-scrollbar {
+  display: none !important; /* Chrome, Safari, Opera */
+  width: 0 !important;
+  height: 0 !important;
+}
+
+/* Restore main browser scrollbar only on html */
+html::-webkit-scrollbar {
+  display: block !important;
+  width: 8px !important;
+}
+
+html::-webkit-scrollbar-thumb {
+  background: var(--navy-primary) !important;
+  border-radius: 4px !important;
 }
