@@ -680,33 +680,22 @@ body {
   .hero-title { font-size: 1.8rem; }
 }
 
-/* ==========================================================================
-   PERFECT SINGLE SCROLLBAR FIX
-   ========================================================================== */
-
-/* 1. Reset root containers to standard page height */
-html {
-  height: 100%;
-  overflow-x: hidden;
-  overflow-y: scroll; /* Force standard main browser scrollbar */
-}
-
-body {
-  min-height: 100%;
-  height: auto !important;
-  overflow-x: hidden;
-  overflow-y: visible !important; /* Prevents body from trapping a second scrollbar */
-  position: relative;
-}
-
-/* 2. Strip ALL nested overflows across every div/section */
-body * {
+/* NUCLEAR FIX: Completely remove all scrollbars except the primary window */
+*:not(html):not(body):not(.review-modal-overlay) {
+  overflow: visible !important;
+  overflow-x: visible !important;
   overflow-y: visible !important;
 }
 
-/* 3. Allow only popups/modals to handle their own overflow if needed */
-.review-modal-overlay,
-.dropdown-menu,
-.nav-links {
+html {
+  overflow-x: hidden !important;
   overflow-y: auto !important;
+  height: 100% !important;
+}
+
+body {
+  overflow-x: hidden !important;
+  overflow-y: visible !important;
+  height: auto !important;
+  min-height: 100% !important;
 }
