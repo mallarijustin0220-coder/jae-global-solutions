@@ -55,3 +55,20 @@ document.addEventListener('click', function (e) {
     }
   }
 });
+
+// Cap pixel ratio to 1.5 max (avoids 4K rendering lag on phones/laptops)
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
+
+// Pause 3D animation loop when user scrolls away from the section
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      animate(); // Start animation loop when visible
+    } else {
+      cancelAnimationFrame(animationFrameId); // Pause loop off-screen
+    }
+  });
+});
+
+const targetSection = document.querySelector('.reviews-hero-3d');
+if (targetSection) observer.observe(targetSection);

@@ -711,3 +711,19 @@ html::-webkit-scrollbar-thumb {
   background: var(--navy-primary) !important;
   border-radius: 4px !important;
 }
+
+/* Enable GPU Acceleration on heavy sections */
+.hero-au, 
+.reviews-hero-3d, 
+#reviews-canvas-3d,
+.navbar {
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Optimize smooth rendering for webkit browsers */
+body {
+  -webkit-overflow-scrolling: touch;
+  text-rendering: optimizeSpeed;
+}
