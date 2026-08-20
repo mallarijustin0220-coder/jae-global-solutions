@@ -680,12 +680,33 @@ body {
   .hero-title { font-size: 1.8rem; }
 }
 
-/* REMOVE SECONDARY SCROLLBAR Completely */
+/* ==========================================================================
+   PERFECT SINGLE SCROLLBAR FIX
+   ========================================================================== */
+
+/* 1. Reset root containers to standard page height */
+html {
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: scroll; /* Force standard main browser scrollbar */
+}
+
+body {
+  min-height: 100%;
+  height: auto !important;
+  overflow-x: hidden;
+  overflow-y: visible !important; /* Prevents body from trapping a second scrollbar */
+  position: relative;
+}
+
+/* 2. Strip ALL nested overflows across every div/section */
 body * {
   overflow-y: visible !important;
 }
 
-html, body {
+/* 3. Allow only popups/modals to handle their own overflow if needed */
+.review-modal-overlay,
+.dropdown-menu,
+.nav-links {
   overflow-y: auto !important;
-  height: auto !important;
 }
