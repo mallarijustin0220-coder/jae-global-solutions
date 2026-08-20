@@ -842,3 +842,33 @@ html, body {
     word-break: break-all !important; /* Fixes long emails like admin@jaeglobalsolutions.com pushing the screen wide */
   }
 }
+
+/* ==========================================================================
+   FORCE GLASS CARD & CONTACT FORM RESPONSIVENESS
+   ========================================================================== */
+@media screen and (max-width: 768px) {
+  .contact-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 10px !important;
+    margin: 0 auto !important;
+    box-sizing: border-box !important;
+  }
+
+  .glass-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 1.25rem !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Force all inputs and form fields inside glass-card to shrink */
+  .glass-card input,
+  .glass-card textarea,
+  .glass-card select,
+  .glass-card .btn-submit-3d {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+}
