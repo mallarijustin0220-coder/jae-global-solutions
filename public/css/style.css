@@ -679,3 +679,35 @@ body {
   .hero-au h1 { font-size: 2rem; }
   .hero-title { font-size: 1.8rem; }
 }
+
+/* ==========================================================================
+   FORCE SINGLE SCROLLBAR (KILL NESTED OVERFLOWS & STOPPERS)
+   ========================================================================== */
+html, body {
+  width: 100% !important;
+  max-width: 100vw !important;
+  min-height: 100% !important;
+  height: auto !important;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  position: relative;
+}
+
+/* Kills double scrollbars from hero sections, 3D canvases, or full-screen wrappers */
+.hero-au, 
+.reviews-hero-3d, 
+#reviews-canvas-3d,
+main,
+section,
+div {
+  max-width: 100vw !important;
+  overflow-x: hidden !important;
+}
+
+/* Ensure no inner container locks height to viewport */
+.hero-au, 
+.reviews-hero-3d {
+  height: auto !important;
+  min-height: 100vh;
+  overflow-y: visible !important;
+}
