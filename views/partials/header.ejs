@@ -26,12 +26,16 @@
       font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
       background: #030A16;
       color: #F8FAFC;
+      /* ADDED: Padding to prevent content from hiding behind the fixed header */
+      padding-top: 80px; 
     }
 
     /* 4D Multi-Layer Animated Navbar Container */
     .site-header {
-      position: sticky;
+      position: fixed; /* CHANGED FROM STICKY TO FIXED */
       top: 0;
+      left: 0;
+      width: 100%; /* REQUIRED FOR FIXED POSITION */
       z-index: 10000;
       padding: 14px 0;
       background: linear-gradient(135deg, rgba(3, 10, 22, 0.88), rgba(10, 25, 47, 0.75), rgba(3, 10, 22, 0.92));
@@ -44,7 +48,6 @@
         0 15px 35px -10px rgba(0, 0, 0, 0.8),
         inset 0 1px 1px rgba(255, 255, 255, 0.15),
         0 4px 20px rgba(56, 189, 248, 0.08);
-      /* FIX: Removed overflow: hidden so mobile dropdown isn't clipped */
     }
 
     /* 4D Background Shifting Keyframes */
@@ -171,7 +174,6 @@
       position: relative;
     }
 
-    /* Fixed hover state: No translateY motion */
     .nav-link:hover, .nav-link.active {
       color: #38BDF8;
       background: rgba(56, 189, 248, 0.1);
@@ -270,7 +272,7 @@
         box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9), 0 0 30px rgba(56, 189, 248, 0.25);
         opacity: 0;
         visibility: hidden;
-        pointer-events: none; /* FIX: Prevent blocking clicks when closed */
+        pointer-events: none;
         transform: translateY(-10px);
         transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
         z-index: 99999;
@@ -279,7 +281,7 @@
       .nav-menu.active {
         opacity: 1;
         visibility: visible;
-        pointer-events: auto; /* FIX: Enable interaction when open */
+        pointer-events: auto;
         transform: translateY(0);
       }
 
