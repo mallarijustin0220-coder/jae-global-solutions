@@ -1,13 +1,24 @@
 <header class="site-header">
   <div class="nav-container">
     
-    <!-- BRAND LOGO WITH TEXT FALLBACK -->
+    <!-- BRAND LOGO -->
     <a href="/" class="nav-logo">
-      <img src="/images/logo.png" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" alt="JAE Global Solutions" />
-      <span class="logo-fallback-text" style="display:none;">JAE GLOBAL</span>
+      <img src="/images/logo.png" alt="JAE Global Solutions Logo" />
     </a>
 
-    <!-- DESKTOP NAV MENU / MOBILE SLIDE-OUT DRAWER -->
+    <!-- ORIGINAL MOBILE-ORDER RIGHT CONTROLS WRAPPER (Now enforced rigid spacing) -->
+    <div class="nav-mobile-right">
+      <a href="/contact" class="btn-book-call header-cta">Book Call →</a>
+
+      <!-- HAMBURGER / CLOSE TOGGLE (Always visible in this layout structure) -->
+      <button class="nav-toggle" id="nav-toggle-btn" aria-label="Toggle navigation">
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+      </button>
+    </div>
+
+    <!-- MAIN NAVIGATION LINKS (Retained on the right in this layout structure) -->
     <nav class="nav-menu" id="nav-menu">
       <ul class="nav-list">
         <li><a href="/" class="nav-link">Home</a></li>
@@ -15,234 +26,223 @@
         <li><a href="/about" class="nav-link">About Us</a></li>
         <li><a href="/reviews" class="nav-link">Reviews</a></li>
       </ul>
-      <a href="/contact" class="btn-book-call mobile-drawer-cta">Book Call →</a>
+      <!-- Mobile CTA container (Hidden when menu is active in this structure) -->
+      <div class="menu-cta-container">
+        <a href="/contact" class="btn-book-call menu-cta">Book Call →</a>
+      </div>
     </nav>
-
-    <!-- RIGHT CONTROLS -->
-    <div class="nav-actions">
-      <a href="/contact" class="btn-book-call desktop-cta">Book Call →</a>
-
-      <!-- HAMBURGER BUTTON -->
-      <button class="nav-toggle" id="nav-toggle-btn" type="button" aria-label="Toggle Navigation">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </button>
-    </div>
 
   </div>
 </header>
 
-<style id="header-scoped-styles">
-  /* BOX-SIZING & BASE SCOPING */
-  .site-header, .site-header * {
-    box-sizing: border-box !important;
-    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif !important;
-  }
-
+<style>
+  /* Base Desktop Styles (Enforced non-responsive flex) */
   .site-header {
-    position: sticky !important;
-    top: 0 !important;
-    width: 100% !important;
-    background: rgba(3, 10, 22, 0.95) !important;
-    backdrop-filter: blur(12px) !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
-    z-index: 9999 !important;
-    padding: 14px 0 !important;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    background: rgba(3, 10, 22, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    z-index: 1000;
+    padding: 10px 0;
+    box-sizing: border-box;
   }
 
-  .site-header .nav-container {
-    max-width: 1200px !important;
-    margin: 0 auto !important;
-    padding: 0 24px !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: space-between !important;
-    width: 100% !important;
+  .nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    box-sizing: border-box;
   }
 
-  /* LOGO AREA */
-  .site-header .nav-logo {
-    display: flex !important;
-    align-items: center !important;
-    text-decoration: none !important;
+  .nav-logo img {
+    height: 36px;
+    width: auto;
+    display: block;
+    object-fit: contain;
   }
 
-  .site-header .nav-logo img {
-    height: 38px !important;
-    width: auto !important;
-    max-width: 180px !important;
-    object-fit: contain !important;
-    display: block !important;
+  /* Right-Floating Control Group (Retained mobile positioning structure) */
+  .nav-mobile-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
   }
 
-  .site-header .logo-fallback-text {
-    color: #ffffff !important;
-    font-weight: 800 !important;
-    font-size: 1.2rem !important;
-    letter-spacing: 1px !important;
+  /* Base Navigation Styles */
+  .nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 32px;
   }
 
-  /* DESKTOP NAV */
-  .site-header .nav-menu {
-    display: flex !important;
-    align-items: center !important;
+  .nav-list {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
   }
 
-  .site-header .nav-list {
-    display: flex !important;
-    flex-direction: row !important;
-    list-style: none !important;
-    gap: 32px !important;
-    margin: 0 !important;
-    padding: 0 !important;
+  .nav-link {
+    color: #CBD5E1;
+    text-decoration: none;
+    font-size: 0.88rem;
+    font-weight: 500;
+    transition: color 0.2s ease;
   }
 
-  .site-header .nav-link {
-    color: #cbd5e1 !important;
-    text-decoration: none !important;
-    font-size: 0.95rem !important;
-    font-weight: 500 !important;
-    transition: color 0.2s ease !important;
+  .nav-link:hover {
+    color: #38BDF8;
   }
 
-  .site-header .nav-link:hover {
-    color: #38bdf8 !important;
+  /* CTA Button Base Styles */
+  .btn-book-call {
+    background: linear-gradient(135deg, #0A8B88, #38BDF8);
+    color: #FFF;
+    padding: 7px 14px;
+    border-radius: 20px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: all 0.2s ease;
   }
 
-  .site-header .mobile-drawer-cta {
-    display: none !important;
+  .btn-book-call:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(56, 189, 248, 0.4);
   }
 
-  /* RIGHT CTA & TOGGLE */
-  .site-header .nav-actions {
-    display: flex !important;
-    align-items: center !important;
-    gap: 16px !important;
+  .menu-cta-container {
+    display: none;
   }
 
-  .site-header .btn-book-call {
-    background: linear-gradient(135deg, #0a8b88, #38bdf8) !important;
-    color: #ffffff !important;
-    padding: 9px 20px !important;
-    border-radius: 20px !important;
-    font-size: 0.85rem !important;
-    font-weight: 700 !important;
-    text-decoration: none !important;
-    white-space: nowrap !important;
-    display: inline-block !important;
-    border: none !important;
+  /* Toggle Button Styles (Always display in this structure) */
+  .nav-toggle {
+    display: flex;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    flex-direction: column;
+    gap: 4px;
+    z-index: 1001;
   }
 
-  .site-header .nav-toggle {
-    display: none !important;
-    background: transparent !important;
-    border: none !important;
-    cursor: pointer !important;
-    padding: 4px !important;
-    flex-direction: column !important;
-    gap: 5px !important;
+  .hamburger-bar {
+    width: 20px;
+    height: 2px;
+    background-color: #FFF;
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
   }
 
-  .site-header .bar {
-    width: 24px !important;
-    height: 2px !important;
-    background-color: #ffffff !important;
-    border-radius: 2px !important;
-    transition: all 0.3s ease !important;
-  }
-
-  /* MOBILE RESPONSIVE RULES (< 768px) */
-  @media screen and (max-width: 768px) {
-    .site-header .nav-toggle {
-      display: flex !important;
+  /* ENFORCED NON-RESPONSIVE MEDIA QUERY (<768px) */
+  @media (max-width: 768px) {
+    /* Keep the toggle button working, but enforce standard sizing and spacing */
+    .nav-toggle {
+      display: flex;
     }
 
-    .site-header .desktop-cta {
-      display: none !important;
+    /* Prevent text and elements from collapsing into each other */
+    .nav-link, .btn-book-call, .nav-logo img {
+      white-space: nowrap;
     }
 
-    .site-header .nav-menu {
-      position: fixed !important;
-      top: 0 !important;
-      right: -100% !important;
-      width: 78% !important;
-      max-width: 300px !important;
-      height: 100vh !important;
-      background: #020611 !important;
-      border-left: 1px solid rgba(255, 255, 255, 0.1) !important;
-      flex-direction: column !important;
-      align-items: flex-start !important;
-      padding: 90px 24px 40px !important;
-      gap: 24px !important;
-      transition: right 0.3s ease-in-out !important;
-      box-shadow: -10px 0 30px rgba(0, 0, 0, 0.8) !important;
+    .site-header .header-cta {
+      padding: 6px 12px;
+      font-size: 0.72rem;
     }
 
-    .site-header .nav-menu.is-active {
-      right: 0 !important;
+    /* Handle Active Mobile Menu State based on this structure */
+    .nav-menu.is-active {
+      display: flex;
+      flex-direction: column;
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 75%;
+      max-width: 280px;
+      height: 100vh;
+      background: #020611;
+      border-left: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 70px 20px 30px;
+      gap: 20px;
+      box-shadow: -10px 0 30px rgba(0, 0, 0, 0.8);
+      z-index: 1000;
     }
 
-    .site-header .nav-list {
-      flex-direction: column !important;
-      width: 100% !important;
-      gap: 18px !important;
+    .nav-menu.is-active .nav-list {
+      flex-direction: column;
+      width: 100%;
+      gap: 12px;
     }
 
-    .site-header .nav-link {
-      font-size: 1.1rem !important;
-      display: block !important;
+    .nav-menu.is-active .nav-link {
+      font-size: 1rem;
+      padding: 6px 0;
+      display: block;
     }
 
-    .site-header .mobile-drawer-cta {
-      display: block !important;
-      width: 100% !important;
-      text-align: center !important;
-      margin-top: 12px !important;
+    .nav-menu.is-active .menu-cta-container {
+      display: block;
+      width: 100%;
+      margin-top: 10px;
     }
 
-    /* HAMBURGER TRANSFORMATION */
-    .site-header .nav-toggle.is-active .bar:nth-child(1) {
-      transform: translateY(7px) rotate(45deg) !important;
+    .nav-menu.is-active .menu-cta {
+      display: block;
+      text-align: center;
+      width: 100%;
+      padding: 10px 0;
+      box-sizing: border-box;
     }
-    .site-header .nav-toggle.is-active .bar:nth-child(2) {
-      opacity: 0 !important;
+
+    /* HAMBURGER TO X ANIMATION (Works on smaller screen widths with rigid containment) */
+    .nav-toggle.is-active .hamburger-bar:nth-child(1) {
+      transform: translateY(6px) rotate(45deg);
     }
-    .site-header .nav-toggle.is-active .bar:nth-child(3) {
-      transform: translateY(-7px) rotate(-45deg) !important;
+
+    .nav-toggle.is-active .hamburger-bar:nth-child(2) {
+      opacity: 0;
+    }
+
+    .nav-toggle.is-active .hamburger-bar:nth-child(3) {
+      transform: translateY(-6px) rotate(-45deg);
     }
   }
 </style>
 
 <script>
-  // GLOBAL DELEGATED SCRIPT TO SUPPORT CLIENT-SIDE PAGE TRANSITIONS
-  (function() {
-    if (window.__hdr_init) return;
-    window.__hdr_init = true;
+  function initHeaderMenuToggle() {
+    const toggleBtn = document.getElementById('nav-toggle-btn');
+    const navMenu = document.getElementById('nav-menu');
 
-    document.addEventListener('click', function (e) {
-      const toggleBtn = e.target.closest('#nav-toggle-btn');
-      const navMenu = document.getElementById('nav-menu');
-      const activeBtn = document.getElementById('nav-toggle-btn');
-
-      if (toggleBtn && navMenu) {
+    if (toggleBtn && navMenu) {
+      toggleBtn.onclick = () => {
         toggleBtn.classList.toggle('is-active');
         navMenu.classList.toggle('is-active');
-        return;
-      }
+      };
 
-      if (e.target.closest('.nav-link') && navMenu && activeBtn) {
-        navMenu.classList.remove('is-active');
-        activeBtn.classList.remove('is-active');
-        return;
-      }
-
-      if (navMenu && navMenu.classList.contains('is-active')) {
-        if (!e.target.closest('.site-header')) {
+      // Ensure menu closes when clicking a navigation link
+      document.querySelectorAll('.nav-link').forEach(link => {
+        link.onclick = () => {
+          toggleBtn.classList.remove('is-active');
           navMenu.classList.remove('is-active');
-          if (activeBtn) activeBtn.classList.remove('is-active');
-        }
-      }
-    });
-  })();
+        };
+      });
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', initHeaderMenuToggle);
+  // Ensure function works across client-side page transitions
+  if (typeof swup !== 'undefined') {
+    swup.hooks.on('page:view', initHeaderMenuToggle);
+  }
 </script>
