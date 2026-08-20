@@ -77,27 +77,27 @@
     margin-bottom: 30px;
   }
 
-.info-tile {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  padding: 16px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 14px;
-  margin-bottom: 16px;
-}
-
-.info-tile > div:last-child {
-  flex: 1;
-  min-width: 0;
-  overflow-wrap: break-word;
-}
+/* =========================================
+     BULLETPROOF INFO TILE LAYOUT (GRID)
+     ========================================= */
+  .info-tile {
+    display: grid !important;
+    grid-template-columns: 44px minmax(0, 1fr) !important;
+    align-items: center;
+    gap: 16px;
+    padding: 16px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    margin-bottom: 16px;
+    width: 100%;
+  }
 
   .info-icon {
-    width: 44px;
-    height: 44px;
-    flex-shrink: 0;
+    width: 44px !important;
+    height: 44px !important;
+    min-width: 44px !important;
+    max-width: 44px !important;
     border-radius: 12px;
     background: linear-gradient(135deg, #0A8B88, #38BDF8);
     display: flex;
@@ -105,6 +105,14 @@
     justify-content: center;
     font-size: 1.2rem;
     box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3);
+    margin: 0;
+    padding: 0;
+  }
+
+  .info-tile > div:last-child {
+    word-break: break-word !important;
+    overflow-wrap: anywhere !important;
+    min-width: 0; 
   }
 
   .form-group {
