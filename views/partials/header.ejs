@@ -1,12 +1,8 @@
 <header class="site-header">
   <div class="nav-container">
     
-    <!-- BRAND LOGO -->
-    <a href="/" class="nav-logo">
-      <img src="/images/logo.png" alt="JAE Global Solutions" />
-    </a>
+    <a href="/" class="brand-text">JAE GLOBAL</a>
 
-    <!-- DESKTOP NAV LINKS -->
     <nav class="nav-menu" id="nav-menu">
       <ul class="nav-list">
         <li><a href="/" class="nav-link">Home</a></li>
@@ -14,15 +10,12 @@
         <li><a href="/about" class="nav-link">About Us</a></li>
         <li><a href="/reviews" class="nav-link">Reviews</a></li>
       </ul>
-      <!-- CTA shown inside mobile drawer only -->
       <a href="/contact" class="btn-book-call mobile-drawer-cta">Book Call →</a>
     </nav>
 
-    <!-- RIGHT ACTION AREA -->
     <div class="nav-actions">
       <a href="/contact" class="btn-book-call desktop-cta">Book Call →</a>
 
-      <!-- MOBILE HAMBURGER BUTTON -->
       <button class="nav-toggle" id="nav-toggle-btn" type="button" aria-label="Toggle Navigation">
         <span class="bar"></span>
         <span class="bar"></span>
@@ -34,157 +27,164 @@
 </header>
 
 <style>
-  /* --- BASE HEADER --- */
+  /* RESET & CONTAINER */
+  .site-header * {
+    box-sizing: border-box !important;
+    font-family: system-ui, -apple-system, sans-serif !important;
+  }
+
   .site-header {
-    position: sticky;
-    top: 0;
-    width: 100%;
-    background: #030a16;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    z-index: 9999;
-    padding: 14px 0;
+    position: sticky !important;
+    top: 0 !important;
+    width: 100% !important;
+    background: #030a16 !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+    z-index: 9999 !important;
+    padding: 16px 0 !important;
   }
 
   .site-header .nav-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 24px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+    padding: 0 24px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
   }
 
-  .site-header .nav-logo img {
-    height: 36px;
-    width: auto;
-    display: block;
+  /* BRAND TEXT */
+  .site-header .brand-text {
+    color: #ffffff !important;
+    font-weight: 800 !important;
+    font-size: 1.2rem !important;
+    letter-spacing: 1px !important;
+    text-decoration: none !important;
+    white-space: nowrap !important;
   }
 
-  /* --- DESKTOP NAV MENU --- */
+  /* DESKTOP NAV */
   .site-header .nav-menu {
-    display: flex;
-    align-items: center;
+    display: flex !important;
+    align-items: center !important;
   }
 
   .site-header .nav-list {
-    display: flex;
-    list-style: none;
-    gap: 32px;
-    margin: 0;
-    padding: 0;
+    display: flex !important;
+    list-style: none !important;
+    gap: 32px !important;
+    margin: 0 !important;
+    padding: 0 !important;
   }
 
   .site-header .nav-link {
-    color: #cbd5e1;
-    text-decoration: none;
-    font-size: 0.95rem;
-    font-weight: 500;
-    transition: color 0.2s ease;
+    color: #cbd5e1 !important;
+    text-decoration: none !important;
+    font-size: 0.95rem !important;
+    font-weight: 500 !important;
   }
 
   .site-header .nav-link:hover {
-    color: #38bdf8;
+    color: #38bdf8 !important;
   }
 
   .site-header .mobile-drawer-cta {
-    display: none;
+    display: none !important;
   }
 
-  /* --- RIGHT ACTIONS (CTA & TOGGLE) --- */
+  /* RIGHT BUTTON & TOGGLE */
   .site-header .nav-actions {
-    display: flex;
-    align-items: center;
-    gap: 12px;
+    display: flex !important;
+    align-items: center !important;
+    gap: 16px !important;
   }
 
   .site-header .btn-book-call {
-    background: linear-gradient(135deg, #0a8b88, #38bdf8);
-    color: #ffffff;
-    padding: 9px 20px;
-    border-radius: 20px;
-    font-size: 0.85rem;
-    font-weight: 700;
-    text-decoration: none;
-    white-space: nowrap;
+    background: #0a8b88 !important;
+    color: #ffffff !important;
+    padding: 9px 20px !important;
+    border-radius: 20px !important;
+    font-size: 0.85rem !important;
+    font-weight: 700 !important;
+    text-decoration: none !important;
+    white-space: nowrap !important;
+    display: inline-block !important;
   }
 
   .site-header .nav-toggle {
-    display: none;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 4px;
-    flex-direction: column;
-    gap: 5px;
+    display: none !important;
+    background: transparent !important;
+    border: none !important;
+    cursor: pointer !important;
+    padding: 4px !important;
+    flex-direction: column !important;
+    gap: 5px !important;
   }
 
   .site-header .bar {
-    width: 24px;
-    height: 2px;
-    background-color: #ffffff;
-    border-radius: 2px;
-    transition: all 0.3s ease;
+    width: 24px !important;
+    height: 2px !important;
+    background-color: #ffffff !important;
+    border-radius: 2px !important;
   }
 
-  /* --- MOBILE RESPONSIVE (MAX-WIDTH: 768PX) --- */
+  /* MOBILE RESPONSIVE LAYOUT (< 768px) */
   @media screen and (max-width: 768px) {
     .site-header .nav-toggle {
-      display: flex;
+      display: flex !important;
     }
 
     .site-header .desktop-cta {
-      display: none;
+      display: none !important;
     }
 
     .site-header .nav-menu {
-      position: fixed;
-      top: 0;
-      right: -100%;
-      width: 75%;
-      max-width: 300px;
-      height: 100vh;
-      background: #020611;
-      border-left: 1px solid rgba(255, 255, 255, 0.1);
-      flex-direction: column;
-      align-items: flex-start;
-      padding: 90px 24px 40px;
-      gap: 24px;
-      transition: right 0.3s ease-in-out;
-      box-shadow: -10px 0 30px rgba(0, 0, 0, 0.8);
+      position: fixed !important;
+      top: 0 !important;
+      right: -100% !important;
+      width: 75% !important;
+      max-width: 300px !important;
+      height: 100vh !important;
+      background: #020611 !important;
+      border-left: 1px solid rgba(255, 255, 255, 0.1) !important;
+      flex-direction: column !important;
+      align-items: flex-start !important;
+      padding: 90px 24px 40px !important;
+      gap: 24px !important;
+      transition: right 0.3s ease-in-out !important;
+      box-shadow: -10px 0 30px rgba(0, 0, 0, 0.8) !important;
     }
 
     .site-header .nav-menu.is-active {
-      right: 0;
+      right: 0 !important;
     }
 
     .site-header .nav-list {
-      flex-direction: column;
-      width: 100%;
-      gap: 18px;
+      flex-direction: column !important;
+      width: 100% !important;
+      gap: 18px !important;
     }
 
     .site-header .nav-link {
-      font-size: 1.1rem;
-      display: block;
+      font-size: 1.1rem !important;
+      display: block !important;
     }
 
     .site-header .mobile-drawer-cta {
-      display: block;
-      width: 100%;
-      text-align: center;
-      box-sizing: border-box;
-      margin-top: 12px;
+      display: block !important;
+      width: 100% !important;
+      text-align: center !important;
+      margin-top: 12px !important;
     }
 
-    /* HAMBURGER TRANSFORMATION TO X */
+    /* HAMBURGER ANIMATION TO X */
     .site-header .nav-toggle.is-active .bar:nth-child(1) {
-      transform: translateY(7px) rotate(45deg);
+      transform: translateY(7px) rotate(45deg) !important;
     }
     .site-header .nav-toggle.is-active .bar:nth-child(2) {
-      opacity: 0;
+      opacity: 0 !important;
     }
     .site-header .nav-toggle.is-active .bar:nth-child(3) {
-      transform: translateY(-7px) rotate(-45deg);
+      transform: translateY(-7px) rotate(-45deg) !important;
     }
   }
 </style>
