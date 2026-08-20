@@ -62,10 +62,6 @@
     width: 100%;
   }
 
-  .glass-card:hover {
-    box-shadow: 0 30px 60px -10px rgba(0, 0, 0, 0.7), 0 0 30px rgba(56, 189, 248, 0.25);
-  }
-
   .contact-info-panel h1 {
     font-size: 2.5rem;
     font-weight: 800;
@@ -111,7 +107,7 @@
     width: 100%;
   }
 
-  .form-group label {
+  .form-group label.main-label {
     display: block;
     font-size: 0.85rem;
     font-weight: 700;
@@ -145,31 +141,69 @@
     min-height: 100px;
   }
 
-  /* CATEGORIZED MULTI-SELECT ROLES */
+  /* =========================================
+     ACCORDION MULTI-SELECT ROLES
+     ========================================= */
   .category-group {
-    margin-bottom: 16px;
+    margin-bottom: 12px;
     padding: 12px;
     background: rgba(3, 10, 22, 0.4);
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 12px;
+    transition: background 0.3s ease;
   }
 
-  .category-title {
-    font-size: 0.8rem;
+  .category-toggle {
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 4px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    font-size: 0.85rem;
     font-weight: 800;
     color: #D49B27;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    margin-bottom: 10px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
+    font-family: inherit;
+    text-align: left;
+  }
+
+  .category-toggle:focus {
+    outline: none;
+  }
+
+  .toggle-icon {
+    font-size: 1.4rem;
+    font-weight: 300;
+    color: #38BDF8;
+    transition: transform 0.3s ease;
+    line-height: 1;
+  }
+
+  /* Rotate icon when active */
+  .category-toggle.active .toggle-icon {
+    transform: rotate(45deg);
   }
 
   .roles-grid {
-    display: grid;
+    display: none; /* Hidden initially */
     grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
     gap: 8px;
+    margin-top: 16px;
+    animation: slideDown 0.3s ease forwards;
+  }
+
+  /* Show grid when active class is applied via JS */
+  .roles-grid.active {
+    display: grid;
+  }
+
+  @keyframes slideDown {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
   }
 
   .checkbox-pill {
@@ -196,6 +230,7 @@
     font-size: 0.82rem;
     color: #94A3B8;
     font-weight: 600;
+    text-transform: none;
   }
 
   .checkbox-pill:has(input:checked) {
@@ -311,27 +346,30 @@
 
       <form action="/contact" method="POST">
         <div class="form-group">
-          <label for="fullName">Full Name *</label>
+          <label class="main-label" for="fullName">Full Name *</label>
           <input type="text" id="fullName" name="fullName" class="form-control" placeholder="e.g. John Doe" required>
         </div>
 
         <div class="form-group">
-          <label for="companyName">Company Name</label>
+          <label class="main-label" for="companyName">Company Name</label>
           <input type="text" id="companyName" name="companyName" class="form-control" placeholder="e.g. Acme Corp">
         </div>
 
         <div class="form-group">
-          <label for="businessEmail">Business Email *</label>
+          <label class="main-label" for="businessEmail">Business Email *</label>
           <input type="email" id="businessEmail" name="businessEmail" class="form-control" placeholder="name@company.com" required>
         </div>
 
-        <!-- CATEGORIZED MULTI-SELECT ROLES -->
+        <!-- CATEGORIZED MULTI-SELECT ACCORDION -->
         <div class="form-group">
-          <label>Services & Roles Required (Select all that apply)</label>
+          <label class="main-label">Services & Roles Required (Select all that apply)</label>
           
           <!-- Customer Support & Sales -->
           <div class="category-group">
-            <div class="category-title">🎧 Customer Support & Sales</div>
+            <button type="button" class="category-toggle" onclick="toggleRoles(this)">
+              <span>🎧 Customer Support & Sales</span>
+              <span class="toggle-icon">+</span>
+            </button>
             <div class="roles-grid">
               <label class="checkbox-pill">
                 <input type="checkbox" name="serviceRequired" value="Customer Service Representative">
@@ -350,7 +388,10 @@
 
           <!-- Administrative Support -->
           <div class="category-group">
-            <div class="category-title">📁 Administrative Support</div>
+            <button type="button" class="category-toggle" onclick="toggleRoles(this)">
+              <span>📁 Administrative Support</span>
+              <span class="toggle-icon">+</span>
+            </button>
             <div class="roles-grid">
               <label class="checkbox-pill">
                 <input type="checkbox" name="serviceRequired" value="Virtual Assistant">
@@ -365,7 +406,10 @@
 
           <!-- IT & Software -->
           <div class="category-group">
-            <div class="category-title">💻 IT & Software</div>
+            <button type="button" class="category-toggle" onclick="toggleRoles(this)">
+              <span>💻 IT & Software</span>
+              <span class="toggle-icon">+</span>
+            </button>
             <div class="roles-grid">
               <label class="checkbox-pill">
                 <input type="checkbox" name="serviceRequired" value="Software Developer">
@@ -380,7 +424,10 @@
 
           <!-- Creative Services -->
           <div class="category-group">
-            <div class="category-title">🎨 Creative Services</div>
+            <button type="button" class="category-toggle" onclick="toggleRoles(this)">
+              <span>🎨 Creative Services</span>
+              <span class="toggle-icon">+</span>
+            </button>
             <div class="roles-grid">
               <label class="checkbox-pill">
                 <input type="checkbox" name="serviceRequired" value="Graphic Designer">
@@ -399,7 +446,10 @@
 
           <!-- Finance -->
           <div class="category-group">
-            <div class="category-title">📊 Finance</div>
+            <button type="button" class="category-toggle" onclick="toggleRoles(this)">
+              <span>📊 Finance</span>
+              <span class="toggle-icon">+</span>
+            </button>
             <div class="roles-grid">
               <label class="checkbox-pill">
                 <input type="checkbox" name="serviceRequired" value="Bookkeeper">
@@ -422,7 +472,10 @@
 
           <!-- Other Services / Bespoke Roles -->
           <div class="category-group">
-            <div class="category-title">🚀 Other Services / Bespoke Roles</div>
+            <button type="button" class="category-toggle" onclick="toggleRoles(this)">
+              <span>🚀 Other Services / Bespoke Roles</span>
+              <span class="toggle-icon">+</span>
+            </button>
             <div class="roles-grid">
               <label class="checkbox-pill">
                 <input type="checkbox" name="serviceRequired" value="Bespoke / Custom Role">
@@ -434,7 +487,7 @@
         </div>
 
         <div class="form-group">
-          <label for="description">Message / Staffing Needs *</label>
+          <label class="main-label" for="description">Message / Staffing Needs *</label>
           <textarea id="description" name="description" class="form-control" placeholder="Tell us about your specific staffing needs..." required></textarea>
         </div>
 
@@ -444,5 +497,17 @@
 
   </div>
 </section>
+
+<!-- Simple Script to Handle Accordion Toggles -->
+<script>
+  function toggleRoles(button) {
+    // Toggles the "active" class on the clicked button (rotates the + to x)
+    button.classList.toggle('active');
+    
+    // Finds the associated grid directly below it and toggles its visibility
+    const grid = button.nextElementSibling;
+    grid.classList.toggle('active');
+  }
+</script>
 
 <%- include('partials/footer') %>
