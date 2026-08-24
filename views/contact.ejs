@@ -1,6 +1,16 @@
 <%- include('partials/header') %>
 
 <style>
+
+  /* Completely hide Cloudflare Turnstile badge container text and troubleshoot links */
+.cf-turnstile > iframe {
+  margin-bottom: 0 !important;
+}
+.cf-turnstile div:not(:first-child), 
+.cf-turnstile iframe ~ div {
+  display: none !important;
+}
+
   *, *::before, *::after {
     box-sizing: border-box;
   }
