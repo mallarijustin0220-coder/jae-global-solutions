@@ -63,7 +63,7 @@
 </div>
 
 <!-- ==========================================================================
-     SERVICES LIBRARY & ROLE CAROUSEL SHOWCASE
+     SERVICES LIBRARY & ROLE CAROUSEL SHOWCASE (MATCHING SERVICES PAGE)
      ========================================================================== -->
 <section class="services-library-wrapper" id="services-section">
   <div class="ambient-glow glow-cyan-lower"></div>
@@ -72,7 +72,7 @@
     <div class="section-header-centered" data-aos="fade-up">
       <span class="section-badge">WHAT WE OFFER</span>
       <h2 class="section-title">Specialized Offshore Capabilities, <span class="gradient-text-au">Tailored for Scale</span></h2>
-      <p class="section-subtitle">Swipe or click through our service categories below to explore specific roles, descriptions, and tailored offshore solutions.</p>
+      <p class="section-subtitle">Swipe or browse through our comprehensive service categories below to explore specific roles and dedicated solutions.</p>
     </div>
 
     <!-- SWIPEABLE LIBRARY CAROUSEL CONTAINER -->
@@ -81,133 +81,138 @@
       
       <div class="services-library-track" id="services-track">
 
-        <!-- CATEGORY 1: VIRTUAL ASSISTANTS -->
-        <div class="service-library-card" data-category="virtual-assistants">
+        <!-- 1. CUSTOMER SUPPORT & SALES -->
+        <div class="service-library-card">
           <div class="card-inner-content">
             <div class="card-top-header">
               <div class="card-icon-box cyan"><i class="fa-solid fa-headset"></i></div>
               <span class="category-badge">Category 01</span>
             </div>
-            <h3 class="card-heading">Virtual Assistants & Admin</h3>
+            <h3 class="card-heading">Customer Support & Sales</h3>
             <p class="card-description">
-              Free up leadership hours by delegating daily schedules, inbox management, and administrative processes to elite executive assistants.
+              Drive customer satisfaction, lead acquisition, and business development with high-touch specialists.
             </p>
 
             <div class="roles-dropdown-container">
               <button class="toggle-roles-btn" onclick="toggleRoles(this)">
-                <span>View Available Roles (4)</span>
+                <span>View Available Roles (3)</span>
                 <i class="fa-solid fa-chevron-down"></i>
               </button>
               <div class="roles-list-content">
                 <ul>
-                  <li><i class="fa-solid fa-check-circle"></i> Executive Virtual Assistant</li>
-                  <li><i class="fa-solid fa-check-circle"></i> Real Estate Assistant</li>
-                  <li><i class="fa-solid fa-check-circle"></i> Customer Support Specialist</li>
-                  <li><i class="fa-solid fa-check-circle"></i> Legal / Medical Scribe</li>
+                  <li><i class="fa-solid fa-check-circle"></i> Customer service representatives</li>
+                  <li><i class="fa-solid fa-check-circle"></i> Lead generators</li>
+                  <li><i class="fa-solid fa-check-circle"></i> Business development executives</li>
                 </ul>
               </div>
             </div>
-
-            <div class="card-offer-tag">
-              <span class="offer-title"><i class="fa-solid fa-bolt"></i> Client Perk:</span>
-              <span class="offer-desc">Zero onboarding fees + free delegation blueprint.</span>
-            </div>
           </div>
           <div class="card-footer-action">
-            <a href="/services?specialist=Virtual%20Assistants" class="card-btn-link">
-              Explore Virtual Assistants <i class="fa-solid fa-arrow-right"></i>
-            </a>
+            <a href="/services" class="card-btn-link">Explore Services <i class="fa-solid fa-arrow-right"></i></a>
           </div>
         </div>
 
-        <!-- CATEGORY 2: DATA ENTRY -->
-        <div class="service-library-card" data-category="data-entry">
+        <!-- 2. ADMINISTRATIVE SUPPORT -->
+        <div class="service-library-card">
           <div class="card-inner-content">
             <div class="card-top-header">
-              <div class="card-icon-box gold"><i class="fa-solid fa-database"></i></div>
+              <div class="card-icon-box gold"><i class="fa-solid fa-folder-open"></i></div>
               <span class="category-badge">Category 02</span>
             </div>
-            <h3 class="card-heading">Data Entry & Analytics</h3>
+            <h3 class="card-heading">Administrative Support</h3>
             <p class="card-description">
-              Maintain spotless CRM hygiene and database records with dedicated specialists focused on high-accuracy information processing.
+              Streamline executive workflows and core back-office data operations for maximum operational velocity.
             </p>
 
             <div class="roles-dropdown-container">
               <button class="toggle-roles-btn" onclick="toggleRoles(this)">
-                <span>View Available Roles (4)</span>
+                <span>View Available Roles (2)</span>
                 <i class="fa-solid fa-chevron-down"></i>
               </button>
               <div class="roles-list-content">
                 <ul>
-                  <li><i class="fa-solid fa-check-circle"></i> Data Entry Clerk & Analyst</li>
-                  <li><i class="fa-solid fa-check-circle"></i> CRM Hygiene Specialist</li>
-                  <li><i class="fa-solid fa-check-circle"></i> Invoice Reconciliation Clerk</li>
-                  <li><i class="fa-solid fa-check-circle"></i> Document Processing Specialist</li>
+                  <li><i class="fa-solid fa-check-circle"></i> Virtual assistants</li>
+                  <li><i class="fa-solid fa-check-circle"></i> Data entry specialists</li>
                 </ul>
               </div>
             </div>
-
-            <div class="card-offer-tag">
-              <span class="offer-title"><i class="fa-solid fa-shield-halved"></i> Client Perk:</span>
-              <span class="offer-desc">Complimentary database workflow audit.</span>
-            </div>
           </div>
           <div class="card-footer-action">
-            <a href="/services?specialist=Data%20Entry" class="card-btn-link">
-              Explore Data Services <i class="fa-solid fa-arrow-right"></i>
-            </a>
+            <a href="/services" class="card-btn-link">Explore Services <i class="fa-solid fa-arrow-right"></i></a>
           </div>
         </div>
 
-        <!-- CATEGORY 3: IT STAFFING -->
-        <div class="service-library-card" data-category="it-staffing">
+        <!-- 3. IT & SOFTWARE -->
+        <div class="service-library-card">
           <div class="card-inner-content">
             <div class="card-top-header">
               <div class="card-icon-box cyan"><i class="fa-solid fa-laptop-code"></i></div>
               <span class="category-badge">Category 03</span>
             </div>
-            <h3 class="card-heading">Technical & IT Staffing</h3>
+            <h3 class="card-heading">IT & Software</h3>
             <p class="card-description">
-              Accelerate engineering roadmaps with elite mid-to-senior software developers, QA testers, and cloud infrastructure engineers.
+              Deploy full-stack engineering expertise and proactive IT infrastructure support tailored to your tech stack.
             </p>
 
             <div class="roles-dropdown-container">
               <button class="toggle-roles-btn" onclick="toggleRoles(this)">
-                <span>View Available Roles (4)</span>
+                <span>View Available Roles (2)</span>
                 <i class="fa-solid fa-chevron-down"></i>
               </button>
               <div class="roles-list-content">
                 <ul>
-                  <li><i class="fa-solid fa-check-circle"></i> Full-Stack Software Engineer</li>
-                  <li><i class="fa-solid fa-check-circle"></i> QA Test Automation Engineer</li>
-                  <li><i class="fa-solid fa-check-circle"></i> DevOps & Cloud Infrastructure Admin</li>
-                  <li><i class="fa-solid fa-check-circle"></i> 24/7 IT Helpdesk Support Tech</li>
+                  <li><i class="fa-solid fa-check-circle"></i> Software developers</li>
+                  <li><i class="fa-solid fa-check-circle"></i> IT support specialists</li>
                 </ul>
               </div>
             </div>
-
-            <div class="card-offer-tag">
-              <span class="offer-title"><i class="fa-solid fa-clock"></i> Client Perk:</span>
-              <span class="offer-desc">14-Day Risk-Free Trial Period on tech hires.</span>
-            </div>
           </div>
           <div class="card-footer-action">
-            <a href="/services?specialist=IT%20Staffing" class="card-btn-link">
-              Explore IT Staffing <i class="fa-solid fa-arrow-right"></i>
-            </a>
+            <a href="/services" class="card-btn-link">Explore Services <i class="fa-solid fa-arrow-right"></i></a>
           </div>
         </div>
 
-        <!-- CATEGORY 4: DEDICATED TEAMS -->
-        <div class="service-library-card" data-category="dedicated-teams">
+        <!-- 4. CREATIVE SERVICES -->
+        <div class="service-library-card">
           <div class="card-inner-content">
             <div class="card-top-header">
-              <div class="card-icon-box gold"><i class="fa-solid fa-users-gear"></i></div>
+              <div class="card-icon-box gold"><i class="fa-solid fa-palette"></i></div>
               <span class="category-badge">Category 04</span>
             </div>
-            <h3 class="card-heading">Full Dedicated Teams</h3>
+            <h3 class="card-heading">Creative Services</h3>
             <p class="card-description">
-              Scale entire departments offshore with custom end-to-end management, dedicated team leads, hardware, and HR oversight.
+              Amplify your brand presence through compelling visual design, copywriting, and social growth strategies.
+            </p>
+
+            <div class="roles-dropdown-container">
+              <button class="toggle-roles-btn" onclick="toggleRoles(this)">
+                <span>View Available Roles (3)</span>
+                <i class="fa-solid fa-chevron-down"></i>
+              </button>
+              <div class="roles-list-content">
+                <ul>
+                  <li><i class="fa-solid fa-check-circle"></i> Graphic designers</li>
+                  <li><i class="fa-solid fa-check-circle"></i> Content writers</li>
+                  <li><i class="fa-solid fa-check-circle"></i> Social Media Management</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer-action">
+            <a href="/services" class="card-btn-link">Explore Services <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <!-- 5. FINANCE -->
+        <div class="service-library-card">
+          <div class="card-inner-content">
+            <div class="card-top-header">
+              <div class="card-icon-box cyan"><i class="fa-solid fa-chart-pie"></i></div>
+              <span class="category-badge">Category 05</span>
+            </div>
+            <h3 class="card-heading">Finance</h3>
+            <p class="card-description">
+              Maintain rigorous financial compliance, accurate ledger management, and optimized cash flow control.
             </p>
 
             <div class="roles-dropdown-container">
@@ -217,23 +222,46 @@
               </button>
               <div class="roles-list-content">
                 <ul>
-                  <li><i class="fa-solid fa-check-circle"></i> Offshore Team Lead / Supervisor</li>
-                  <li><i class="fa-solid fa-check-circle"></i> Multi-Disciplinary Squads</li>
-                  <li><i class="fa-solid fa-check-circle"></i> Dedicated Operations Department</li>
-                  <li><i class="fa-solid fa-check-circle"></i> Custom Scaled Workforce</li>
+                  <li><i class="fa-solid fa-check-circle"></i> Bookkeepers</li>
+                  <li><i class="fa-solid fa-check-circle"></i> Accountants</li>
+                  <li><i class="fa-solid fa-check-circle"></i> Accounts Receivable Specialist</li>
+                  <li><i class="fa-solid fa-check-circle"></i> Accounts Payable Specialist</li>
                 </ul>
               </div>
             </div>
+          </div>
+          <div class="card-footer-action">
+            <a href="/services" class="card-btn-link">Explore Services <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
 
-            <div class="card-offer-tag">
-              <span class="offer-title"><i class="fa-solid fa-chart-line"></i> Client Perk:</span>
-              <span class="offer-desc">Free operational scaling roadmap & cost breakdown.</span>
+        <!-- 6. OTHER SERVICES / BESPOKE ROLES -->
+        <div class="service-library-card">
+          <div class="card-inner-content">
+            <div class="card-top-header">
+              <div class="card-icon-box gold"><i class="fa-solid fa-rocket"></i></div>
+              <span class="category-badge">Category 06</span>
+            </div>
+            <h3 class="card-heading">Other Services / Bespoke Roles</h3>
+            <p class="card-description">
+              Need a specialized niche role not listed above? We source custom offshore talent built to your exact requirements.
+            </p>
+
+            <div class="roles-dropdown-container">
+              <button class="toggle-roles-btn" onclick="toggleRoles(this)">
+                <span>View Available Roles (2)</span>
+                <i class="fa-solid fa-chevron-down"></i>
+              </button>
+              <div class="roles-list-content">
+                <ul>
+                  <li><i class="fa-solid fa-check-circle"></i> Custom Niche Sourcing</li>
+                  <li><i class="fa-solid fa-check-circle"></i> Dedicated Multi-Role Teams</li>
+                </ul>
+              </div>
             </div>
           </div>
           <div class="card-footer-action">
-            <a href="/services?specialist=Dedicated%20Teams" class="card-btn-link">
-              Explore Dedicated Teams <i class="fa-solid fa-arrow-right"></i>
-            </a>
+            <a href="/services" class="card-btn-link">Explore Services <i class="fa-solid fa-arrow-right"></i></a>
           </div>
         </div>
 
@@ -825,15 +853,15 @@
     gap: 24px;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
-    scrollbar-width: none; /* Hide scrollbar for Firefox */
-    -ms-overflow-style: none; /* Hide scrollbar for IE/Edge */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
     padding: 10px 4px 30px;
     width: 100%;
     scroll-behavior: smooth;
   }
 
   .services-library-track::-webkit-scrollbar {
-    display: none; /* Hide scrollbar for Chrome/Safari */
+    display: none;
   }
 
   .service-library-card {
@@ -955,7 +983,7 @@
   }
 
   .roles-list-content.active {
-    max-height: 200px;
+    max-height: 220px;
     padding: 12px 14px;
     border-top: 1px solid rgba(56, 189, 248, 0.15);
   }
@@ -980,26 +1008,6 @@
   .roles-list-content ul li i {
     color: #38BDF8;
     font-size: 0.75rem;
-  }
-
-  .card-offer-tag {
-    background: rgba(212, 155, 39, 0.08);
-    border-left: 3px solid #D49B27;
-    padding: 10px 14px;
-    border-radius: 0 8px 8px 0;
-    font-size: 0.82rem;
-    margin-bottom: 20px;
-  }
-
-  .offer-title {
-    color: #FACC15;
-    font-weight: 700;
-    display: block;
-    margin-bottom: 2px;
-  }
-
-  .offer-desc {
-    color: #CBD5E1;
   }
 
   .card-footer-action {
@@ -1113,7 +1121,7 @@
     .globe-3d-ring { width: 290px; height: 290px; }
     .services-library-wrapper { padding: 60px 16px; }
     .service-library-card { flex: 0 0 280px; padding: 22px 18px; }
-    .carousel-nav-btn { display: none; } /* On mobile, swiping with touch is natural */
+    .carousel-nav-btn { display: none; }
   }
 </style>
 
