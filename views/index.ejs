@@ -63,132 +63,190 @@
 </div>
 
 <!-- ==========================================================================
-   SERVICES & CLIENT OFFERS SHOWCASE
-   ========================================================================== -->
-<section class="services-4d-wrapper" id="services-section">
+     SERVICES LIBRARY & ROLE CAROUSEL SHOWCASE
+     ========================================================================== -->
+<section class="services-library-wrapper" id="services-section">
   <div class="ambient-glow glow-cyan-lower"></div>
 
   <div class="container">
     <div class="section-header-centered" data-aos="fade-up">
       <span class="section-badge">WHAT WE OFFER</span>
       <h2 class="section-title">Specialized Offshore Capabilities, <span class="gradient-text-au">Tailored for Scale</span></h2>
-      <p class="section-subtitle">Streamline your growth with dedicated Philippine specialists. We handle vetting, onboarding, payroll, and workspace setup so you can focus on core expansion.</p>
+      <p class="section-subtitle">Swipe or click through our service categories below to explore specific roles, descriptions, and tailored offshore solutions.</p>
     </div>
 
-    <div class="services-grid-4d">
+    <!-- SWIPEABLE LIBRARY CAROUSEL CONTAINER -->
+    <div class="services-library-carousel-container" data-aos="fade-up" data-aos-delay="100">
+      <button class="carousel-nav-btn prev-btn" id="slide-left" aria-label="Scroll Left"><i class="fa-solid fa-chevron-left"></i></button>
+      
+      <div class="services-library-track" id="services-track">
 
-      <!-- SERVICE 1: VIRTUAL ASSISTANTS -->
-      <div class="service-card-4d" data-aos="fade-up" data-aos-delay="100">
-        <div class="card-body">
-          <div class="card-icon-box cyan"><i class="fa-solid fa-headset"></i></div>
-          <h3 class="card-heading">Virtual Assistants & Executive Admin</h3>
-          <p class="card-description">
-            Free up critical leadership hours by delegating calendar scheduling, travel planning, client communication, inbox management, and operational workflows to highly trained executive assistants.
-          </p>
-          
-          <ul class="service-feature-list">
-            <li><i class="fa-solid fa-check"></i> Real-time AU/UK business hour alignment</li>
-            <li><i class="fa-solid fa-check"></i> CRM, Slack, and G-Suite / Office 365 proficient</li>
-            <li><i class="fa-solid fa-check"></i> English fluency guaranteed (C2 Native Standard)</li>
-          </ul>
+        <!-- CATEGORY 1: VIRTUAL ASSISTANTS -->
+        <div class="service-library-card" data-category="virtual-assistants">
+          <div class="card-inner-content">
+            <div class="card-top-header">
+              <div class="card-icon-box cyan"><i class="fa-solid fa-headset"></i></div>
+              <span class="category-badge">Category 01</span>
+            </div>
+            <h3 class="card-heading">Virtual Assistants & Admin</h3>
+            <p class="card-description">
+              Free up leadership hours by delegating daily schedules, inbox management, and administrative processes to elite executive assistants.
+            </p>
 
-          <div class="card-offer-tag">
-            <span class="offer-title"><i class="fa-solid fa-bolt"></i> Exclusive Client Offer:</span>
-            <span class="offer-desc">Zero onboarding fees + free 1-week delegation plan.</span>
+            <div class="roles-dropdown-container">
+              <button class="toggle-roles-btn" onclick="toggleRoles(this)">
+                <span>View Available Roles (4)</span>
+                <i class="fa-solid fa-chevron-down"></i>
+              </button>
+              <div class="roles-list-content">
+                <ul>
+                  <li><i class="fa-solid fa-check-circle"></i> Executive Virtual Assistant</li>
+                  <li><i class="fa-solid fa-check-circle"></i> Real Estate Assistant</li>
+                  <li><i class="fa-solid fa-check-circle"></i> Customer Support Specialist</li>
+                  <li><i class="fa-solid fa-check-circle"></i> Legal / Medical Scribe</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="card-offer-tag">
+              <span class="offer-title"><i class="fa-solid fa-bolt"></i> Client Perk:</span>
+              <span class="offer-desc">Zero onboarding fees + free delegation blueprint.</span>
+            </div>
+          </div>
+          <div class="card-footer-action">
+            <a href="/services?specialist=Virtual%20Assistants" class="card-btn-link">
+              Explore Virtual Assistants <i class="fa-solid fa-arrow-right"></i>
+            </a>
           </div>
         </div>
-        <div class="card-footer-action">
-          <a href="/services#virtual-assistants" class="card-btn-link">
-            Explore Virtual Assistants <i class="fa-solid fa-arrow-right"></i>
-          </a>
-        </div>
-      </div>
 
-      <!-- SERVICE 2: DATA ENTRY -->
-      <div class="service-card-4d" data-aos="fade-up" data-aos-delay="200">
-        <div class="card-body">
-          <div class="card-icon-box gold"><i class="fa-solid fa-database"></i></div>
-          <h3 class="card-heading">Data Entry & Operational Support</h3>
-          <p class="card-description">
-            Maintain pristine database records with dedicated specialists focused on high-volume data entry, CRM hygiene, document processing, invoice reconciliation, and automated reporting routines.
-          </p>
+        <!-- CATEGORY 2: DATA ENTRY -->
+        <div class="service-library-card" data-category="data-entry">
+          <div class="card-inner-content">
+            <div class="card-top-header">
+              <div class="card-icon-box gold"><i class="fa-solid fa-database"></i></div>
+              <span class="category-badge">Category 02</span>
+            </div>
+            <h3 class="card-heading">Data Entry & Analytics</h3>
+            <p class="card-description">
+              Maintain spotless CRM hygiene and database records with dedicated specialists focused on high-accuracy information processing.
+            </p>
 
-          <ul class="service-feature-list">
-            <li><i class="fa-solid fa-check"></i> 99.8% Data Accuracy SLA Guarantee</li>
-            <li><i class="fa-solid fa-check"></i> ERP & Salesforce / HubSpot integration support</li>
-            <li><i class="fa-solid fa-check"></i> AU APP & UK GDPR compliant processing</li>
-          </ul>
+            <div class="roles-dropdown-container">
+              <button class="toggle-roles-btn" onclick="toggleRoles(this)">
+                <span>View Available Roles (4)</span>
+                <i class="fa-solid fa-chevron-down"></i>
+              </button>
+              <div class="roles-list-content">
+                <ul>
+                  <li><i class="fa-solid fa-check-circle"></i> Data Entry Clerk & Analyst</li>
+                  <li><i class="fa-solid fa-check-circle"></i> CRM Hygiene Specialist</li>
+                  <li><i class="fa-solid fa-check-circle"></i> Invoice Reconciliation Clerk</li>
+                  <li><i class="fa-solid fa-check-circle"></i> Document Processing Specialist</li>
+                </ul>
+              </div>
+            </div>
 
-          <div class="card-offer-tag">
-            <span class="offer-title"><i class="fa-solid fa-shield-halved"></i> Exclusive Client Offer:</span>
-            <span class="offer-desc">Complimentary data audit & workflow assessment.</span>
+            <div class="card-offer-tag">
+              <span class="offer-title"><i class="fa-solid fa-shield-halved"></i> Client Perk:</span>
+              <span class="offer-desc">Complimentary database workflow audit.</span>
+            </div>
+          </div>
+          <div class="card-footer-action">
+            <a href="/services?specialist=Data%20Entry" class="card-btn-link">
+              Explore Data Services <i class="fa-solid fa-arrow-right"></i>
+            </a>
           </div>
         </div>
-        <div class="card-footer-action">
-          <a href="/services#data-entry" class="card-btn-link">
-            Explore Data Services <i class="fa-solid fa-arrow-right"></i>
-          </a>
-        </div>
-      </div>
 
-      <!-- SERVICE 3: IT STAFFING -->
-      <div class="service-card-4d" data-aos="fade-up" data-aos-delay="300">
-        <div class="card-body">
-          <div class="card-icon-box cyan"><i class="fa-solid fa-laptop-code"></i></div>
-          <h3 class="card-heading">Technical & IT Offshore Staffing</h3>
-          <p class="card-description">
-            Accelerate product roadmaps and technical ops with mid-to-senior software developers, QA test engineers, cloud infrastructure engineers, and 24/7 IT helpdesk support specialists.
-          </p>
+        <!-- CATEGORY 3: IT STAFFING -->
+        <div class="service-library-card" data-category="it-staffing">
+          <div class="card-inner-content">
+            <div class="card-top-header">
+              <div class="card-icon-box cyan"><i class="fa-solid fa-laptop-code"></i></div>
+              <span class="category-badge">Category 03</span>
+            </div>
+            <h3 class="card-heading">Technical & IT Staffing</h3>
+            <p class="card-description">
+              Accelerate engineering roadmaps with elite mid-to-senior software developers, QA testers, and cloud infrastructure engineers.
+            </p>
 
-          <ul class="service-feature-list">
-            <li><i class="fa-solid fa-check"></i> Full-stack Node, React, Python, & DevOps skillsets</li>
-            <li><i class="fa-solid fa-check"></i> Direct integration into your Agile/Scrum sprints</li>
-            <li><i class="fa-solid fa-check"></i> Enterprise hardware & security protocols included</li>
-          </ul>
+            <div class="roles-dropdown-container">
+              <button class="toggle-roles-btn" onclick="toggleRoles(this)">
+                <span>View Available Roles (4)</span>
+                <i class="fa-solid fa-chevron-down"></i>
+              </button>
+              <div class="roles-list-content">
+                <ul>
+                  <li><i class="fa-solid fa-check-circle"></i> Full-Stack Software Engineer</li>
+                  <li><i class="fa-solid fa-check-circle"></i> QA Test Automation Engineer</li>
+                  <li><i class="fa-solid fa-check-circle"></i> DevOps & Cloud Infrastructure Admin</li>
+                  <li><i class="fa-solid fa-check-circle"></i> 24/7 IT Helpdesk Support Tech</li>
+                </ul>
+              </div>
+            </div>
 
-          <div class="card-offer-tag">
-            <span class="offer-title"><i class="fa-solid fa-clock"></i> Exclusive Client Offer:</span>
-            <span class="offer-desc">14-Day Risk-Free Trial Period on tech placements.</span>
+            <div class="card-offer-tag">
+              <span class="offer-title"><i class="fa-solid fa-clock"></i> Client Perk:</span>
+              <span class="offer-desc">14-Day Risk-Free Trial Period on tech hires.</span>
+            </div>
+          </div>
+          <div class="card-footer-action">
+            <a href="/services?specialist=IT%20Staffing" class="card-btn-link">
+              Explore IT Staffing <i class="fa-solid fa-arrow-right"></i>
+            </a>
           </div>
         </div>
-        <div class="card-footer-action">
-          <a href="/services#it-staffing" class="card-btn-link">
-            Explore IT & Tech Staff <i class="fa-solid fa-arrow-right"></i>
-          </a>
-        </div>
-      </div>
 
-      <!-- SERVICE 4: DEDICATED TEAMS -->
-      <div class="service-card-4d" data-aos="fade-up" data-aos-delay="400">
-        <div class="card-body">
-          <div class="card-icon-box gold"><i class="fa-solid fa-users-gear"></i></div>
-          <h3 class="card-heading">Full Dedicated Team Building</h3>
-          <p class="card-description">
-            Scale entire departments offshore with custom end-to-end management. We build multi-disciplinary teams with local Team Leads, HR, IT hardware, compliance, and performance oversight.
-          </p>
+        <!-- CATEGORY 4: DEDICATED TEAMS -->
+        <div class="service-library-card" data-category="dedicated-teams">
+          <div class="card-inner-content">
+            <div class="card-top-header">
+              <div class="card-icon-box gold"><i class="fa-solid fa-users-gear"></i></div>
+              <span class="category-badge">Category 04</span>
+            </div>
+            <h3 class="card-heading">Full Dedicated Teams</h3>
+            <p class="card-description">
+              Scale entire departments offshore with custom end-to-end management, dedicated team leads, hardware, and HR oversight.
+            </p>
 
-          <ul class="service-feature-list">
-            <li><i class="fa-solid fa-check"></i> Save 60% – 70% vs local hiring costs</li>
-            <li><i class="fa-solid fa-check"></i> Tailored recruitment matching your exact culture</li>
-            <li><i class="fa-solid fa-check"></i> Full payroll, legal, and operational management</li>
-          </ul>
+            <div class="roles-dropdown-container">
+              <button class="toggle-roles-btn" onclick="toggleRoles(this)">
+                <span>View Available Roles (4)</span>
+                <i class="fa-solid fa-chevron-down"></i>
+              </button>
+              <div class="roles-list-content">
+                <ul>
+                  <li><i class="fa-solid fa-check-circle"></i> Offshore Team Lead / Supervisor</li>
+                  <li><i class="fa-solid fa-check-circle"></i> Multi-Disciplinary Squads</li>
+                  <li><i class="fa-solid fa-check-circle"></i> Dedicated Operations Department</li>
+                  <li><i class="fa-solid fa-check-circle"></i> Custom Scaled Workforce</li>
+                </ul>
+              </div>
+            </div>
 
-          <div class="card-offer-tag">
-            <span class="offer-title"><i class="fa-solid fa-chart-line"></i> Exclusive Client Offer:</span>
-            <span class="offer-desc">Free operational scaling roadmap & cost breakdown.</span>
+            <div class="card-offer-tag">
+              <span class="offer-title"><i class="fa-solid fa-chart-line"></i> Client Perk:</span>
+              <span class="offer-desc">Free operational scaling roadmap & cost breakdown.</span>
+            </div>
+          </div>
+          <div class="card-footer-action">
+            <a href="/services?specialist=Dedicated%20Teams" class="card-btn-link">
+              Explore Dedicated Teams <i class="fa-solid fa-arrow-right"></i>
+            </a>
           </div>
         </div>
-        <div class="card-footer-action">
-          <a href="/services#dedicated-teams" class="card-btn-link">
-            Explore Dedicated Teams <i class="fa-solid fa-arrow-right"></i>
-          </a>
-        </div>
+
       </div>
 
+      <button class="carousel-nav-btn next-btn" id="slide-right" aria-label="Scroll Right"><i class="fa-solid fa-chevron-right"></i></button>
     </div>
+
+    <!-- CAROUSEL PAGINATION DOTS -->
+    <div class="carousel-dots" id="carousel-dots"></div>
 
     <!-- GLOBAL ALL SERVICES CALL TO ACTION -->
-    <div class="services-global-cta" data-aos="fade-up" data-aos-delay="500">
+    <div class="services-global-cta" data-aos="fade-up" data-aos-delay="200">
       <div class="cta-inner-card">
         <h3>Need a custom talent arrangement?</h3>
         <p>We build tailored solutions for specialized roles, mixed skillsets, and flexible scaling requirements.</p>
@@ -205,7 +263,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
 
-<!-- CANVAS MESH & THREE.JS GLOBE SCRIPTS -->
+<!-- CANVAS MESH, GLOBE & CAROUSEL SCRIPTS -->
 <script>
   // 1. Interactive 2D Canvas Particle Mesh & Hero Parallax
   document.addEventListener('DOMContentLoaded', () => {
@@ -470,25 +528,61 @@
     });
   })();
 
-  // 3. Interactive Card Tilt Effect
-  document.querySelectorAll('.service-card-4d').forEach((card) => {
-    card.addEventListener('mousemove', (e) => {
-      const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      const centerX = rect.width / 2;
-      const centerY = rect.height / 2;
-
-      const rotateX = ((y - centerY) / centerY) * -8;
-      const rotateY = ((x - centerX) / centerX) * 8;
-
-      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-6px)`;
+  // 3. Toggle Accordion Roles Function
+  function toggleRoles(button) {
+    const content = button.nextElementSibling;
+    const isOpen = content.classList.contains('active');
+    
+    // Close all other dropdowns
+    document.querySelectorAll('.roles-list-content').forEach(item => {
+      item.classList.remove('active');
+      item.previousElementSibling.classList.remove('active');
     });
 
-    card.addEventListener('mouseleave', () => {
-      card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)';
+    if (!isOpen) {
+      content.classList.add('active');
+      button.classList.add('active');
+    }
+  }
+
+  // 4. Swipeable Library Carousel Scroll & Dots Control
+  const track = document.getElementById('services-track');
+  const leftBtn = document.getElementById('slide-left');
+  const rightBtn = document.getElementById('slide-right');
+  const dotsContainer = document.getElementById('carousel-dots');
+  const cards = document.querySelectorAll('.service-library-card');
+
+  if (track && leftBtn && rightBtn) {
+    // Generate Pagination Dots
+    cards.forEach((_, index) => {
+      const dot = document.createElement('button');
+      dot.classList.add('carousel-dot');
+      if (index === 0) dot.classList.add('active');
+      dot.addEventListener('click', () => {
+        const cardWidth = cards[0].offsetWidth + 24;
+        track.scrollTo({ left: cardWidth * index, behavior: 'smooth' });
+      });
+      dotsContainer.appendChild(dot);
     });
-  });
+
+    const updateActiveDot = () => {
+      const cardWidth = cards[0].offsetWidth + 24;
+      const scrollIndex = Math.round(track.scrollLeft / cardWidth);
+      document.querySelectorAll('.carousel-dot').forEach((dot, idx) => {
+        dot.classList.toggle('active', idx === scrollIndex);
+      });
+    };
+
+    track.addEventListener('scroll', updateActiveDot);
+
+    leftBtn.addEventListener('click', () => {
+      track.scrollBy({ left: -320, behavior: 'smooth' });
+    });
+
+    rightBtn.addEventListener('click', () => {
+      track.scrollBy({ left: 320, behavior: 'smooth' });
+    });
+  }
 </script>
 
 <!-- STYLESHEET -->
@@ -676,8 +770,10 @@
   .cyan-text { color: #38BDF8; }
   .trust-divider { opacity: 0.4; }
 
-  /* SERVICES SECTION STYLES */
-  .services-4d-wrapper {
+  /* ==========================================================================
+     SERVICES LIBRARY & CAROUSEL STYLES
+     ========================================================================== */
+  .services-library-wrapper {
     position: relative;
     background: #030A16;
     padding: 100px 24px;
@@ -688,7 +784,7 @@
   .section-header-centered {
     text-align: center;
     max-width: 800px;
-    margin: 0 auto 60px;
+    margin: 0 auto 50px;
   }
 
   .section-badge {
@@ -716,42 +812,76 @@
     line-height: 1.6;
   }
 
-  .services-grid-4d {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 24px;
-    max-width: 1200px;
+  .services-library-carousel-container {
+    position: relative;
+    max-width: 1240px;
     margin: 0 auto;
+    display: flex;
+    align-items: center;
   }
 
-  .service-card-4d {
-    position: relative;
-    background: rgba(15, 23, 42, 0.65);
+  .services-library-track {
+    display: flex;
+    gap: 24px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none; /* Hide scrollbar for Firefox */
+    -ms-overflow-style: none; /* Hide scrollbar for IE/Edge */
+    padding: 10px 4px 30px;
+    width: 100%;
+    scroll-behavior: smooth;
+  }
+
+  .services-library-track::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for Chrome/Safari */
+  }
+
+  .service-library-card {
+    flex: 0 0 320px;
+    scroll-snap-align: start;
+    background: rgba(15, 23, 42, 0.75);
     border: 1px solid rgba(56, 189, 248, 0.18);
-    border-radius: 18px;
-    padding: 32px 28px;
+    border-radius: 20px;
+    padding: 28px 24px;
     backdrop-filter: blur(14px);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    transition: transform 0.2s cubic-bezier(0.2, 0, 0, 1), border-color 0.3s ease, box-shadow 0.3s ease;
-    transform-style: preserve-3d;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
   }
 
-  .service-card-4d:hover {
+  .service-library-card:hover {
     border-color: rgba(56, 189, 248, 0.5);
-    box-shadow: 0 15px 35px rgba(56, 189, 248, 0.15);
+    transform: translateY(-6px);
+    box-shadow: 0 18px 40px rgba(56, 189, 248, 0.15);
+  }
+
+  .card-top-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 18px;
+  }
+
+  .category-badge {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #94A3B8;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 4px 10px;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
   }
 
   .card-icon-box {
-    width: 52px;
-    height: 52px;
+    width: 48px;
+    height: 48px;
     border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.4rem;
-    margin-bottom: 20px;
+    font-size: 1.3rem;
   }
 
   .card-icon-box.cyan {
@@ -767,39 +897,89 @@
   }
 
   .card-heading {
-    font-size: 1.3rem;
+    font-size: 1.25rem;
     font-weight: 700;
     margin-bottom: 12px;
     color: #F8FAFC;
   }
 
   .card-description {
-    font-size: 0.95rem;
+    font-size: 0.92rem;
     color: #94A3B8;
     line-height: 1.6;
     margin-bottom: 20px;
   }
 
-  .service-feature-list {
+  /* ACCORDION ROLES DROPDOWN */
+  .roles-dropdown-container {
+    margin-bottom: 20px;
+    border: 1px solid rgba(56, 189, 248, 0.2);
+    border-radius: 10px;
+    background: rgba(11, 25, 46, 0.6);
+    overflow: hidden;
+  }
+
+  .toggle-roles-btn {
+    width: 100%;
+    background: transparent;
+    border: none;
+    padding: 12px 14px;
+    color: #38BDF8;
+    font-weight: 700;
+    font-size: 0.88rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: background 0.2s ease;
+  }
+
+  .toggle-roles-btn:hover {
+    background: rgba(56, 189, 248, 0.08);
+  }
+
+  .toggle-roles-btn i {
+    transition: transform 0.3s ease;
+  }
+
+  .toggle-roles-btn.active i {
+    transform: rotate(180deg);
+  }
+
+  .roles-list-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease-out, padding 0.3s ease;
+    padding: 0 14px;
+    background: rgba(3, 10, 22, 0.5);
+  }
+
+  .roles-list-content.active {
+    max-height: 200px;
+    padding: 12px 14px;
+    border-top: 1px solid rgba(56, 189, 248, 0.15);
+  }
+
+  .roles-list-content ul {
     list-style: none;
     padding: 0;
-    margin: 0 0 24px 0;
+    margin: 0;
     display: flex;
     flex-direction: column;
     gap: 8px;
   }
 
-  .service-feature-list li {
-    font-size: 0.88rem;
+  .roles-list-content ul li {
+    font-size: 0.85rem;
     color: #CBD5E1;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
   }
 
-  .service-feature-list li i {
+  .roles-list-content ul li i {
     color: #38BDF8;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
   }
 
   .card-offer-tag {
@@ -807,8 +987,8 @@
     border-left: 3px solid #D49B27;
     padding: 10px 14px;
     border-radius: 0 8px 8px 0;
-    font-size: 0.85rem;
-    margin-bottom: 24px;
+    font-size: 0.82rem;
+    margin-bottom: 20px;
   }
 
   .offer-title {
@@ -824,14 +1004,14 @@
 
   .card-footer-action {
     border-top: 1px solid rgba(255, 255, 255, 0.08);
-    padding-top: 18px;
+    padding-top: 16px;
   }
 
   .card-btn-link {
     color: #38BDF8;
     text-decoration: none;
     font-weight: 700;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     display: inline-flex;
     align-items: center;
     gap: 8px;
@@ -841,6 +1021,61 @@
   .card-btn-link:hover {
     gap: 12px;
     color: #7DD3FC;
+  }
+
+  /* CAROUSEL NAVIGATION BUTTONS */
+  .carousel-nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(15, 23, 42, 0.9);
+    border: 1px solid rgba(56, 189, 248, 0.4);
+    color: #38BDF8;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    transition: all 0.2s ease;
+  }
+
+  .carousel-nav-btn:hover {
+    background: #0284C7;
+    color: #FFFFFF;
+    border-color: #0284C7;
+    transform: translateY(-50%) scale(1.08);
+  }
+
+  .prev-btn { left: -24px; }
+  .next-btn { right: -24px; }
+
+  /* PAGINATION DOTS */
+  .carousel-dots {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 24px;
+  }
+
+  .carousel-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+  }
+
+  .carousel-dot.active {
+    background: #38BDF8;
+    transform: scale(1.3);
   }
 
   .services-global-cta {
@@ -876,13 +1111,11 @@
     .hero-cinematic-wrapper { padding: 100px 16px 40px; }
     .globe-stage { height: 350px; }
     .globe-3d-ring { width: 290px; height: 290px; }
-    .services-4d-wrapper { padding: 60px 16px; }
-    .services-grid-4d { grid-template-columns: 1fr; }
+    .services-library-wrapper { padding: 60px 16px; }
+    .service-library-card { flex: 0 0 280px; padding: 22px 18px; }
+    .carousel-nav-btn { display: none; } /* On mobile, swiping with touch is natural */
   }
 </style>
-<!-- Define the main container Swup will replace -->
-<main id="swup" class="transition-fade">
-  <!-- Your Hero Section, Services, Globe, etc., go here -->
-</main>
+
 <%- include('partials/chat-widget') %>
 <%- include('partials/footer') %>
