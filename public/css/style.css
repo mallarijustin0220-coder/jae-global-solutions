@@ -872,3 +872,8 @@ html, body {
     box-sizing: border-box !important;
   }
 }
+
+/* Hide Cloudflare Turnstile troubleshoot link */
+.cf-turnstile iframe + div {
+  display: none !important;
+}
