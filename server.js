@@ -82,8 +82,18 @@ app.get('/contact', (req, res) => {
   });
 });
 
-// POST Route: Process Contact Form Submission
+// POST Route: Process Contact Form Submission with Honeypot Anti-Spam Trap
 app.post('/contact', contactLimiter, async (req, res) => {
+  // 1. HONEYPOT TRAP CHECK: If the bot filled this hidden field out, drop it silently
+  if (req.body.website_trap) {
+    console.log('🤖 Spam bot blocked by honeypot trap.');
+    return res.render('contact', { 
+      pageTitle: 'Contact Us - JAE Global Solutions',
+      successMsg: 'Thank you! Your staffing request has been sent successfully. We will respond within 24 hours.',
+      selectedSpecialist: ''
+    });
+  }
+
   const { fullName, companyName, businessEmail, description } = req.body;
   let serviceRequired = req.body.serviceRequired;
 

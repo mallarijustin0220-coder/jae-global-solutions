@@ -58,7 +58,6 @@
     border-radius: 24px;
     padding: 32px;
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 20px rgba(56, 189, 248, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
     width: 100%;
   }
 
@@ -77,9 +76,6 @@
     margin-bottom: 30px;
   }
 
-/* =========================================
-     BULLETPROOF INFO TILE LAYOUT (GRID)
-     ========================================= */
   .info-tile {
     display: grid !important;
     grid-template-columns: 44px minmax(0, 1fr) !important;
@@ -105,14 +101,6 @@
     justify-content: center;
     font-size: 1.2rem;
     box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3);
-    margin: 0;
-    padding: 0;
-  }
-
-  .info-tile > div:last-child {
-    word-break: break-word !important;
-    overflow-wrap: anywhere !important;
-    min-width: 0; 
   }
 
   .form-group {
@@ -154,16 +142,12 @@
     min-height: 100px;
   }
 
-  /* =========================================
-     ACCORDION MULTI-SELECT ROLES
-     ========================================= */
   .category-group {
     margin-bottom: 12px;
     padding: 12px;
     background: rgba(3, 10, 22, 0.4);
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 12px;
-    transition: background 0.3s ease;
   }
 
   .category-toggle {
@@ -196,20 +180,18 @@
     line-height: 1;
   }
 
-  /* Rotate icon when active */
   .category-toggle.active .toggle-icon {
     transform: rotate(45deg);
   }
 
   .roles-grid {
-    display: none; /* Hidden initially */
+    display: none;
     grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
     gap: 8px;
     margin-top: 16px;
     animation: slideDown 0.3s ease forwards;
   }
 
-  /* Show grid when active class is applied via JS */
   .roles-grid.active {
     display: grid;
   }
@@ -243,7 +225,6 @@
     font-size: 0.82rem;
     color: #94A3B8;
     font-weight: 600;
-    text-transform: none;
   }
 
   .checkbox-pill:has(input:checked) {
@@ -288,7 +269,6 @@
     font-weight: 600;
   }
 
-  /* RESPONSIVE BREAKPOINTS */
   @media (max-width: 991px) {
     .contact-container {
       grid-template-columns: 1fr;
@@ -321,7 +301,7 @@
     
     <!-- LEFT PANEL -->
     <div class="glass-card contact-info-panel">
-      <h1>Get in <span class="cyan-text" style="color: #38BDF8;">Touch</span></h1>
+      <h1>Get in <span style="color: #38BDF8;">Touch</span></h1>
       <p>Ready to scale your business with elite offshore talent? Fill out the form or reach out directly to start building your team.</p>
 
       <div class="info-tile">
@@ -358,6 +338,16 @@
       <% } %>
 
       <form action="/contact" method="POST">
+
+        <!-- ======================================================= -->
+        <!-- SPAM BOT HONEYPOT TRAP (INVISIBLE TO HUMANS, CAUGHT BY BOTS) -->
+        <!-- ======================================================= -->
+        <div style="position: absolute; left: -9999px; opacity: 0; pointer-events: none;" aria-hidden="true" tabindex="-1">
+          <label for="website_trap">Do not fill this field if you are a human:</label>
+          <input type="text" id="website_trap" name="website_trap" value="" tabindex="-1" autocomplete="off">
+        </div>
+        <!-- ======================================================= -->
+
         <div class="form-group">
           <label class="main-label" for="fullName">Full Name *</label>
           <input type="text" id="fullName" name="fullName" class="form-control" placeholder="e.g. John Doe" required>
@@ -511,13 +501,10 @@
   </div>
 </section>
 
-<!-- Simple Script to Handle Accordion Toggles -->
+<!-- Accordion Script -->
 <script>
   function toggleRoles(button) {
-    // Toggles the "active" class on the clicked button (rotates the + to x)
     button.classList.toggle('active');
-    
-    // Finds the associated grid directly below it and toggles its visibility
     const grid = button.nextElementSibling;
     grid.classList.toggle('active');
   }
