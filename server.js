@@ -22,6 +22,7 @@ try {
 const app = express();
 const PORT = process.env.PORT || 3000;
 const MONGO_URI = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/jae_global';
+const TURNSTILE_SECRET_KEY = process.env.TURNSTILE_SECRET_KEY || '0x4AAAAAAAEAnq5ausLe6ty8ZvkrUFTgKwDI';
 
 // ==========================================================================
 // MONGODB CONNECTION WITH FAST TIMEOUT & FALLBACK
@@ -84,12 +85,42 @@ app.get('/contact', (req, res) => {
   });
 });
 
-// POST Route: Process Contact Form Submission with Honeypot Anti-Spam Trap
+// POST Route: Process Contact Form Submission with Cloudflare Turnstile Verification
 app.post('/contact', contactLimiter, async (req, res) => {
-  // 1. HONEYPOT TRAP CHECK: If the bot filled this hidden field out, drop it silently
-  if (req.body.website_trap) {
-    console.log('🤖 Spam bot blocked by honeypot trap.');
-    return res.redirect('/contact?success=true');
+  const turnstileToken = req.body['cf-turnstile-response'];
+
+  // 1. Check if the verification token was provided
+  if (!turnstileToken) {
+    return res.render('contact', { 
+      pageTitle: 'Contact Us - JAE Global Solutions',
+      successMsg: 'Please complete the Cloudflare verification challenge.',
+      selectedSpecialist: ''
+    });
+  }
+
+  try {
+    // 2. Validate token with Cloudflare API
+    const verifyRes = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams({
+        secret: TURNSTILE_SECRET_KEY,
+        response: turnstileToken
+      })
+    });
+
+    const verifyData = await verifyRes.json();
+
+    if (!verifyData.success) {
+      console.warn('⚠️ Turnstile verification failed.');
+      return res.render('contact', { 
+        pageTitle: 'Contact Us - JAE Global Solutions',
+        successMsg: 'Verification failed. Please try submitting the form again.',
+        selectedSpecialist: ''
+      });
+    }
+  } catch (err) {
+    console.error('Turnstile API Error:', err);
   }
 
   const { fullName, companyName, businessEmail, description } = req.body;

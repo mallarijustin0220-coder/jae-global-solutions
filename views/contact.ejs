@@ -339,6 +339,12 @@
 
       <form action="/contact" method="POST">
 
+        <!-- Include the Cloudflare Turnstile API script -->
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+
+<!-- Place this inside your form, right before the submit button -->
+<div class="cf-turnstile mb-4" data-sitekey="0x4AAAAAAAEAnq9BoygIfDL_q"></div>
+
         <!-- ======================================================= -->
         <!-- SPAM BOT HONEYPOT TRAP (INVISIBLE TO HUMANS, CAUGHT BY BOTS) -->
         <!-- ======================================================= -->
