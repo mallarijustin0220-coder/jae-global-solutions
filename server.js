@@ -75,9 +75,11 @@ app.get('/reviews', (req, res) => res.render('reviews', { pageTitle: 'Reviews - 
 // GET Contact Page Route
 app.get('/contact', (req, res) => {
   const selectedSpecialist = req.query.specialist || '';
+  const success = req.query.success === 'true';
+
   res.render('contact', { 
     pageTitle: 'Contact Us - JAE Global Solutions', 
-    successMsg: null,
+    successMsg: success ? 'Thank you! Your staffing request has been sent successfully. We will respond within 24 hours.' : null,
     selectedSpecialist
   });
 });
@@ -87,11 +89,7 @@ app.post('/contact', contactLimiter, async (req, res) => {
   // 1. HONEYPOT TRAP CHECK: If the bot filled this hidden field out, drop it silently
   if (req.body.website_trap) {
     console.log('🤖 Spam bot blocked by honeypot trap.');
-    return res.render('contact', { 
-      pageTitle: 'Contact Us - JAE Global Solutions',
-      successMsg: 'Thank you! Your staffing request has been sent successfully. We will respond within 24 hours.',
-      selectedSpecialist: ''
-    });
+    return res.redirect('/contact?success=true');
   }
 
   const { fullName, companyName, businessEmail, description } = req.body;
@@ -132,11 +130,8 @@ app.post('/contact', contactLimiter, async (req, res) => {
     };
 
     await transporter.sendMail(mailOptions);
-    res.render('contact', { 
-      pageTitle: 'Contact Us - JAE Global Solutions',
-      successMsg: 'Thank you! Your staffing request has been sent successfully. We will respond within 24 hours.',
-      selectedSpecialist: ''
-    });
+    return res.redirect('/contact?success=true');
+
   } catch (error) {
     console.error('Email Dispatch Error:', error);
     res.render('contact', { 
