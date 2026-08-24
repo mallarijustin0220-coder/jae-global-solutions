@@ -339,12 +339,6 @@
 
       <form action="/contact" method="POST">
 
-        <!-- Include the Cloudflare Turnstile API script -->
-<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
-
-<!-- Place this inside your form, right before the submit button -->
-<div class="cf-turnstile mb-4" data-sitekey="0x4AAAAAAAEAnq9BoygIfDL_q"></div>
-
         <!-- ======================================================= -->
         <!-- SPAM BOT HONEYPOT TRAP (INVISIBLE TO HUMANS, CAUGHT BY BOTS) -->
         <!-- ======================================================= -->
@@ -499,6 +493,29 @@
           <label class="main-label" for="description">Message / Staffing Needs *</label>
           <textarea id="description" name="description" class="form-control" placeholder="Tell us about your specific staffing needs..." required></textarea>
         </div>
+
+        <!-- Cloudflare Turnstile API Script -->
+        <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+
+        <!-- Cloudflare Turnstile Widget -->
+        <div class="form-group" style="margin-bottom: 20px;">
+          <div class="cf-turnstile" data-sitekey="0x4AAAAAAAEAnq9BoygIfDL_q"></div>
+        </div>
+
+        <!-- Script to hide the Troubleshoot link dynamically -->
+        <script>
+          window.addEventListener('DOMContentLoaded', () => {
+            const observer = new MutationObserver(() => {
+              const allLinks = document.querySelectorAll('a');
+              allLinks.forEach(el => {
+                if (el.textContent.includes('Troubleshoot')) {
+                  el.style.display = 'none';
+                }
+              });
+            });
+            observer.observe(document.body, { childList: true, subtree: true });
+          });
+        </script>
 
         <button type="submit" class="btn-submit-3d">Send Message →</button>
       </form>
