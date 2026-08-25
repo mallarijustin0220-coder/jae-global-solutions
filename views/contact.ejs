@@ -304,9 +304,7 @@
   }
 </style>
 
-<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
-
-<section class="contact-hero">
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" async defer></script><section class="contact-hero">
   <div class="glow-orb glow-1"></div>
   <div class="glow-orb glow-2"></div>
 
@@ -531,4 +529,23 @@
   }
 </script>
 
+<script>
+  window.onloadTurnstileCallback = function () {
+    turnstile.render('.cf-turnstile', {
+      sitekey: '0x4AAAAAAAEAnq9BoygIfDL_q',
+      theme: 'dark',
+    });
+  };
+</script>
+
+<script>
+  window.addEventListener('DOMContentLoaded', function () {
+    if (window.turnstile) {
+      turnstile.render('.cf-turnstile', {
+        sitekey: '0x4AAAAAAAEAnq9BoygIfDL_q',
+        theme: 'dark'
+      });
+    }
+  });
+</script>
 <%- include('partials/footer') %>
