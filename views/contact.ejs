@@ -1,7 +1,8 @@
 <%- include('partials/header') %>
 
-<!-- Load Cloudflare Turnstile explicitly -->
+<!-- Cloudflare Turnstile Auto-Render Script -->
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+
 <style>
   *, *::before, *::after {
     box-sizing: border-box;
@@ -510,8 +511,8 @@
           <textarea id="description" name="description" class="form-control" placeholder="Tell us about your specific staffing needs..." required></textarea>
         </div>
 
-        <!-- Cloudflare Turnstile Widget -->
-        <div class="form-group" style="margin-bottom: 20px; display: flex; justify-content: center;">
+        <!-- Cloudflare Turnstile Widget (Auto-Render) -->
+        <div class="form-group" style="margin-bottom: 20px; display: flex; justify-content: center; min-height: 65px;">
           <div class="cf-turnstile" data-sitekey="0x4AAAAAAAEAnq9BoygIfDL_q" data-theme="dark"></div>
         </div>
 
