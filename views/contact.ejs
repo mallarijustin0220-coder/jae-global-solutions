@@ -1,16 +1,6 @@
 <%- include('partials/header') %>
 
 <style>
-
-  /* Completely hide Cloudflare Turnstile badge container text and troubleshoot links */
-.cf-turnstile > iframe {
-  margin-bottom: 0 !important;
-}
-.cf-turnstile div:not(:first-child), 
-.cf-turnstile iframe ~ div {
-  display: none !important;
-}
-
   *, *::before, *::after {
     box-sizing: border-box;
   }
@@ -279,6 +269,17 @@
     font-weight: 600;
   }
 
+  .alert-error {
+    background: rgba(239, 68, 68, 0.15);
+    border: 1px solid #EF4444;
+    color: #FCA5A5;
+    padding: 14px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: 600;
+  }
+
   @media (max-width: 991px) {
     .contact-container {
       grid-template-columns: 1fr;
@@ -302,6 +303,8 @@
     }
   }
 </style>
+
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 
 <section class="contact-hero">
   <div class="glow-orb glow-1"></div>
@@ -347,16 +350,19 @@
         </div>
       <% } %>
 
+      <% if (typeof errorMsg !== 'undefined' && errorMsg) { %>
+        <div class="alert-error">
+          <%= errorMsg %>
+        </div>
+      <% } %>
+
       <form action="/contact" method="POST">
 
-        <!-- ======================================================= -->
-        <!-- SPAM BOT HONEYPOT TRAP (INVISIBLE TO HUMANS, CAUGHT BY BOTS) -->
-        <!-- ======================================================= -->
+        <!-- SPAM BOT HONEYPOT TRAP -->
         <div style="position: absolute; left: -9999px; opacity: 0; pointer-events: none;" aria-hidden="true" tabindex="-1">
           <label for="website_trap">Do not fill this field if you are a human:</label>
           <input type="text" id="website_trap" name="website_trap" value="" tabindex="-1" autocomplete="off">
         </div>
-        <!-- ======================================================= -->
 
         <div class="form-group">
           <label class="main-label" for="fullName">Full Name *</label>
@@ -504,28 +510,10 @@
           <textarea id="description" name="description" class="form-control" placeholder="Tell us about your specific staffing needs..." required></textarea>
         </div>
 
-        <!-- Cloudflare Turnstile API Script -->
-        <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
-
         <!-- Cloudflare Turnstile Widget -->
         <div class="form-group" style="margin-bottom: 20px;">
-          <div class="cf-turnstile" data-sitekey="0x4AAAAAAAEAnq9BoygIfDL_q"></div>
+          <div class="cf-turnstile" data-sitekey="0x4AAAAAAAEAnq9BoygIfDL_q" data-theme="dark"></div>
         </div>
-
-        <!-- Script to hide the Troubleshoot link dynamically -->
-        <script>
-          window.addEventListener('DOMContentLoaded', () => {
-            const observer = new MutationObserver(() => {
-              const allLinks = document.querySelectorAll('a');
-              allLinks.forEach(el => {
-                if (el.textContent.includes('Troubleshoot')) {
-                  el.style.display = 'none';
-                }
-              });
-            });
-            observer.observe(document.body, { childList: true, subtree: true });
-          });
-        </script>
 
         <button type="submit" class="btn-submit-3d">Send Message →</button>
       </form>

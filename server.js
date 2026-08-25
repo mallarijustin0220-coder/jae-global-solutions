@@ -22,6 +22,8 @@ try {
 const app = express();
 const PORT = process.env.PORT || 3000;
 const MONGO_URI = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/jae_global';
+
+// Cloudflare Turnstile Secret Key (Replace default with your production secret key in .env)
 const TURNSTILE_SECRET_KEY = process.env.TURNSTILE_SECRET_KEY || '0x4AAAAAAAEAnq5ausLe6ty8ZvkrUFTgKwDI';
 
 // ==========================================================================
@@ -44,7 +46,7 @@ app.use(cors());
 
 const contactLimiter = rateLimit({
   windowMs: 15 * 60 * 1000,
-  max: 5,
+  max: 10,
   message: 'Too many requests sent from this IP. Please try again after 15 minutes.',
 });
 
@@ -81,58 +83,75 @@ app.get('/contact', (req, res) => {
   res.render('contact', { 
     pageTitle: 'Contact Us - JAE Global Solutions', 
     successMsg: success ? 'Thank you! Your staffing request has been sent successfully. We will respond within 24 hours.' : null,
+    errorMsg: null,
     selectedSpecialist
   });
 });
 
 // POST Route: Process Contact Form Submission with Cloudflare Turnstile Verification
 app.post('/contact', contactLimiter, async (req, res) => {
+  const { fullName, companyName, businessEmail, description, website_trap } = req.body;
   const turnstileToken = req.body['cf-turnstile-response'];
 
-  // 1. Check if the verification token was provided
+  // 1. Honeypot check (silently drop bot submissions)
+  if (website_trap) {
+    console.warn('🤖 Spam bot detected via honeypot.');
+    return res.redirect('/contact?success=true');
+  }
+
+  // 2. Check if Turnstile token exists
   if (!turnstileToken) {
     return res.render('contact', { 
       pageTitle: 'Contact Us - JAE Global Solutions',
-      successMsg: 'Please complete the Cloudflare verification challenge.',
+      successMsg: null,
+      errorMsg: 'Please complete the Cloudflare verification challenge.',
       selectedSpecialist: ''
     });
   }
 
+  // 3. Verify Token with Cloudflare API
   try {
-    // 2. Validate token with Cloudflare API
+    const remoteIp = req.ip || req.headers['x-forwarded-for'];
+    const formData = new URLSearchParams();
+    formData.append('secret', TURNSTILE_SECRET_KEY);
+    formData.append('response', turnstileToken);
+    if (remoteIp) formData.append('remoteip', remoteIp);
+
     const verifyRes = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams({
-        secret: TURNSTILE_SECRET_KEY,
-        response: turnstileToken
-      })
+      body: formData
     });
 
     const verifyData = await verifyRes.json();
 
     if (!verifyData.success) {
-      console.warn('⚠️ Turnstile verification failed.');
+      console.warn('⚠️ Turnstile verification failed:', verifyData['error-codes']);
       return res.render('contact', { 
         pageTitle: 'Contact Us - JAE Global Solutions',
-        successMsg: 'Verification failed. Please try submitting the form again.',
+        successMsg: null,
+        errorMsg: 'Cloudflare verification failed. Please check the challenge box and try again.',
         selectedSpecialist: ''
       });
     }
   } catch (err) {
-    console.error('Turnstile API Error:', err);
+    console.error('Turnstile Verification Error:', err);
+    return res.render('contact', {
+      pageTitle: 'Contact Us - JAE Global Solutions',
+      successMsg: null,
+      errorMsg: 'Unable to verify challenge at this moment. Please try again.',
+      selectedSpecialist: ''
+    });
   }
 
-  const { fullName, companyName, businessEmail, description } = req.body;
+  // 4. Format selected services
   let serviceRequired = req.body.serviceRequired;
-
-  // Handle single vs multiple service selection arrays
   if (Array.isArray(serviceRequired)) {
     serviceRequired = serviceRequired.join(', ');
   } else if (!serviceRequired) {
     serviceRequired = 'None Selected';
   }
 
+  // 5. Dispatch Email via Nodemailer
   try {
     const transporter = nodemailer.createTransport({
       service: 'gmail',
@@ -167,7 +186,8 @@ app.post('/contact', contactLimiter, async (req, res) => {
     console.error('Email Dispatch Error:', error);
     res.render('contact', { 
       pageTitle: 'Contact Us - JAE Global Solutions',
-      successMsg: 'There was an issue delivering your message. Please email us directly at admin@jaeglobalsolutions.com.',
+      successMsg: null,
+      errorMsg: 'There was an issue delivering your message. Please email us directly at admin@jaeglobalsolutions.com.',
       selectedSpecialist: ''
     });
   }
@@ -205,7 +225,7 @@ app.post('/api/chat/send', async (req, res) => {
   }
 });
 
-// 2. ADMIN API: Poll incoming messages JSON (Used by Admin Interface)
+// 2. ADMIN API: Poll incoming messages JSON
 app.get('/api/chat/messages', async (req, res) => {
   try {
     let messages = [];
@@ -221,7 +241,7 @@ app.get('/api/chat/messages', async (req, res) => {
   }
 });
 
-// 3. ADMIN DASHBOARD ROUTE: Render Page View
+// 3. ADMIN DASHBOARD ROUTE
 app.get('/admin/chat', async (req, res) => {
   try {
     let messages = [];
