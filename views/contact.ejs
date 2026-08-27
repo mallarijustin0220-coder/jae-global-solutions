@@ -513,7 +513,7 @@
 
         <!-- Cloudflare Turnstile Widget (Auto-Render) -->
         <div class="form-group" style="margin-bottom: 20px; display: flex; justify-content: center; min-height: 65px;">
-          <div class="cf-turnstile" data-sitekey="0x4AAAAAAAEAnq9BoygIfDL_q" data-theme="dark"></div>
+          <div class="cf-turnstile" data-sitekey="<%= process.env.TURNSTILE_SITE_KEY || '0x4AAAAAAAEaNq9BoyglfDL_q' %>" data-theme="dark"></div>
         </div>
 
         <button type="submit" class="btn-submit-3d">Send Message →</button>

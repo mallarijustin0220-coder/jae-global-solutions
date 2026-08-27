@@ -24,7 +24,7 @@ const PORT = process.env.PORT || 3000;
 const MONGO_URI = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/jae_global';
 
 // Cloudflare Turnstile Secret Key (Replace default with your production secret key in .env)
-const TURNSTILE_SECRET_KEY = process.env.TURNSTILE_SECRET_KEY || '0x4AAAAAAAEAnq5ausLe6ty8ZvkrUFTgKwDI';
+const TURNSTILE_SECRET_KEY = process.env.TURNSTILE_SECRET_KEY || '0x4AAAAAAAEAn3X2k-p3a4R83K7v32sB_iE';
 
 // ==========================================================================
 // MONGODB CONNECTION WITH FAST TIMEOUT & FALLBACK
