@@ -68,13 +68,16 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', (req, res) => res.render('index', { pageTitle: 'Home - JAE Global Solutions' }));
 app.get('/about', (req, res) => res.render('about', { pageTitle: 'About Us - JAE Global Solutions' }));
-app.get('/services', (req, res) => res.render('services', { pageTitle: 'Solutions - JAE Global' }));
-app.get('/why-jae', (req, res) => res.render('why-jae', { pageTitle: 'Why JAE - JAE Global' }));
-app.get('/culture', (req, res) => res.render('culture', { pageTitle: 'Culture - JAE Global' }));
-app.get('/how-it-works', (req, res) => res.render('how-it-works', { pageTitle: 'How It Works - JAE Global' }));
-app.get('/careers', (req, res) => res.render('careers', { pageTitle: 'Careers - JAE Global' }));
-app.get('/faq', (req, res) => res.render('faq', { pageTitle: 'FAQ - JAE Global' }));
+app.get('/services', (req, res) => res.render('services', { pageTitle: 'Solutions - JAE Global Solutions' }));
+app.get('/why-jae', (req, res) => res.render('why-jae', { pageTitle: 'Why JAE - JAE Global Solutions' }));
+app.get('/culture', (req, res) => res.render('culture', { pageTitle: 'Culture - JAE Global Solutions' }));
+app.get('/how-it-works', (req, res) => res.render('how-it-works', { pageTitle: 'How It Works - JAE Global Solutions' }));
+app.get('/careers', (req, res) => res.render('careers', { pageTitle: 'Careers - JAE Global Solutions' }));
 app.get('/reviews', (req, res) => res.render('reviews', { pageTitle: 'Reviews - JAE Global Solutions' }));
+app.get('/faq', (req, res) => res.render('faq', { pageTitle: 'FAQ - JAE Global Solutions' }));
+app.get('/pricing', (req, res) => res.render('pricing', { pageTitle: 'Pricing - JAE Global Solutions' }));
+app.get('/privacy', (req, res) => res.render('privacy', { pageTitle: 'Privacy Policy - JAE Global Solutions' }));
+app.get('/terms', (req, res) => res.render('terms', { pageTitle: 'Terms of Service - JAE Global Solutions' }));
 
 // GET Contact Page Route
 app.get('/contact', (req, res) => {
@@ -277,7 +280,7 @@ app.get('/admin/chat', async (req, res) => {
     });
 
     const renderData = {
-      pageTitle: 'Admin Chat Dashboard - JAE Global',
+      pageTitle: 'Admin Chat Dashboard - JAE Global Solutions',
       threads: Object.values(threads)
     };
 

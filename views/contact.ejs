@@ -511,11 +511,13 @@
           <textarea id="description" name="description" class="form-control" placeholder="Tell us about your specific staffing needs..." required></textarea>
         </div>
 
-        <!-- Cloudflare Turnstile Widget (Fixed Auto-Render Container) -->
-        <div class="form-group" style="margin-bottom: 20px; display: flex; justify-content: center; min-height: 65px;"></div>
-        <div class="cf-turnstile" data-sitekey="<%= turnstileSiteKey %>" data-theme="dark"></div>        
+        <!-- Cloudflare Turnstile Widget -->
+        <div class="form-group" style="display: flex; justify-content: center; min-height: 65px;">
+          <div class="cf-turnstile" data-sitekey="<%= turnstileSiteKey %>" data-theme="dark"></div>
+        </div>
 
         <button type="submit" class="btn-submit-3d">Send Message →</button>
+        
       </form>
     </div>
 
