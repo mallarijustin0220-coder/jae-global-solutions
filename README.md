@@ -42,3 +42,34 @@ A high-performance, serverless Node.js/Express corporate web application built f
 ├── vercel.json                  # Serverless route mapping for Vercel
 ├── server.js                    # Core Express server, routes, & controller logic
 └── package.json                 # Node dependencies and project scripts
+
+
+🚀 Key Application Features
+1. Multi-Page Architecture (10 Views)
+Server-side rendered pages using modular EJS templates (header, nav, footer).
+
+Responsive layouts optimized for desktop, tablet, and mobile displays with overflow protection.
+
+2. Contact Form & Lead Processing System
+Client-Side & Server-Side Validation: Ensures all fields are formatted properly before processing.
+
+Dual-Email Dispatch Logic:
+
+Instantly notifies admin@jaeglobalsolutions.com with complete lead submission details.
+
+Sends an automated, styled confirmation email back to the visitor.
+
+Database & Webhook Ready: Extensible backend handler structured for DB storage or webhook integrations.
+
+3. Security & Bot Mitigation
+Cloudflare Turnstile: Server-validated CAPTCHA to prevent automated bot entries.
+
+Honeypot Trap: Hidden form field to silently reject spam scripts.
+
+Rate Limiting: Protects backend endpoints against brute-force spam attacks.
+
+4. Technical SEO Optimization
+Dynamic Sitemap (/sitemap.xml): Generates compliant XML sitemap output.
+
+Robots Configuration (/robots.txt): Directs web crawlers to the dynamic sitemap.
+
