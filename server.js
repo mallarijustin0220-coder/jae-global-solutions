@@ -23,7 +23,8 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const MONGO_URI = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/jae_global';
 
-// Cloudflare Turnstile Secret Key (Replace default with your production secret key in .env)
+// Cloudflare Turnstile Keys
+const TURNSTILE_SITE_KEY = process.env.TURNSTILE_SITE_KEY || '0x4AAAAAAAEaNq9BoyglfDL_q';
 const TURNSTILE_SECRET_KEY = process.env.TURNSTILE_SECRET_KEY || '0x4AAAAAAAEAn3X2k-p3a4R83K7v32sB_iE';
 
 // ==========================================================================
@@ -84,7 +85,8 @@ app.get('/contact', (req, res) => {
     pageTitle: 'Contact Us - JAE Global Solutions', 
     successMsg: success ? 'Thank you! Your staffing request has been sent successfully. We will respond within 24 hours.' : null,
     errorMsg: null,
-    selectedSpecialist
+    selectedSpecialist,
+    turnstileSiteKey: TURNSTILE_SITE_KEY
   });
 });
 
@@ -105,7 +107,8 @@ app.post('/contact', contactLimiter, async (req, res) => {
       pageTitle: 'Contact Us - JAE Global Solutions',
       successMsg: null,
       errorMsg: 'Please complete the Cloudflare verification challenge.',
-      selectedSpecialist: ''
+      selectedSpecialist: '',
+      turnstileSiteKey: TURNSTILE_SITE_KEY
     });
   }
 
@@ -130,7 +133,8 @@ app.post('/contact', contactLimiter, async (req, res) => {
         pageTitle: 'Contact Us - JAE Global Solutions',
         successMsg: null,
         errorMsg: 'Cloudflare verification failed. Please check the challenge box and try again.',
-        selectedSpecialist: ''
+        selectedSpecialist: '',
+        turnstileSiteKey: TURNSTILE_SITE_KEY
       });
     }
   } catch (err) {
@@ -139,7 +143,8 @@ app.post('/contact', contactLimiter, async (req, res) => {
       pageTitle: 'Contact Us - JAE Global Solutions',
       successMsg: null,
       errorMsg: 'Unable to verify challenge at this moment. Please try again.',
-      selectedSpecialist: ''
+      selectedSpecialist: '',
+      turnstileSiteKey: TURNSTILE_SITE_KEY
     });
   }
 
@@ -188,7 +193,8 @@ app.post('/contact', contactLimiter, async (req, res) => {
       pageTitle: 'Contact Us - JAE Global Solutions',
       successMsg: null,
       errorMsg: 'There was an issue delivering your message. Please email us directly at admin@jaeglobalsolutions.com.',
-      selectedSpecialist: ''
+      selectedSpecialist: '',
+      turnstileSiteKey: TURNSTILE_SITE_KEY
     });
   }
 });
@@ -344,9 +350,13 @@ app.get('/api/chat/replies/:email', async (req, res) => {
 });
 
 // ==========================================================================
-// START SERVER
+// START SERVER & EXPORT FOR VERCEL
 // ==========================================================================
-app.listen(PORT, () => {
-  console.log(`🔒 Secure JAE Global server running at http://localhost:${PORT}`);
-  console.log(`💬 Admin Chat Portal available at http://localhost:${PORT}/admin/chat`);
-});
+if (process.env.NODE_ENV !== 'production') {
+  app.listen(PORT, () => {
+    console.log(`🔒 Secure JAE Global server running at http://localhost:${PORT}`);
+    console.log(`💬 Admin Chat Portal available at http://localhost:${PORT}/admin/chat`);
+  });
+}
+
+module.exports = app;
